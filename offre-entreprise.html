@@ -403,7 +403,7 @@
       background: var(--color-white);
       border-radius: 16px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
+      max-width: 1000px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -564,6 +564,23 @@
       display: flex;
       gap: 12px;
       margin-top: 8px;
+    }
+
+    .quote-form__hotline {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(28, 31, 138, 0.07), rgba(200, 154, 74, 0.1));
+      border: 1px solid rgba(28, 31, 138, 0.12);
+      color: var(--color-navy);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .quote-form__hotline strong {
+      color: var(--color-navy);
+      letter-spacing: 0.03em;
     }
 
     .btn--submit {
@@ -939,6 +956,46 @@
           <input type="hidden" id="service_category" name="service_category">
 
           <div class="form-group">
+            <label for="service_need" class="form-label">Avez-vous besoin d'un service ? <span class="required">*</span></label>
+            <select id="service_need" name="service_need" class="form-select" required aria-required="true">
+              <option value="">-- Sélectionnez une réponse --</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="je-ne-sais-pas">Je ne sais pas</option>
+            </select>
+            <p class="form-error" role="alert">Veuillez sélectionner une option.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="decoration_need" class="form-label">Avez-vous besoin d'une décoration ? <span class="required">*</span></label>
+            <select id="decoration_need" name="decoration_need" class="form-select" required aria-required="true">
+              <option value="">-- Sélectionnez une réponse --</option>
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+              <option value="je-ne-sais-pas">Je ne sais pas</option>
+            </select>
+            <p class="form-error" role="alert">Veuillez sélectionner une option.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="attendees_count" class="form-label">Nombre de personnes <span class="required">*</span></label>
+            <input type="number" id="attendees_count" name="attendees_count" class="form-input" min="1" step="1" required aria-required="true">
+            <p class="form-error" role="alert">Veuillez entrer un nombre de personnes valide (minimum 1).</p>
+          </div>
+
+          <div class="form-group">
+            <label for="event_date" class="form-label">Date de l'évènement <span class="required">*</span></label>
+            <input type="date" id="event_date" name="event_date" class="form-input" required aria-required="true">
+            <p class="form-error" role="alert">Veuillez sélectionner une date d'évènement.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="event_location" class="form-label">Lieu de l'évènement <span class="required">*</span></label>
+            <input type="text" id="event_location" name="event_location" class="form-input" placeholder=" " required aria-required="true">
+            <p class="form-error" role="alert">Veuillez entrer le lieu de l'évènement.</p>
+          </div>
+
+          <div class="form-group">
             <label for="message" class="form-label">Message / Détails de votre demande <span class="required">*</span></label>
             <textarea id="message" name="message" class="form-textarea" rows="4" required aria-required="true" placeholder=" "></textarea>
             <p class="form-error" role="alert">Veuillez entrer un message.</p>
@@ -952,6 +1009,10 @@
         <div class="form-actions">
           <button type="submit" class="btn--submit" id="submit-btn">Envoyer ma demande</button>
         </div>
+
+        <p class="quote-form__hotline">
+          Pour une réponse immédiate, appelez le numéro : <strong>07 68 25 87 22</strong>
+        </p>
       </form>
     </div>
   </div>

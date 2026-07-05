@@ -140,6 +140,11 @@ class QuoteModal {
     const email = this.form.elements['email'].value.trim();
     const phone = this.form.elements['phone'].value.trim();
     const service_selected = this.form.elements['service_selected'].value;
+    const service_need = this.form.elements['service_need'].value;
+    const decoration_need = this.form.elements['decoration_need'].value;
+    const attendees_count = this.form.elements['attendees_count'].value;
+    const event_date = this.form.elements['event_date'].value;
+    const event_location = this.form.elements['event_location'].value.trim();
     const message = this.form.elements['message'].value.trim();
 
     // Validate company name
@@ -172,6 +177,33 @@ class QuoteModal {
       errors.service_selected = 'Veuillez sélectionner un service.';
     }
 
+    // Validate service need
+    if (!service_need) {
+      errors.service_need = 'Veuillez sélectionner une option.';
+    }
+
+    // Validate decoration need
+    if (!decoration_need) {
+      errors.decoration_need = 'Veuillez sélectionner une option.';
+    }
+
+    // Validate attendees count
+    if (!attendees_count) {
+      errors.attendees_count = 'Veuillez entrer un nombre de personnes.';
+    } else if (Number(attendees_count) < 1) {
+      errors.attendees_count = 'Le nombre de personnes doit être supérieur ou égal à 1.';
+    }
+
+    // Validate event date
+    if (!event_date) {
+      errors.event_date = 'Veuillez sélectionner une date d\'évènement.';
+    }
+
+    // Validate event location
+    if (!event_location) {
+      errors.event_location = 'Veuillez entrer le lieu de l\'évènement.';
+    }
+
     // Validate message
     if (!message) {
       errors.message = 'Veuillez entrer un message.';
@@ -196,12 +228,25 @@ class QuoteModal {
     // Display new errors
     Object.keys(errors).forEach(fieldName => {
       const field = this.form.elements[fieldName];
-      if (field) {
-        const errorEl = field.parentElement.querySelector('.form-error');
+      if (!field) return;
+
+      // RadioNodeList is used when multiple controls share one name (e.g. radios).
+      if (typeof RadioNodeList !== 'undefined' && field instanceof RadioNodeList) {
+        const firstControl = field[0];
+        if (!firstControl) return;
+        const groupWrapper = firstControl.closest('.form-group');
+        const errorEl = groupWrapper ? groupWrapper.querySelector('.form-error') : null;
         if (errorEl) {
           errorEl.textContent = errors[fieldName];
           errorEl.classList.add('show');
         }
+        return;
+      }
+
+      const errorEl = field.parentElement.querySelector('.form-error');
+      if (errorEl) {
+        errorEl.textContent = errors[fieldName];
+        errorEl.classList.add('show');
       }
     });
   }
@@ -232,7 +277,13 @@ class QuoteModal {
       email: this.form.elements['email'].value.trim(),
       phone: this.form.elements['phone'].value.trim(),
       service_category: this.form.elements['service_selected'].value,
-      message: this.form.elements['message'].value.trim()
+      service_need: this.form.elements['service_need'].value,
+      decoration_need: this.form.elements['decoration_need'].value,
+      attendees_count: Number(this.form.elements['attendees_count'].value),
+      event_date: this.form.elements['event_date'].value,
+      event_location: this.form.elements['event_location'].value.trim(),
+      // Backend schema does not store extra fields yet, so append them to message.
+      message: `Besoin d'un service: ${this.form.elements['service_need'].value}\nBesoin d'une décoration: ${this.form.elements['decoration_need'].value}\nNombre de personnes: ${this.form.elements['attendees_count'].value}\nDate de l'évènement: ${this.form.elements['event_date'].value}\nLieu de l'évènement: ${this.form.elements['event_location'].value.trim()}\n\n${this.form.elements['message'].value.trim()}`
     };
 
     // Debug logging
