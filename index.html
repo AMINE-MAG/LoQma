@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nihel, fondatrice de LoQma, revisite le patrimoine culinaire tunisien. Traiteur 100 % halal, fait maison · Mariages, événements et réceptions à Grenoble.">
+  <meta name="theme-color" content="#1C1F8A">
+
+  <!-- Open Graph -->
+  <!-- TODO: replace og:image with an absolute URL once the domain is known -->
+  <!-- e.g. content="https://loqma-traiteur.fr/assets/010_DYFaG3DCBqY_01.jpg" -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="LoQma Traiteur — Cuisine Tunisienne Halal · Grenoble">
+  <meta property="og:description" content="Cuisine tunisienne halal, faite maison · Fondée par Nihel · Mariages, événements professionnels et réceptions · Grenoble">
+  <meta property="og:image"       content="assets/010_DYFaG3DCBqY_01.jpg">
+
+  <title>LoQma Traiteur — Cuisine Tunisienne Halal · Grenoble</title>
+
+  <!-- Google Fonts — chargées uniquement après consentement cookies -->
+  <script>
+    (function(){
+      var c=null;try{c=localStorage.getItem('loqma_cookie_consent');}catch(e){}
+      if(c==='accepted'){
+        var p1=document.createElement('link');p1.rel='preconnect';p1.href='https://fonts.googleapis.com';
+        var p2=document.createElement('link');p2.rel='preconnect';p2.href='https://fonts.gstatic.com';p2.crossOrigin='';
+        var f=document.createElement('link');f.id='gf-fonts';f.rel='stylesheet';
+        f.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap';
+        document.head.appendChild(p1);document.head.appendChild(p2);document.head.appendChild(f);
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body class="preloader-active">
+
+  <!-- ══════════════════════════════════════════════════════
+       CH-00 — PRELOADER
+       ══════════════════════════════════════════════════════ -->
+  <div id="preloader" class="preloader" role="status" aria-label="Chargement de LoQma">
+    <img src="assets/logo-sans2.png"
+         class="preloader__logo"
+         alt="LoQma Traiteur"
+         width="160" height="160">
+    <p class="preloader__wordmark" aria-label="LOQMA">
+      <span>L</span><span>O</span><span>Q</span><span>M</span><span>A</span>
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       FR-NAV — NAVIGATION
+       ══════════════════════════════════════════════════════ -->
+  <header>
+    <nav id="navbar" class="navbar navbar--transparent" aria-label="Navigation principale">
+      <div class="navbar__inner">
+        <a href="#accueil" class="navbar__logo" aria-label="LoQma — Retour à l'accueil">
+          <img src="assets/logo-sans2.png"
+               alt="LoQma Traiteur logo"
+               width="42" height="42">
+          <span class="navbar__logo-text">LoQma</span>
+        </a>
+        <div class="navbar__right">
+          <a href="#commander" class="btn navbar__cta btn--ghost-cream">Commander</a>
+          <button class="navbar__hamburger"
+                  aria-label="Ouvrir le menu"
+                  aria-expanded="false"
+                  aria-controls="nav-overlay">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full-screen nav overlay -->
+    <div id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Menu principal">
+      <ul class="nav-overlay__links">
+        <li><a href="#accueil"   class="nav-overlay__link">Accueil</a></li>
+        <li><a href="#services"  class="nav-overlay__link">Nos Services</a></li>
+        <li><a href="#catalogue" class="nav-overlay__link">Catalogue</a></li>
+        <li><a href="#galerie"   class="nav-overlay__link">Galerie</a></li>
+        <li><a href="#avis"      class="nav-overlay__link">Avis</a></li>
+        <li><a href="#commander" class="nav-overlay__link">Commander</a></li>
+      </ul>
+      <p class="nav-overlay__instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @loqma_traiteur_grenoble
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- ════════════════════════════════════════════════════
+         CH-01 — MANIFESTO HERO
+         ════════════════════════════════════════════════════ -->
+    <section id="accueil" class="hero" aria-label="Accueil — LoQma Traiteur">
+      <div class="hero__bg">
+        <video class="hero__video"
+               autoplay muted loop playsinline
+               poster="assets/002_tajin.jpg">
+          <source src="assets/video-buffet.mp4" type="video/mp4">
+          <!-- Image fallback if video is unsupported -->
+        </video>
+        <div class="hero__overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__label">Traiteur Tunisien halal · Grenoble</p>
+        <h1 class="hero__title">
+          Derrière chaque<br>
+          <em>bouchée, une histoire</em>
+        </h1>
+        <p class="hero__body">
+          Des saveurs tunisiennes authentiques, revisitées avec soin —
+          pour les événements d'entreprise et les réceptions privées qui méritent d'être mémorables.
+        </p>
+        <div class="hero__buttons">
+          <a href="#commander" class="btn btn--primary">Je suis une entreprise</a>
+          <a href="#services"  class="btn btn--ghost-cream">Je suis un particulier</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <svg class="hero__scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
+
+      <p class="hero__instagram" aria-hidden="true">@loqma_traiteur_grenoble</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-02 — IDENTITY SPLIT
+         ════════════════════════════════════════════════════ -->
+    <section id="identite" class="identity" aria-label="Notre identité">
+      <div class="identity__photo-panel">
+        <img src="assets/notre-histoire.PNG"
+             class="identity__media"
+             id="identity-media"
+             alt="Notre histoire — LoQma Traiteur, cuisine tunisienne faite maison à Grenoble"
+             loading="eager"
+             decoding="async">
+        <div class="identity__photo-caption">
+          <h2 class="identity__title reveal">
+            Une cuisine<br>qui réunit
+          </h2>
+        </div>
+      </div>
+
+      <div class="identity__text-panel">
+        <!-- Arabesque ornament -->
+        <img src="assets/logo-sans2.png"
+             class="identity__ornament"
+             alt="LoQma Traiteur"
+             width="48" height="48">
+
+        <p class="identity__eyebrow reveal">Notre histoire</p>
+        <blockquote class="identity__quote reveal reveal-delay-1">
+          J'ai quitté la recherche pour faire vivre ce qui me tient
+          le plus à cœur&nbsp;: le patrimoine culinaire tunisien.
+        </blockquote>
+        <p class="identity__body reveal reveal-delay-2">
+          Je m'appelle Nihel, fondatrice de LoQma et docteure en entrepreneuriat.
+          J'ai grandi au rythme des repas de famille, des recettes transmises
+          de génération en génération et d'une hospitalité où l'on accueille
+          toujours avec générosité.
+        </p>
+        <p class="identity__body reveal reveal-delay-3">
+          Chez LoQma, nous revisitons les saveurs tunisiennes avec une touche
+          moderne et élégante — pour vos événements, réceptions
+          et moments de convivialité à Grenoble.
+        </p>
+        <p class="identity__signature reveal reveal-delay-3">— Nihel, fondatrice</p>
+        <div class="identity__rule reveal reveal-delay-3" aria-hidden="true"></div>
+        <ul class="identity__stats reveal reveal-delay-3" aria-label="Nos engagements">
+          <li>★ 5/5 Google</li>
+          <li>100% Halal</li>
+          <li>Fait maison</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-03 — SERVICES SELECTOR
+         ════════════════════════════════════════════════════ -->
+    <section id="services" class="services" aria-label="Nos services">
+      <!-- Left: list panel -->
+      <div class="services__list-panel">
+        <p class="services__label">Nos services</p>
+        <p class="services__intro">Pour vos mariages, événements professionnels<br>et réceptions à Grenoble.</p>
+        <ul class="services__list" role="tablist" aria-label="Choisir un service">
+          <li class="services__item services__item--active"
+              role="tab" tabindex="0"
+              aria-selected="true" aria-controls="service-panel-0" id="service-tab-0"
+              data-index="0">Buffet Mariage</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-1" id="service-tab-1"
+              data-index="1">Buffet Événementiel</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-2" id="service-tab-2"
+              data-index="2">Box à Partager</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-3" id="service-tab-3"
+              data-index="3">Box Repas Individuelle</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-4" id="service-tab-4"
+              data-index="4">Pause Gourmande</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-5" id="service-tab-5"
+              data-index="5">Coffrets à Offrir</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-6" id="service-tab-6"
+              data-index="6">Nos Ateliers</li>
+        </ul>
+        <a href="#commander" class="services__cta">Commander ce service →</a>
+      </div>
+
+      <!-- Right: panel container (desktop) -->
+      <div class="services__panel-container" aria-live="polite">
+        <!-- Panel 0: Buffet Mariage -->
+        <div class="services__panel services__panel--active"
+             id="service-panel-0" role="tabpanel" aria-labelledby="service-tab-0">
+          <img src="assets/010_offre-mariage0.jpg"
+               alt="Buffet Mariage — LoQma Traiteur, table dressée pour un mariage"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 30%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Mariage · Événement</p>
+            <h3 class="services__panel-title">Buffet Mariage</h3>
+            <p class="services__panel-desc">Buffets personnalisés aux saveurs tunisiennes pour les mariages — salé et sucré, fait maison.</p>
+          </div>
+        </div>
+
+        <!-- Panel 1: Buffet Événementiel -->
+        <div class="services__panel"
+             id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1">
+          <img src="assets/buffet-event.png"
+               alt="Buffet Événementiel — LoQma Traiteur, buffet professionnel"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 20%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Professionnel · Académique</p>
+            <h3 class="services__panel-title">Buffet Événementiel</h3>
+            <p class="services__panel-desc">Buffets pour événements professionnels, académiques, associatifs — saveurs tunisiennes au cœur de votre événement.</p>
+          </div>
+        </div>
+
+        <!-- Panel 2: Box à Partager -->
+        <div class="services__panel"
+             id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2">
+          <img src="assets/bax a partager 2.jpg"
+               alt="Box à Partager — LoQma Traiteur, bouchées tunisiennes à partager"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 40%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Box · Partage</p>
+            <h3 class="services__panel-title">Box à Partager</h3>
+            <p class="services__panel-desc">Box variées avec mini bouchées tunisiennes salées et sucrées — un voyage culinaire en une boîte.</p>
+          </div>
+        </div>
+
+        <!-- Panel 3: Box Repas Individuelle -->
+        <div class="services__panel"
+             id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3">
+          <img src="assets/Box Repas Individuelle.jpg"
+               alt="Box Repas Individuelle — LoQma Traiteur"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 25%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Box · Repas</p>
+            <h3 class="services__panel-title">Box Repas Individuelle</h3>
+            <p class="services__panel-desc">Box repas complètes pour le déjeuner ou la livraison — cuisine maison servie chez vous.</p>
+          </div>
+        </div>
+
+        <!-- Panel 4: Pause Gourmande -->
+        <div class="services__panel"
+             id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4">
+          <img src="assets/Pause Gourmande.png"
+               alt="Pause Gourmande Entreprise — LoQma Traiteur, miniardises"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 35%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Entreprise · Pause</p>
+            <h3 class="services__panel-title">Pause Gourmande</h3>
+            <p class="services__panel-desc">Miniardises et douceurs pour vos réunions et pauses café — 100% halal, 100% fait maison.</p>
+          </div>
+        </div>
+
+        <!-- Panel 5: Coffrets à Offrir -->
+        <div class="services__panel"
+             id="service-panel-5" role="tabpanel" aria-labelledby="service-tab-5">
+          <img src="assets/Box à Partager.jpg"
+               alt="Coffrets à Offrir — LoQma Traiteur, coffrets cadeaux gourmands"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 20%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Cadeau · Coffret</p>
+            <h3 class="services__panel-title">Coffrets à Offrir</h3>
+            <p class="services__panel-desc">Coffrets cadeaux gourmands aux saveurs tunisiennes — l'idée cadeau idéale pour toutes les occasions.</p>
+          </div>
+        </div>
+
+        <!-- Panel 6: Nos Ateliers -->
+        <div class="services__panel"
+             id="service-panel-6" role="tabpanel" aria-labelledby="service-tab-6">
+          <img src="assets/sweet-life-ANY9TweFHNI-unsplash.jpg"
+               alt="Nos Ateliers — LoQma Traiteur, ateliers cuisine tunisienne"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 50%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Atelier · Découverte</p>
+            <h3 class="services__panel-title">Nos Ateliers</h3>
+            <p class="services__panel-desc">Ateliers cuisine autour des saveurs tunisiennes — apprenez les recettes traditionnelles en famille ou entre amis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-04 — CATALOGUE STRIP
+         ════════════════════════════════════════════════════ -->
+    <section id="catalogue" class="catalogue" aria-label="Notre catalogue">
+      <div class="catalogue__header">
+        <h2 class="section-heading reveal">Nos Articles</h2>
+        <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">✦</div>
+        <p class="section-subheading reveal reveal-delay-2">Cuisine tunisienne · Fait maison · Grenoble</p>
+      </div>
+
+      <div class="catalogue__track-wrapper">
+        <button class="catalogue__arrow catalogue__arrow--prev" aria-label="Article précédent">&#8249;</button>
+        <div class="catalogue__track" id="catalogue-track" role="list">
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Salé</span>
+              <img src="assets/003_DWpPxrLiC9y_01.jpg"
+                   alt="Salade Houria — carottes tunisiennes épicées"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Salade Houria</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Salé</span>
+              <img src="assets/004_DWpQAydiPoE_01.jpg"
+                   alt="Salade Mechouia — légumes grillés à la tunisienne"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Salade Mechouia</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Salé</span>
+              <img src="assets/002_DWpPY2wCK-H_01.jpg"
+                   alt="Tajine Tunisien au Poulet — plat traditionnel"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Tajine Tunisien au Poulet</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Salé</span>
+              <img src="assets/005_DX9QGsMIgFs_01.jpg"
+                   alt="Couscous Maison — couscous tunisien traditionnel"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Couscous Maison</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Salé</span>
+              <img src="assets/009_box-partage.jpg"
+                   alt="Verrines Salées — amuse-bouches tunisiens"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Verrines Salées</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Sucré</span>
+              <img src="assets/007_DXVKtLuiJyr_01.jpg"
+                   alt="Ghrayef de Béja — pâtisseries tunisiennes feuilletées"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Ghrayef de Béja</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Sucré</span>
+              <img src="assets/008_DXg8x72iNpM_01.jpg"
+                   alt="Miniardises au Sorgho — petits gâteaux artisanaux"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Miniardises au Sorgho</p>
+          </article>
+
+          <article class="catalogue__card" role="listitem">
+            <div class="catalogue__card-img-wrap">
+              <span class="catalogue__tag">Sucré</span>
+              <img src="assets/026_DYpdW3eIZli_01.jpg"
+                   alt="Cake au Sorgho — gâteau maison sans gluten"
+                   loading="lazy" class="catalogue__card-img">
+            </div>
+            <p class="catalogue__card-name">Cake au Sorgho</p>
+          </article>
+
+        </div>
+        <button class="catalogue__arrow catalogue__arrow--next" aria-label="Article suivant">&#8250;</button>
+      </div>
+
+      <p class="catalogue__drag-hint" id="drag-hint" aria-hidden="true">← Glisser pour explorer →</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-05b — NOS VALEURS
+         ════════════════════════════════════════════════════ -->
+    <section class="valeurs" aria-label="Nos valeurs">
+      <div class="valeurs__inner">
+        <div class="valeurs__header">
+          <p class="valeurs__eyebrow">Ce qui nous guide</p>
+          <h2 class="valeurs__title reveal">Nos Valeurs</h2>
+          <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">✦</div>
+        </div>
+        <ol class="valeurs__list" aria-label="Nos cinq valeurs">
+          <li class="valeurs__item reveal">
+            <span class="valeurs__num" aria-hidden="true">01</span>
+            <h3 class="valeurs__name">Le partage</h3>
+            <p class="valeurs__desc">Créer des moments qui rassemblent et rapprochent.</p>
+          </li>
+          <li class="valeurs__item reveal reveal-delay-1">
+            <span class="valeurs__num" aria-hidden="true">02</span>
+            <h3 class="valeurs__name">Le fait maison</h3>
+            <p class="valeurs__desc">Des créations artisanales préparées avec soin et passion.</p>
+          </li>
+          <li class="valeurs__item reveal reveal-delay-2">
+            <span class="valeurs__num" aria-hidden="true">03</span>
+            <h3 class="valeurs__name">La fraîcheur</h3>
+            <p class="valeurs__desc">Des préparations réalisées à la commande pour garantir qualité et saveur.</p>
+          </li>
+          <li class="valeurs__item reveal reveal-delay-3">
+            <span class="valeurs__num" aria-hidden="true">04</span>
+            <h3 class="valeurs__name">La transmission</h3>
+            <p class="valeurs__desc">Faire découvrir la richesse du patrimoine culinaire tunisien.</p>
+          </li>
+          <li class="valeurs__item reveal reveal-delay-3">
+            <span class="valeurs__num" aria-hidden="true">05</span>
+            <h3 class="valeurs__name">L'élégance</h3>
+            <p class="valeurs__desc">Sublimer les traditions à travers une expérience moderne et raffinée.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-05 — GALLERY
+         ════════════════════════════════════════════════════ -->
+    <section id="galerie" class="album" aria-label="Galerie — nos créations">
+
+      <header class="album__header">
+        <p class="album__eyebrow">En images</p>
+        <h2 class="album__title">L'album <em>LoQma</em></h2>
+      </header>
+
+      <!-- Album canvas — 3 photos + 1 video -->
+      <div class="album__canvas" id="gallery-grid">
+
+        <!-- Photo 1 — grand format portrait -->
+        <div class="album__card album__card--1 gallery__item"
+             data-index="0" role="button" tabindex="0"
+             aria-label="Ouvrir photo — Buffet de mariage">
+          <div class="album__frame">
+            <img src="assets/010_offre-mariage0.jpg"
+                 alt="LoQma — buffet mariage, présentation culinaire"
+                 loading="lazy" class="album__img gallery__img">
+          </div>
+          <p class="album__caption">Buffet de mariage</p>
+        </div>
+
+        <!-- Photo 2 — box repas individuelle -->
+        <div class="album__card album__card--2 gallery__item"
+             data-index="1" role="button" tabindex="0"
+             aria-label="Ouvrir photo — Box repas individuelle">
+          <div class="album__frame">
+            <img src="assets/Box Repas Individuelle.jpg"
+                 alt="LoQma — box repas individuelle faite maison"
+                 loading="lazy" class="album__img gallery__img">
+          </div>
+          <p class="album__caption">Box repas individuelle</p>
+        </div>
+
+        <!-- Video — dans les coulisses -->
+        <div class="album__card album__card--video gallery__reel-item"
+             role="button" tabindex="0"
+             data-video="assets/video-buffet.mp4"
+             aria-label="Voir la vidéo — buffet en préparation">
+          <div class="album__frame album__frame--video">
+            <video muted preload="none" poster="assets/buffet-event.png" class="album__vid">
+              <source src="assets/video-buffet.mp4" type="video/mp4">
+            </video>
+            <div class="album__play" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" width="52" height="52" aria-hidden="true">
+                <circle cx="24" cy="24" r="23" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+                <path d="M19 15.5l16 8.5-16 8.5V15.5z" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <p class="album__caption">Dans les coulisses</p>
+        </div>
+
+        <!-- Photo 3 — box à partager -->
+        <div class="album__card album__card--3 gallery__item"
+             data-index="2" role="button" tabindex="0"
+             aria-label="Ouvrir photo — Box à partager">
+          <div class="album__frame">
+            <img src="assets/009_box-partage.jpg"
+                 alt="LoQma — box à partager entre amis"
+                 loading="lazy" class="album__img gallery__img"
+                 style="object-position: center 15%;">
+          </div>
+          <p class="album__caption">Box à partager</p>
+        </div>
+
+      </div>
+
+      <!-- Instagram CTA -->
+      <div class="album__instagram">
+        <a href="https://www.instagram.com/loqma_traiteur_grenoble/"
+           target="_blank" rel="noopener noreferrer"
+           class="album__instagram-btn"
+           aria-label="Voir la galerie complète sur Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Voir toute notre galerie sur Instagram
+          <span>@loqma_traiteur_grenoble</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie photo" hidden>
+      <button class="lightbox__close" aria-label="Fermer la galerie">✕</button>
+      <button class="lightbox__prev" aria-label="Photo précédente">&#8249;</button>
+      <button class="lightbox__next" aria-label="Photo suivante">&#8250;</button>
+      <div class="lightbox__media-wrap">
+        <img class="lightbox__img" src="" alt="" id="lightbox-img">
+        <video class="lightbox__video" controls id="lightbox-video" hidden></video>
+      </div>
+      <p class="lightbox__counter" id="lightbox-counter" aria-live="polite">01 / 04</p>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-06 — REVIEWS CAROUSEL
+         ════════════════════════════════════════════════════ -->
+    <section id="avis" class="reviews" aria-label="Avis clients">
+      <div class="reviews__badge" aria-label="Note 5 étoiles sur 5 — 7 avis Google">
+        <span class="reviews__stars" aria-hidden="true">★★★★★</span>
+        <span class="reviews__badge-text">5/5 — 7 avis Google</span>
+      </div>
+
+      <div class="reviews__carousel" role="region" aria-label="Témoignages clients">
+        <div class="reviews__track" id="reviews-track">
+
+          <blockquote class="reviews__slide reviews__slide--active" id="review-0">
+            <span class="reviews__quote-mark" aria-hidden="true">"</span>
+            <p class="reviews__text">"Très bon repas et équipe très agréable. Petit voyage culinaire fort appréciable accompagné d'une explication des plats."</p>
+            <div class="reviews__rule" aria-hidden="true"></div>
+            <footer class="reviews__footer">
+              <cite class="reviews__name">Romain</cite>
+              <p class="reviews__meta">Commande box · Mai 2026 · ★★★★★</p>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" id="review-1">
+            <span class="reviews__quote-mark" aria-hidden="true">"</span>
+            <p class="reviews__text">"On s'est régalé avec les boxs déjeuner de LoQma, originales et fait maison ! Merci"</p>
+            <div class="reviews__rule" aria-hidden="true"></div>
+            <footer class="reviews__footer">
+              <cite class="reviews__name">Thibaud Maurin</cite>
+              <p class="reviews__meta">Box déjeuner · Mai 2026 · ★★★★★</p>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" id="review-2">
+            <span class="reviews__quote-mark" aria-hidden="true">"</span>
+            <p class="reviews__text">"Tout fait maison !!! Très bon 🧡"</p>
+            <div class="reviews__rule" aria-hidden="true"></div>
+            <footer class="reviews__footer">
+              <cite class="reviews__name">Juliette Glnc</cite>
+              <p class="reviews__meta">Commande · Mai 2026 · ★★★★★</p>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" id="review-3">
+            <span class="reviews__quote-mark" aria-hidden="true">"</span>
+            <p class="reviews__text">"Franchement très bon. Des bouchées tunisiennes pleines de saveurs, on sent le fait maison. Je recommande"</p>
+            <div class="reviews__rule" aria-hidden="true"></div>
+            <footer class="reviews__footer">
+              <cite class="reviews__name">Badriano Dr</cite>
+              <p class="reviews__meta">Bouchées tunisiennes · Mai 2026 · ★★★★★</p>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" id="review-4">
+            <span class="reviews__quote-mark" aria-hidden="true">"</span>
+            <p class="reviews__text">"✨ Une expérience traiteur tout en finesse ✨"</p>
+            <div class="reviews__rule" aria-hidden="true"></div>
+            <footer class="reviews__footer">
+              <cite class="reviews__name">Oumayma RZEIGUI</cite>
+              <p class="reviews__meta">Événement · Mai 2026 · ★★★★★</p>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+
+      <div class="reviews__dots" role="tablist" aria-label="Naviguer entre les avis">
+        <button class="reviews__dot reviews__dot--active" role="tab" aria-selected="true"  aria-controls="review-0" aria-label="Avis 1 sur 5"></button>
+        <button class="reviews__dot"                      role="tab" aria-selected="false" aria-controls="review-1" aria-label="Avis 2 sur 5"></button>
+        <button class="reviews__dot"                      role="tab" aria-selected="false" aria-controls="review-2" aria-label="Avis 3 sur 5"></button>
+        <button class="reviews__dot"                      role="tab" aria-selected="false" aria-controls="review-3" aria-label="Avis 4 sur 5"></button>
+        <button class="reviews__dot"                      role="tab" aria-selected="false" aria-controls="review-4" aria-label="Avis 5 sur 5"></button>
+      </div>
+
+      <div class="reviews__ctas">
+        <a href="https://maps.google.com/?q=LoQma+Traiteur+Grenoble"
+           target="_blank" rel="noopener noreferrer"
+           class="reviews__cta-link">Voir tous les avis sur Google →</a>
+        <a href="https://maps.google.com/?q=LoQma+Traiteur+Grenoble"
+           target="_blank" rel="noopener noreferrer"
+           class="reviews__cta-link reviews__cta-link--add">+ Laisser un avis</a>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-07 — STATS BAND
+         ════════════════════════════════════════════════════ -->
+    <section class="stats" aria-label="Chiffres clés de LoQma">
+      <div class="stats__inner">
+        <div class="stats__item">
+          <span class="stats__value stats__value--gold"
+                data-countup data-target="5" data-suffix="/5"
+                aria-label="Note 5 sur 5">★ 5/5</span>
+          <span class="stats__label">Note Google</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__value"
+                data-countup data-target="7"
+                aria-label="7 avis">7</span>
+          <span class="stats__label">Avis clients</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__value" aria-label="100% fait maison">100%</span>
+          <span class="stats__label">Fait maison</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__value" aria-label="Halal certifié">Halal</span>
+          <span class="stats__label">Certifié</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__value stats__value--gold" aria-label="Recettes transmises de génération en génération">Famille</span>
+          <span class="stats__label">Recettes transmises</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-08 — COMMANDER (CONTACT)
+         ════════════════════════════════════════════════════ -->
+    <section id="commander" class="contact" aria-label="Commander — Contact">
+      <div class="contact__inner">
+
+        <!-- FAQ Accordion -->
+        <div class="contact__faq">
+          <h2 class="contact__faq-title">Questions fréquentes</h2>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">
+              Comment passer une commande ?
+              <svg class="faq-item__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="faq-item__answer">Via le formulaire ci-contre, WhatsApp ou Instagram DM — nous répondons sous 24h.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">
+              Quelle est la zone de livraison ?
+              <svg class="faq-item__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="faq-item__answer">Grenoble et ses alentours. N'hésitez pas à nous contacter pour vérifier votre zone.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">
+              Y a-t-il un minimum de commande pour les événements ?
+              <svg class="faq-item__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="faq-item__answer">Contactez-nous pour un devis personnalisé adapté à votre projet et votre budget.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__summary">
+              LoQma est-il certifié halal ?
+              <svg class="faq-item__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="faq-item__answer">Oui — toute notre cuisine est 100% halal, préparée dans le respect des règles alimentaires islamiques.</p>
+          </details>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact__form-card">
+          <h2 class="contact__form-title">Confiez-nous votre événement</h2>
+          <p class="contact__form-intro">Nihel et son équipe préparent chaque commande avec soin,<br>dans le respect des recettes familiales tunisiennes.</p>
+
+          <!-- TODO: replace YOUR_FORM_ID with your real Formspree form ID -->
+          <!-- Get one free at https://formspree.io → New Form -->
+          <form class="contact__form" id="contact-form"
+                action="https://formspree.io/f/YOUR_FORM_ID"
+                method="POST" novalidate>
+
+            <div class="form-group">
+              <input type="text" id="nom" name="nom"
+                     class="form-input" placeholder=" "
+                     required autocomplete="name"
+                     aria-required="true">
+              <label for="nom" class="form-label">Nom *</label>
+              <p class="form-error" role="alert">Veuillez entrer votre nom.</p>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" name="email"
+                     class="form-input" placeholder=" "
+                     required autocomplete="email"
+                     aria-required="true">
+              <label for="email" class="form-label">Email *</label>
+              <p class="form-error" role="alert">Veuillez entrer une adresse e-mail valide.</p>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="telephone" name="telephone"
+                     class="form-input" placeholder=" "
+                     autocomplete="tel"
+                     pattern="[+\d\s\-\(\)]{6,20}">
+              <label for="telephone" class="form-label">Téléphone (optionnel)</label>
+              <p class="form-error" role="alert">Numéro de téléphone invalide.</p>
+            </div>
+
+            <div class="form-group">
+              <select id="evenement" name="evenement"
+                      class="form-input form-select"
+                      required aria-required="true">
+                <option value="" disabled selected></option>
+                <option value="buffet-mariage">Buffet Mariage</option>
+                <option value="buffet-evenementiel">Buffet Événementiel</option>
+                <option value="box-degustation">Box Dégustation</option>
+                <option value="box-repas">Box Repas Individuelle</option>
+                <option value="box-partager">Box à Partager</option>
+                <option value="pause-gourmande">Pause Gourmande Entreprise</option>
+                <option value="autre">Autre</option>
+              </select>
+              <label for="evenement" class="form-label">Type d'événement *</label>
+              <p class="form-error" role="alert">Veuillez choisir un type d'événement.</p>
+            </div>
+
+            <div class="form-group">
+              <input type="date" id="date-evenement" name="date"
+                     class="form-input" placeholder=" ">
+              <label for="date-evenement" class="form-label">Date souhaitée</label>
+            </div>
+
+            <div class="form-group">
+              <textarea id="message" name="message"
+                        class="form-input form-textarea"
+                        placeholder=" "
+                        rows="4" required aria-required="true"></textarea>
+              <label for="message" class="form-label">Message *</label>
+              <p class="form-error" role="alert">Veuillez entrer un message.</p>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label class="form-checkbox-label">
+                <input type="checkbox" id="rgpd-consent" name="rgpd" required aria-required="true">
+                <span>
+                  J'accepte que mes données soient utilisées pour traiter ma demande,
+                  conformément à la
+                  <a href="politique-confidentialite.html" target="_blank" rel="noopener noreferrer">
+                    Politique de Confidentialité
+                  </a>. *
+                </span>
+              </label>
+              <p class="form-error" role="alert">Vous devez accepter la politique de confidentialité.</p>
+            </div>
+
+            <button type="submit" class="btn btn--navy btn--full">
+              Envoyer ma demande
+            </button>
+
+            <p class="form-success-msg" id="form-success" role="status">
+              ✓ Merci ! Votre message a été envoyé. Nous vous répondrons sous 24h.
+            </p>
+          </form>
+
+          <div class="contact__divider" aria-hidden="true"><span>ou</span></div>
+
+          <div class="contact__alt-links">
+            <a href="https://wa.me/33600000000?text=Bonjour%20LoQma%2C%20je%20souhaite%20passer%20une%20commande."
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn--whatsapp"
+               aria-label="Contacter LoQma par WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp
+            </a>
+            <a href="https://www.instagram.com/loqma_traiteur_grenoble/"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn--instagram"
+               aria-label="Envoyer un DM sur Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              Instagram DM
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp FAB (mobile only) -->
+      <a href="https://wa.me/33600000000?text=Bonjour%20LoQma%2C%20je%20souhaite%20passer%20une%20commande."
+         class="whatsapp-fab"
+         aria-label="Contacter LoQma sur WhatsApp"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="28" height="28">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-09 — FOOTER
+         ════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="assets/logo-sans2.png"
+               alt="LoQma Traiteur"
+               class="footer__logo"
+               width="56" height="56"
+               loading="lazy">
+          <p class="footer__tagline">
+            Cuisine tunisienne faite main,<br>
+            <em>avec le cœur.</em>
+          </p>
+        </div>
+        <div class="footer__info">
+          <p>Grenoble et ses alentours</p>
+          <p>Cuisine tunisienne <strong>Halal</strong></p>
+          <a href="https://www.instagram.com/loqma_traiteur_grenoble/"
+             target="_blank" rel="noopener noreferrer"
+             class="footer__instagram"
+             aria-label="Suivre LoQma sur Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            @loqma_traiteur_grenoble
+          </a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <p>© 2026 LoQma Traiteur — Grenoble · Cuisine tunisienne halal faite maison</p>
+        <nav class="footer__legal-links" aria-label="Liens légaux">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
+          <a href="cgv.html">CGV</a>
+          <button id="cookie-manage" class="footer__cookie-link" type="button">Gérer mes cookies</button>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       NEWSLETTER POPUP
+       ══════════════════════════════════════════════════════ -->
+  <div id="nl-popup" class="nl-popup" role="dialog" aria-modal="true"
+       aria-label="Inscription à la newsletter" hidden>
+    <div class="nl-popup__backdrop"></div>
+    <div class="nl-popup__card">
+      <button class="nl-popup__close" aria-label="Fermer">✕</button>
+      <img src="assets/logo-sans2.png" class="nl-popup__logo" alt="LoQma" width="48" height="48">
+      <h2 class="nl-popup__title">Restez dans la boucle</h2>
+      <p class="nl-popup__body">Recevez nos nouveautés et offres exclusives directement dans votre boîte mail.</p>
+      <form class="nl-popup__form" id="nl-form" novalidate>
+        <div class="nl-popup__field">
+          <input type="email" id="nl-email" name="email"
+                 class="nl-popup__input"
+                 placeholder="votre@email.com"
+                 required autocomplete="email"
+                 aria-required="true"
+                 aria-label="Adresse e-mail">
+          <button type="submit" class="btn btn--primary nl-popup__submit">S'inscrire</button>
+        </div>
+        <p class="nl-popup__consent">
+          En vous inscrivant, vous acceptez de recevoir nos communications.
+          <a href="politique-confidentialite.html" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>.
+        </p>
+        <p class="nl-popup__success" id="nl-success" hidden>✓ Merci ! Vous êtes inscrit(e) à notre newsletter.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       COOKIE CONSENT BANNER — CNIL compliant
+       ══════════════════════════════════════════════════════ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"
+       aria-label="Gestion des cookies" hidden>
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Pour une belle expérience de lecture, ce site utilise des polices Google Fonts.
+        Aucun cookie publicitaire, aucun suivi de navigation.
+        <a href="politique-confidentialite.html#cookies" class="cookie-banner__link">En savoir plus</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--accept">
+          Accepter
+        </button>
+        <button id="cookie-refuse" class="cookie-banner__btn cookie-banner__btn--refuse">
+          Refuser
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP + ScrollTrigger — album card physics animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

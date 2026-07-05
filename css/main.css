@@ -1,0 +1,391 @@
+/* ============================================================
+   LOQMA TRAITEUR — main.css
+   Design Tokens · Reset · Base · Typography · Buttons · Utils
+   ============================================================ */
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --color-navy:        #1C1F8A;
+  --color-cream:       #F2EEE7;
+  --color-white:       #FFFFFF;
+  --color-gold:        #C89A4A;
+  --color-text:        #1A1A2E;
+  --color-text-muted:  #6B6B80;
+  --color-navy-light:  #E8E9F8;
+  --color-whatsapp:    #25D366;
+  --color-footer:      #111630;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --radius-card: 12px;
+  --shadow-card: 0 4px 24px rgba(28, 31, 138, 0.08);
+  --shadow-btn:  0 2px 12px rgba(28, 31, 138, 0.18);
+
+  --transition-fast: 0.2s ease;
+  --transition-mid:  0.3s ease;
+  --transition-slow: 0.6s ease-out;
+
+  --nav-height:  72px;
+  --max-width:   1200px;
+  --section-pad: clamp(60px, 8vw, 120px);
+}
+
+/* ── CSS Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* Lock scroll during preloader */
+body.preloader-active {
+  overflow: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ── Accessibility ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.1;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.section-subheading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  margin: 14px 0 8px;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  border-radius: 50px;
+  padding: 14px 36px;
+  min-height: 48px;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+/* Primary: cream bg on dark */
+.btn--primary {
+  background: var(--color-cream);
+  color: var(--color-navy);
+  border-color: transparent;
+}
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-gold);
+  color: var(--color-white);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-btn);
+}
+
+/* Ghost cream (on dark backgrounds) */
+.btn--ghost-cream {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: rgba(242, 238, 231, 0.7);
+}
+.btn--ghost-cream:hover,
+.btn--ghost-cream:focus-visible {
+  background: rgba(242, 238, 231, 0.12);
+  border-color: var(--color-cream);
+  transform: scale(1.02);
+}
+
+/* Navy solid */
+.btn--navy {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  border-color: transparent;
+}
+.btn--navy:hover,
+.btn--navy:focus-visible {
+  background: #2d31b0;
+  transform: scale(1.02);
+  box-shadow: var(--shadow-btn);
+}
+
+/* Full-width */
+.btn--full {
+  width: 100%;
+}
+
+/* WhatsApp */
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: white;
+  border-color: transparent;
+}
+.btn--whatsapp:hover,
+.btn--whatsapp:focus-visible {
+  background: #1ebe58;
+  transform: scale(1.02);
+}
+
+/* Instagram */
+.btn--instagram {
+  background: linear-gradient(135deg, #405de6 0%, #833ab4 50%, #e1306c 100%);
+  color: white;
+  border-color: transparent;
+}
+.btn--instagram:hover,
+.btn--instagram:focus-visible {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+/* ── Scroll Reveal Animation ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Form — RGPD checkbox ──────────────────────────────────── */
+.form-group--checkbox {
+  margin-top: 4px;
+}
+.form-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+.form-checkbox-label input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  accent-color: var(--color-navy);
+  cursor: pointer;
+}
+.form-checkbox-label a {
+  color: var(--color-navy);
+  text-decoration: underline;
+}
+.form-group--checkbox.has-error .form-checkbox-label {
+  color: #c0392b;
+}
+.form-group--checkbox.has-error .form-checkbox-label input[type="checkbox"] {
+  outline: 2px solid #c0392b;
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+/* ── WhatsApp FAB (mobile only) ────────────────────────────── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: var(--color-whatsapp);
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  z-index: 90;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+}
+.whatsapp-fab svg {
+  fill: white;
+}
+
+@media (max-width: 767px) {
+  .whatsapp-fab {
+    display: flex;
+  }
+}
+
+/* ── Cookie Consent Banner ─────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--color-footer);
+  color: var(--color-cream);
+  padding: 16px 24px;
+  border-top: 2px solid var(--color-gold);
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+.cookie-banner.is-visible {
+  transform: translateY(0);
+}
+.cookie-banner__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cookie-banner__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1 1 280px;
+}
+.cookie-banner__link {
+  color: var(--color-gold);
+  text-decoration: underline;
+}
+.cookie-banner__actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.cookie-banner__btn {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  font-family: var(--font-sans);
+}
+.cookie-banner__btn:hover { opacity: 0.85; }
+.cookie-banner__btn--accept {
+  background: var(--color-gold);
+  color: var(--color-footer);
+}
+.cookie-banner__btn--refuse {
+  background: transparent;
+  color: var(--color-cream);
+  border: 1px solid rgba(242, 238, 231, 0.4);
+}
+
+/* Lien "Gérer mes cookies" dans le footer */
+.footer__cookie-link {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+.footer__cookie-link:hover { color: var(--color-gold); }
