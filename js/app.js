@@ -82,6 +82,7 @@
   function openMenu() {
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden', 'false');
+    hamburger.classList.add('is-open');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     // Focus first link for keyboard trap
@@ -92,6 +93,7 @@
   function closeMenu() {
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
+    hamburger.classList.remove('is-open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     hamburger.focus();

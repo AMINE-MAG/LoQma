@@ -16,7 +16,8 @@
   --color-footer:      #111630;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-sans:  'Agrandir', system-ui, -apple-system, sans-serif;
+  --font-display: 'Agrandir', system-ui, -apple-system, sans-serif;
 
   --radius-card: 12px;
   --shadow-card: 0 4px 24px rgba(28, 31, 138, 0.08);
@@ -165,20 +166,28 @@ h1, h2, h3, h4 {
   text-decoration: none;
   border: 1.5px solid transparent;
   cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-/* Primary: cream bg on dark */
+/* Primary: cream bg with enhanced glass effect */
 .btn--primary {
-  background: var(--color-cream);
+  background: rgba(242, 238, 231, 0.95);
   color: var(--color-navy);
-  border-color: transparent;
+  border-color: rgba(200, 154, 74, 0.2);
+  box-shadow: 
+    0 -2px 8px rgba(255, 255, 255, 0.3),
+    0 4px 12px rgba(28, 31, 138, 0.08);
 }
 .btn--primary:hover,
 .btn--primary:focus-visible {
   background: var(--color-gold);
   color: var(--color-white);
-  transform: scale(1.02);
-  box-shadow: var(--shadow-btn);
+  transform: translateY(-2px);
+  border-color: rgba(200, 154, 74, 0.4);
+  box-shadow: 
+    0 -2px 8px rgba(255, 255, 255, 0.4),
+    0 8px 20px rgba(200, 154, 74, 0.25);
 }
 
 /* Ghost cream (on dark backgrounds) */
@@ -189,9 +198,10 @@ h1, h2, h3, h4 {
 }
 .btn--ghost-cream:hover,
 .btn--ghost-cream:focus-visible {
-  background: rgba(242, 238, 231, 0.12);
+  background: rgba(242, 238, 231, 0.15);
   border-color: var(--color-cream);
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(242, 238, 231, 0.15);
 }
 
 /* Navy solid */
@@ -199,12 +209,13 @@ h1, h2, h3, h4 {
   background: var(--color-navy);
   color: var(--color-cream);
   border-color: transparent;
+  box-shadow: 0 4px 12px rgba(28, 31, 138, 0.15);
 }
 .btn--navy:hover,
 .btn--navy:focus-visible {
   background: #2d31b0;
-  transform: scale(1.02);
-  box-shadow: var(--shadow-btn);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(28, 31, 138, 0.25);
 }
 
 /* Full-width */

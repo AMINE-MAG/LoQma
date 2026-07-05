@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Offre Entreprise LoQma: Solutions de catering professionnel, buffets, box repas, pauses café, et team-building culinaire à Grenoble. Devis gratuit en ligne.">
+  <meta name="keywords" content="catering entreprise Grenoble, buffet professionnel, box repas entreprise, team building culinaire, pause café gourmet, traiteur halal">
+  <meta name="theme-color" content="#1C1F8A">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Offre Entreprise LoQma — Catering Professionnel Grenoble">
+  <meta property="og:description" content="Solutions de catering B2B aux saveurs tunisiennes: buffets, boxes, pauses café gourmandes. Devis gratuit.">
+  <meta property="og:image" content="assets/offre-entreprise-og.jpg">
+  <meta property="og:url" content="https://loqma-traiteur.fr/offre-entreprise">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Offre Entreprise LoQma — Catering Professionnel">
+  <meta name="twitter:description" content="Solutions de catering B2B: buffets, boxes, pauses café gourmandes, team-building culinaire.">
+  <meta name="twitter:image" content="assets/offre-entreprise-og.jpg">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://loqma-traiteur.fr/offre-entreprise">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "LoQma Traiteur — Offre Entreprise",
+    "description": "Solutions de catering professionnel et services B2B pour entreprises, événements et team-building à Grenoble",
+    "url": "https://loqma-traiteur.fr/offre-entreprise",
+    "telephone": "+33600000000",
+    "email": "contact@loqma-traiteur.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Grenoble",
+      "addressLocality": "Grenoble",
+      "postalCode": "38000",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "45.1885",
+      "longitude": "5.7245"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Buffets & Cocktails",
+        "description": "Buffets professionnels et cocktails dinatoires aux saveurs tunisiennes pour vos événements",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Box Repas Individuelles",
+        "description": "Box repas complètes et équilibrées pour vos déjeuners d'affaires et livraisons",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pauses Café Gourmandes",
+        "description": "Miniardises, pâtisseries et douceurs pour vos pauses café et réunions",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Ateliers Team Building Culinaires",
+        "description": "Ateliers cuisine participatifs autour des saveurs tunisiennes pour renforcer la cohésion d'équipe",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Autres Produits",
+        "description": "Box à partager, coffrets cadeaux et autres produits gourmands",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/loqma_traiteur_grenoble/"
+    ]
+  }
+  </script>
+  
+  <title>Offre Entreprise LoQma — Catering Professionnel & Team Building · Grenoble</title>
+
+  <!-- Google Fonts — loaded only after cookie consent -->
+  <script>
+    (function(){
+      var c=null;try{c=localStorage.getItem('loqma_cookie_consent');}catch(e){}
+      if(c==='accepted'){
+        var p1=document.createElement('link');p1.rel='preconnect';p1.href='https://fonts.googleapis.com';
+        var p2=document.createElement('link');p2.rel='preconnect';p2.href='https://fonts.gstatic.com';p2.crossOrigin='';
+        var f=document.createElement('link');f.id='gf-fonts';f.rel='stylesheet';
+        f.href='https://fonts.googleapis.com/css2?family=Agrandir:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap';
+        document.head.appendChild(p1);document.head.appendChild(p2);document.head.appendChild(f);
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <style>
+    /* Offre Entreprise specific styles - loaded inline for faster FCP */
+    .hero--offre-entreprise {
+      background: linear-gradient(160deg, rgba(28,31,138,0.78) 0%, rgba(28,31,138,0.32) 100%), 
+                  url('assets/buffet-event.png') center / cover no-repeat;
+      min-height: clamp(300px, 40vh, 500px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero--offre-entreprise .hero__subtitle {
+      color: white;
+      opacity: 0;
+      animation: hero-fade-up 0.6s ease-out 1.3s forwards;
+    }
+
+    .services-grid {
+      padding: var(--section-pad) 0;
+      background: var(--color-cream);
+    }
+
+    .services-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--section-pad);
+      display: grid;
+      gap: clamp(12px, 3vw, 24px);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+      .services-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-card:nth-child(5) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 500px;
+      }
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(28, 31, 138, 0.08);
+      border-radius: 20px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: all var(--transition-mid);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 
+        0 -12px 24px rgba(255, 255, 255, 0.12),
+        0 12px 32px rgba(28, 31, 138, 0.08);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(200, 154, 74, 0.3), transparent);
+      z-index: 1;
+    }
+
+    .service-card__image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(200, 154, 74, 0.12), rgba(28, 31, 138, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid rgba(28, 31, 138, 0.05);
+    }
+
+    .service-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .service-card__image img {
+      transform: scale(1.06);
+    }
+
+    .service-card__image::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: radial-gradient(
+        ellipse at bottom center,
+        rgba(200, 154, 74, 0.4) 0%,
+        rgba(28, 31, 138, 0.2) 40%,
+        transparent 70%
+      );
+      filter: blur(12px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .service-card__header,
+    .service-card__body,
+    .service-card__actions {
+      padding: 0 clamp(16px, 4vw, 24px);
+    }
+
+    .service-card__header {
+      padding-top: clamp(20px, 4vw, 28px);
+      padding-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .service-card__body {
+      padding-top: 0;
+      padding-bottom: 16px;
+      flex-grow: 1;
+      position: relative;
+      z-index: 3;
+    }
+
+    .service-card__actions {
+      padding-top: 4px;
+      padding-bottom: clamp(20px, 4vw, 28px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+      position: relative;
+      z-index: 3;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 
+        0 -12px 24px rgba(255, 255, 255, 0.16),
+        0 20px 48px rgba(28, 31, 138, 0.15);
+      border-color: rgba(200, 154, 74, 0.15);
+    }
+
+    .service-card__icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(200, 154, 74, 0.15), rgba(28, 31, 138, 0.1));
+      border-radius: 14px;
+      flex-shrink: 0;
+      margin-bottom: 8px;
+      border: 1px solid rgba(200, 154, 74, 0.1);
+      position: relative;
+      box-shadow: 0 2px 8px rgba(28, 31, 138, 0.05);
+      transition: all var(--transition-fast);
+    }
+
+    .service-card:hover .service-card__icon {
+      background: linear-gradient(135deg, rgba(200, 154, 74, 0.2), rgba(28, 31, 138, 0.15));
+      border-color: rgba(200, 154, 74, 0.2);
+      transform: scale(1.08);
+    }
+
+    .service-card__icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--color-navy);
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .service-card__icon-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(11%) sepia(85%) saturate(1329%) hue-rotate(228%) brightness(100%) contrast(104%);
+    }
+
+    .service-card__header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      font-weight: 700;
+      color: var(--color-navy);
+      margin: 0;
+      letter-spacing: -0.6px;
+      line-height: 1.2;
+    }
+
+    .service-card__description {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin: 0;
+      margin-bottom: 4px;
+    }
+
+    .service-card__benefits {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-card__benefits li {
+      font-size: 0.9rem;
+      color: var(--color-text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .service-card__benefits li::before {
+      content: "✓";
+      color: var(--color-gold);
+      font-weight: bold;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .service-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: modalFadeIn var(--transition-mid);
+    }
+
+    .modal.is-active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+      }
+      to {
+        opacity: 1;
+        backdrop-filter: blur(4px);
+      }
+    }
+
+    .modal__overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    .modal__content {
+      position: relative;
+      z-index: 1;
+      background: var(--color-white);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: clamp(24px, 6vw, 40px);
+      animation: modalSlideUp var(--transition-mid);
+    }
+
+    @keyframes modalSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-navy-light);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--color-navy);
+      transition: all var(--transition-fast);
+    }
+
+    .modal__close:hover,
+    .modal__close:focus-visible {
+      background: var(--color-gold);
+      color: var(--color-white);
+      transform: scale(1.1);
+    }
+
+    .modal__title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .modal__subtitle {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 24px 0;
+    }
+
+    /* Form Styles */
+    .quote-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-fieldset__legend {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-navy);
+      font-size: 1.1rem;
+      margin: 8px 0 0 0;
+      padding: 12px 0 8px 0;
+      border-bottom: 2px solid var(--color-navy-light);
+      letter-spacing: -0.3px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-navy);
+    }
+
+    .form-label .required {
+      color: var(--color-gold);
+    }
+
+    /* Hide label when input has value or is focused */
+    .form-label.hidden {
+      display: none;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 12px;
+      border: 2px solid var(--color-navy-light);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      transition: all var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(200, 154, 74, 0.1);
+    }
+
+    .form-input::placeholder,
+    .form-select::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .form-error {
+      display: none;
+      color: #d32f2f;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .form-success {
+      display: none;
+      padding: 12px;
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn--submit {
+      flex: 1;
+      background: var(--color-navy);
+      color: var(--color-cream);
+      font-weight: 600;
+      padding: 14px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      min-height: 48px;
+    }
+
+    .btn--submit:hover:not(:disabled) {
+      background: var(--color-gold);
+      color: var(--color-white);
+      transform: scale(1.02);
+    }
+
+    .btn--submit:focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 3px;
+    }
+
+    .btn--submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn--submit.is-loading::after {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 8px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-navy) 0%, #252d9f 100%);
+      color: var(--color-cream);
+      padding: var(--section-pad);
+      text-align: center;
+    }
+
+    .cta-section__content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .cta-section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-section__text {
+      font-size: 1.05rem;
+      margin: 0 0 24px 0;
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card:nth-child(5) {
+        max-width: 100%;
+      }
+
+      .modal__content {
+        max-height: calc(100vh - 40px);
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .btn--submit {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION (reused from main site) -->
+  <header>
+    <nav id="navbar" class="navbar navbar--transparent" aria-label="Navigation principale">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="LoQma — Retour à l'accueil">
+          <img src="assets/logo-sans2.png" alt="LoQma Traiteur logo" width="42" height="42">
+          <span class="navbar__logo-text">LoQma</span>
+        </a>
+        <div class="navbar__right">
+          <button class="navbar__hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-overlay">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full-screen nav overlay -->
+    <div id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Menu principal">
+      <ul class="nav-overlay__links">
+        <li><a href="index.html#accueil" class="nav-overlay__link">Accueil</a></li>
+        <li><a href="index.html#services" class="nav-overlay__link">Nos Services</a></li>
+        <li><a href="offre-entreprise.html" class="nav-overlay__link active">Offre Entreprise</a></li>
+        <li><a href="index.html#catalogue" class="nav-overlay__link">Catalogue</a></li>
+        <li><a href="index.html#galerie" class="nav-overlay__link">Galerie</a></li>
+        <li><a href="index.html#avis" class="nav-overlay__link">Avis</a></li>
+        <li><a href="#quote-modal" class="nav-overlay__link">Demander un devis</a></li>
+      </ul>
+      <p class="nav-overlay__instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @loqma_traiteur_grenoble
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero hero--offre-entreprise" aria-label="Offre Entreprise">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">Offre Entreprise</h1>
+        <p class="hero__subtitle">Solutions de catering professionnel et services B2B aux saveurs tunisiennes</p>
+      </div>
+    </section>
+
+    <!-- SERVICE CATEGORIES GRID -->
+    <section class="services-grid" aria-label="Catégories de services">
+      <div class="services-container">
+        
+        <!-- Service 1: Buffets & Cocktails -->
+        <article class="service-card" data-service="buffets-cocktails">
+          <div class="service-card__image">
+            <img src="assets/services/buffets.jpg" alt="Buffets & Cocktails" onerror="this.style.display='none'">
+          </div>
+          <div class="service-card__header">
+            <div class="service-card__icon">
+              <img src="assets/service cards/buffet.svg" alt="Buffets & Cocktails" class="service-card__icon-img">
+            </div>
+            <h2 class="service-card__title">Buffets & Cocktails</h2>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__description">
+              Buffets professionnels et cocktails dinatoires authentiques aux saveurs tunisiennes pour vos événements d'entreprise, inaugurations et réceptions.
+            </p>
+            <ul class="service-card__benefits" aria-label="Avantages">
+              <li>Buffets personnalisés selon vos envies</li>
+              <li>Service à table ou en libre-service</li>
+              <li>Présentation élégante et professionnelle</li>
+              <li>100% fait maison, 100% halal</li>
+            </ul>
+          </div>
+          <div class="service-card__actions">
+            <button class="btn btn--primary" data-action="quote" data-service="buffets-cocktails" aria-label="Demander un devis pour Buffets &amp; Cocktails">
+              Je demande un devis
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 2: Box Repas Individuelles -->
+        <article class="service-card" data-service="box-repas">
+          <div class="service-card__image">
+            <img src="assets/services/box-repas.jpg" alt="Box Repas Individuelles" onerror="this.style.display='none'">
+          </div>
+          <div class="service-card__header">
+            <div class="service-card__icon">
+              <img src="assets/service cards/box.svg" alt="Box Repas" class="service-card__icon-img">
+            </div>
+            <h2 class="service-card__title">Box Repas Individuelles</h2>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__description">
+              Box repas complètes et équilibrées pour vos déjeuners d'affaires, livraisons et collations d'équipe.
+            </p>
+            <ul class="service-card__benefits" aria-label="Avantages">
+              <li>Repas savoureux livrés chez vous</li>
+              <li>Portions adaptées au nombre de personnes</li>
+              <li>Menus variés et personnalisables</li>
+              <li>Pratique et professionnel</li>
+            </ul>
+          </div>
+          <div class="service-card__actions">
+            <button class="btn btn--primary" data-action="quote" data-service="box-repas" aria-label="Demander un devis pour Box Repas Individuelles">
+              Je demande un devis
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 3: Pauses Café Gourmandes -->
+        <article class="service-card" data-service="pauses-cafe">
+          <div class="service-card__image">
+            <img src="assets/services/pause-cafe.jpg" alt="Pauses Café Gourmandes" onerror="this.style.display='none'">
+          </div>
+          <div class="service-card__header">
+            <div class="service-card__icon">
+              <img src="assets/service cards/coffe.svg" alt="Pauses Café" class="service-card__icon-img">
+            </div>
+            <h2 class="service-card__title">Pauses Café Gourmandes</h2>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__description">
+              Miniardises, pâtisseries et douceurs pour vos pauses café, réunions et événements d'entreprise.
+            </p>
+            <ul class="service-card__benefits" aria-label="Avantages">
+              <li>Assortiments de pâtisseries fines</li>
+              <li>Douceurs et sucreries gourmandes</li>
+              <li>Parfait pour les réunions et événements</li>
+              <li>Présentation soignée et élégante</li>
+            </ul>
+          </div>
+          <div class="service-card__actions">
+            <button class="btn btn--primary" data-action="quote" data-service="pauses-cafe" aria-label="Demander un devis pour Pauses Café Gourmandes">
+              Je demande un devis
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 4: Team Building Ateliers -->
+        <article class="service-card" data-service="team-building">
+          <div class="service-card__image">
+            <img src="assets/services/team-building.jpg" alt="Ateliers Team Building Culinaires" onerror="this.style.display='none'">
+          </div>
+          <div class="service-card__header">
+            <div class="service-card__icon">
+              <img src="assets/service cards/team.svg" alt="Team Building" class="service-card__icon-img">
+            </div>
+            <h2 class="service-card__title">Ateliers Team Building Culinaires</h2>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__description">
+              Ateliers cuisine participatifs autour des saveurs tunisiennes pour renforcer la cohésion d'équipe et créer des moments mémorables.
+            </p>
+            <ul class="service-card__benefits" aria-label="Avantages">
+              <li>Animation professionnel et ludique</li>
+              <li>Recettes tunisiennes traditionnelles</li>
+              <li>Renforce la cohésion d'équipe</li>
+              <li>Repas partagé en fin d'atelier</li>
+            </ul>
+          </div>
+          <div class="service-card__actions">
+            <button class="btn btn--primary" data-action="quote" data-service="team-building" aria-label="Demander un devis pour Ateliers Team Building">
+              Je demande un devis
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 5: Autres Produits -->
+        <article class="service-card" data-service="autres-produits">
+          <div class="service-card__image">
+            <img src="assets/services/autres-produits.jpg" alt="Autres Produits" onerror="this.style.display='none'">
+          </div>
+          <div class="service-card__header">
+            <div class="service-card__icon">
+              <img src="assets/service cards/other.svg" alt="Autres Produits" class="service-card__icon-img">
+            </div>
+            <h2 class="service-card__title">Autres Produits</h2>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__description">
+              Box à partager, coffrets cadeaux et autres produits gourmands pour vos besoins spécifiques.
+            </p>
+            <ul class="service-card__benefits" aria-label="Avantages">
+              <li>Box à partager entre collègues</li>
+              <li>Coffrets cadeaux gourmands</li>
+              <li>Produits artisanaux variés</li>
+              <li>Emballage élégant et premium</li>
+            </ul>
+          </div>
+          <div class="service-card__actions">
+            <button class="btn btn--primary" data-action="quote" data-service="autres-produits" aria-label="Demander un devis pour Autres Produits">
+              Je demande un devis
+            </button>
+            <a href="https://loqma-traiteur.fr/boutique" class="btn btn--ghost-cream" target="_blank" rel="noopener noreferrer">
+              Découvrir notre boutique →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CTA REINFORCEMENT SECTION -->
+    <section class="cta-section" aria-label="Renforcez votre demande de devis">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">Prêt à transformer votre événement ?</h2>
+        <p class="cta-section__text">
+          Demandez un devis gratuit et sans engagement. Notre équipe répondra à toutes vos questions dans les 24 heures.
+        </p>
+        <button class="btn btn--primary" onclick="document.getElementById('quote-modal').classList.add('is-active')">
+          Demander un devis maintenant
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- QUOTE REQUEST MODAL -->
+  <div id="quote-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Fermer la fenêtre" onclick="this.closest('.modal').classList.remove('is-active')">✕</button>
+      
+      <h2 class="modal__title" id="modal-title">Demander un devis</h2>
+      <p class="modal__subtitle">Remplissez ce formulaire et nous vous recontacterons rapidement.</p>
+
+      <form id="quote-form" class="quote-form" novalidate>
+        <!-- Informations Entreprise -->
+        <fieldset class="form-fieldset">
+          <legend class="form-fieldset__legend">Informations Entreprise</legend>
+          
+          <div class="form-group">
+            <label for="company_name" class="form-label">Nom de l'entreprise <span class="required">*</span></label>
+            <input type="text" id="company_name" name="company_name" class="form-input" placeholder=" " required aria-required="true">
+            <p class="form-error" role="alert">Veuillez entrer le nom de votre entreprise.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="contact_name" class="form-label">Nom du contact <span class="required">*</span></label>
+            <input type="text" id="contact_name" name="contact_name" class="form-input" placeholder=" " required aria-required="true">
+            <p class="form-error" role="alert">Veuillez entrer votre nom.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" placeholder=" " required aria-required="true">
+            <p class="form-error" role="alert">Veuillez entrer une adresse email valide.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Téléphone <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " required aria-required="true" minlength="10">
+            <p class="form-error" role="alert">Veuillez entrer un numéro de téléphone valide (10+ chiffres).</p>
+          </div>
+        </fieldset>
+
+        <!-- Détails de la Demande -->
+        <fieldset class="form-fieldset">
+          <legend class="form-fieldset__legend">Détails de la Demande</legend>
+
+          <div class="form-group">
+            <label for="service_selected" class="form-label">Service souhaité <span class="required">*</span></label>
+            <select id="service_selected" name="service_selected" class="form-select" placeholder=" " required aria-required="true">
+              <option value="">-- Sélectionnez un service --</option>
+              <option value="buffets-cocktails">Buffets & Cocktails</option>
+              <option value="box-repas">Box Repas Individuelles</option>
+              <option value="pauses-cafe">Pauses Café Gourmandes</option>
+              <option value="team-building">Ateliers Team Building Culinaires</option>
+              <option value="autres-produits">Autres Produits</option>
+            </select>
+            <p class="form-error" role="alert">Veuillez sélectionner un service.</p>
+          </div>
+
+          <input type="hidden" id="service_category" name="service_category">
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message / Détails de votre demande <span class="required">*</span></label>
+            <textarea id="message" name="message" class="form-textarea" rows="4" required aria-required="true" placeholder=" "></textarea>
+            <p class="form-error" role="alert">Veuillez entrer un message.</p>
+          </div>
+        </fieldset>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          ✓ Merci ! Votre demande a été reçue. Nous vous contacterons dans les 24 heures.
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn--submit" id="submit-btn">Envoyer ma demande</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER POPUP (reused from main site) -->
+  <div id="nl-popup" class="nl-popup" role="dialog" aria-modal="true" aria-labelledby="nl-popup-title">
+    <div class="nl-popup__backdrop"></div>
+    <div class="nl-popup__card">
+      <button class="nl-popup__close" aria-label="Fermer">✕</button>
+      <img src="assets/logo-sans2.png" class="nl-popup__logo" alt="LoQma" width="48" height="48">
+      <h2 class="nl-popup__title" id="nl-popup-title">Restez dans la boucle</h2>
+      <p class="nl-popup__body">Recevez nos nouveautés et offres exclusives directement dans votre boîte mail.</p>
+      <form class="nl-popup__form" id="nl-form" novalidate>
+        <div class="nl-popup__field">
+          <input type="email" id="nl-email" name="email" placeholder="Votre adresse email" class="nl-popup__input" required aria-required="true">
+          <button type="submit" class="btn btn--primary nl-popup__submit">S'inscrire</button>
+        </div>
+        <p class="nl-popup__consent">
+          ✓ Je consens à recevoir des emails de LoQma Traiteur (<a href="politique-confidentialite.html" target="_blank">Politique</a>).
+        </p>
+        <p class="nl-popup__success" id="nl-success" hidden>✓ Merci ! Vous êtes inscrit(e) à notre newsletter.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER (reused from main site) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo-sans2.png" alt="LoQma Traiteur" class="footer__logo" width="56" height="56" loading="lazy">
+        <p class="footer__tagline">
+          Cuisine tunisienne faite main,<br>
+          <em>avec le cœur.</em>
+        </p>
+      </div>
+      <div class="footer__info">
+        <p>Grenoble et ses alentours</p>
+        <p>Cuisine tunisienne <strong>Halal</strong></p>
+        <a href="https://www.instagram.com/loqma_traiteur_grenoble/" target="_blank" rel="noopener noreferrer" class="footer__instagram" aria-label="Suivre LoQma sur Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          @loqma_traiteur_grenoble
+        </a>
+        <button id="nl-trigger" class="footer__newsletter-link" type="button" aria-label="S'inscrire à la newsletter">
+          S'inscrire à la newsletter
+        </button>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 LoQma Traiteur — Grenoble · Cuisine tunisienne halal faite maison</p>
+      <nav class="footer__legal-links" aria-label="Liens légaux">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
+        <button id="cookie-manage" class="footer__cookie-link" type="button">Gérer mes cookies</button>
+          <button id="cookie-manage" class="footer__cookie-link" type="button">Gérer mes cookies</button>        <a href="cgv.html">CGV</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Handle label visibility for form inputs
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('quote-form');
+      if (!form) return;
+
+      const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');
+      
+      function updateLabelVisibility(input) {
+        const label = input.previousElementSibling;
+        if (label && label.classList.contains('form-label')) {
+          if (input.value.trim() !== '' || document.activeElement === input) {
+            label.classList.add('hidden');
+          } else {
+            label.classList.remove('hidden');
+          }
+        }
+      }
+
+      inputs.forEach(input => {
+        // Hide label on focus
+        input.addEventListener('focus', () => updateLabelVisibility(input));
+        
+        // Hide label while typing, show when empty and blurred
+        input.addEventListener('input', () => updateLabelVisibility(input));
+        input.addEventListener('change', () => updateLabelVisibility(input));
+        
+        // Show label if empty on blur
+        input.addEventListener('blur', () => {
+          const label = input.previousElementSibling;
+          if (label && label.classList.contains('form-label')) {
+            if (input.value.trim() === '') {
+              label.classList.remove('hidden');
+            }
+          }
+        });
+
+        // Initialize on page load
+        updateLabelVisibility(input);
+      });
+    });
+  </script>
+  <script src="js/app.js" defer></script>
+  <script src="js/offre-entreprise.js" defer></script>
+</body>
+</html>

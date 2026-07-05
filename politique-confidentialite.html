@@ -13,7 +13,7 @@
         var p1=document.createElement('link');p1.rel='preconnect';p1.href='https://fonts.googleapis.com';
         var p2=document.createElement('link');p2.rel='preconnect';p2.href='https://fonts.gstatic.com';p2.crossOrigin='';
         var f=document.createElement('link');f.rel='stylesheet';
-        f.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@400;500;600&display=swap';
+        f.href='https://fonts.googleapis.com/css2?family=Agrandir:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap';
         document.head.appendChild(p1);document.head.appendChild(p2);document.head.appendChild(f);
       }
     })();
@@ -313,5 +313,70 @@
       est indiquée en haut de page. Nous vous encourageons à la consulter régulièrement.
     </p>
   </main>
+
+  <!-- NEWSLETTER POPUP (reused from main site) -->
+  <div id="nl-popup" class="nl-popup" role="dialog" aria-modal="true" aria-labelledby="nl-popup-title">
+    <div class="nl-popup__backdrop"></div>
+    <div class="nl-popup__card">
+      <button class="nl-popup__close" aria-label="Fermer">✕</button>
+      <img src="assets/logo-sans2.png" class="nl-popup__logo" alt="LoQma" width="48" height="48">
+      <h2 class="nl-popup__title" id="nl-popup-title">Restez dans la boucle</h2>
+      <p class="nl-popup__body">Recevez nos nouveautés et offres exclusives directement dans votre boîte mail.</p>
+      <form class="nl-popup__form" id="nl-form" novalidate>
+        <div class="nl-popup__field">
+          <input type="email" id="nl-email" name="email" placeholder="Votre adresse email" class="nl-popup__input" required aria-required="true">
+          <button type="submit" class="btn btn--primary nl-popup__submit">S'inscrire</button>
+        </div>
+        <p class="nl-popup__consent">
+          ✓ Je consens à recevoir des emails de LoQma Traiteur (<a href="politique-confidentialite.html" target="_blank">Politique</a>).
+        </p>
+        <p class="nl-popup__success" id="nl-success" hidden>✓ Merci ! Vous êtes inscrit(e) à notre newsletter.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER (reused from main site) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo-sans2.png"
+             alt="LoQma Traiteur"
+             class="footer__logo"
+             width="56" height="56"
+             loading="lazy">
+        <p class="footer__tagline">
+          Cuisine tunisienne faite main,<br>
+          <em>avec le cœur.</em>
+        </p>
+      </div>
+      <div class="footer__info">
+        <p>Grenoble et ses alentours</p>
+        <p>Cuisine tunisienne <strong>Halal</strong></p>
+        <a href="https://www.instagram.com/loqma_traiteur_grenoble/"
+           target="_blank" rel="noopener noreferrer"
+           class="footer__instagram"
+           aria-label="Suivre LoQma sur Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="15" height="15">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          @loqma_traiteur_grenoble
+        </a>
+        <button id="nl-trigger" class="footer__newsletter-link" type="button" aria-label="S'inscrire à la newsletter">
+          S'inscrire à la newsletter
+        </button>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <p>© 2026 LoQma Traiteur — Grenoble · Cuisine tunisienne halal faite maison</p>
+      <nav class="footer__legal-links" aria-label="Liens légaux">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
+        <button id="cookie-manage" class="footer__cookie-link" type="button">Gérer mes cookies</button>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
