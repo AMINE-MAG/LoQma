@@ -855,6 +855,9 @@
   const input    = document.getElementById('nl-email');
   const success  = document.getElementById('nl-success');
 
+  // Session flag for exit-intent (resets on page refresh)
+  let exitIntentShown = false;
+
   function open() {
     popup.hidden = false;
     requestAnimationFrame(() => requestAnimationFrame(() => popup.classList.add('is-visible')));
@@ -892,7 +895,21 @@
     setTimeout(close, 2500);
   });
 
-  setTimeout(open, 5000);
+  // Exit-intent: show popup only once per session when user moves mouse toward close/exit
+  document.addEventListener('mouseleave', () => {
+    if (exitIntentShown || !popup.hidden) return;
+    exitIntentShown = true;
+    open();
+  });
+
+  // Footer button: allow users to open popup anytime (no session limit)
+  const nlTriggerBtn = document.getElementById('nl-trigger');
+  if (nlTriggerBtn) {
+    nlTriggerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      open();
+    });
+  }
 })();
 
 /* ────────────────────────────────────────────────────────────
