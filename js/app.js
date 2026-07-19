@@ -243,6 +243,9 @@
     });
   }
 
+  // Expose for navbar dropdown navigation
+  window._loqmaActivateService = activate;
+
   // ── Desktop: tab interaction ──────────────────────────────
   items.forEach((item, i) => {
     item.addEventListener('click', () => activate(i));
@@ -342,12 +345,26 @@
    ──────────────────────────────────────────────────────────── */
 (function initNavbarServiceLinks() {
   var links = document.querySelectorAll('.navbar__service-link');
+  var servicesSection = document.getElementById('services');
+
   links.forEach(function(link) {
     link.addEventListener('click', function(e) {
-      var idx = this.getAttribute('data-service');
-      if (idx !== null) {
-        try { sessionStorage.setItem('loqma_service_target', idx); } catch(_) {}
+      var idx = parseInt(this.getAttribute('data-service'));
+      if (isNaN(idx)) return;
+
+      // If we're already on the page with services, activate directly
+      if (servicesSection && window._loqmaActivateService) {
+        e.preventDefault();
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+        window._loqmaActivateService(idx);
+        // Also update the services CTA link
+        var cta = document.querySelector('.services__cta');
+        if (cta) cta.href = '#commander';
+        return;
       }
+
+      // Cross-page: store target for next page load
+      try { sessionStorage.setItem('loqma_service_target', String(idx)); } catch(_) {}
     });
   });
 })();
