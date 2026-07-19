@@ -394,6 +394,36 @@
         width: 100%;
       }
     }
+
+    /* ── Reservation Modals ─────────────────────────── */
+    .reservation-modal { position:fixed; inset:0; z-index:999; display:none; align-items:center; justify-content:center; padding:20px; }
+    .reservation-modal.is-open { display:flex; }
+    .reservation-modal__overlay { position:absolute; inset:0; background:rgba(17,22,48,0.92); backdrop-filter:blur(6px); }
+    .reservation-modal__card { position:relative; background:var(--color-white); border-radius:20px; max-width:860px; width:100%; max-height:90vh; overflow-y:auto; display:flex; animation:rmodal-up 0.3s ease; }
+    @keyframes rmodal-up { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+    .reservation-modal__close { position:absolute; top:14px; right:14px; width:40px; height:40px; border-radius:50%; background:rgba(0,0,0,0.5); border:none; color:#fff; font-size:1.2rem; cursor:pointer; z-index:2; display:flex; align-items:center; justify-content:center; transition:background 0.2s; }
+    .reservation-modal__close:hover { background:rgba(0,0,0,0.7); }
+    .reservation-modal__image { width:42%; flex-shrink:0; }
+    .reservation-modal__image img { width:100%; height:100%; object-fit:cover; }
+    .reservation-modal__body { flex:1; padding:32px 28px; display:flex; flex-direction:column; }
+    .reservation-modal__badge { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background:var(--color-gold); color:#fff; padding:3px 12px; border-radius:50px; margin-bottom:6px; align-self:flex-start; }
+    .reservation-modal__title { font-family:var(--font-serif); font-size:1.4rem; font-weight:600; color:var(--color-navy); margin-bottom:4px; }
+    .reservation-modal__info { font-size:0.85rem; color:var(--color-text-muted); margin-bottom:20px; }
+    .reservation-form { display:flex; flex-direction:column; gap:14px; }
+    .reservation-form__row { display:flex; gap:12px; }
+    .reservation-form__group { flex:1; display:flex; flex-direction:column; gap:4px; }
+    .reservation-form__group label { font-size:0.75rem; font-weight:600; letter-spacing:0.04em; color:var(--color-text); }
+    .reservation-form__group input,
+    .reservation-form__group select,
+    .reservation-form__group textarea { padding:10px 14px; border:1.5px solid rgba(28,31,138,0.12); border-radius:8px; font-size:0.88rem; font-family:var(--font-sans); color:var(--color-text); transition:border-color 0.2s; }
+    .reservation-form__group input:focus,
+    .reservation-form__group select:focus,
+    .reservation-form__group textarea:focus { outline:none; border-color:var(--color-gold); box-shadow:0 0 0 3px rgba(200,154,74,0.08); }
+    .reservation-form__hint { font-size:0.7rem; color:var(--color-text-muted); }
+    .reservation-form__error { display:none; font-size:0.72rem; color:#d32f2f; }
+    .reservation-form__submit { margin-top:4px; }
+    .reservation-form__success { display:none; padding:12px; background:#e8f5e9; border-radius:8px; color:#2e7d32; font-size:0.88rem; }
+    @media (max-width:700px) { .reservation-modal__card { flex-direction:column; } .reservation-modal__image { width:100%; height:180px; } .reservation-form__row { flex-direction:column; } .reservation-modal__body { padding:24px 20px; } }
   </style>
 </head>
 <body>
@@ -563,7 +593,7 @@
               </ul>
             </div>
             <div class="particuliers-card__actions">
-              <a href="index.html#commander" class="btn btn--navy">Je réserve une table</a>
+              <a href="#" class="btn btn--navy" onclick="document.getElementById('brunch-modal').hidden=false;document.getElementById('brunch-modal').classList.add('is-open');document.body.style.overflow='hidden';return false;">Je réserve une table</a>
             </div>
           </article>
 
@@ -589,7 +619,7 @@
               </ul>
             </div>
             <div class="particuliers-card__actions">
-              <a href="index.html#commander" class="btn btn--navy">Je réserve un créneau</a>
+              <a href="#" class="btn btn--navy" onclick="document.getElementById('ateliers-modal').hidden=false;document.getElementById('ateliers-modal').classList.add('is-open');document.body.style.overflow='hidden';return false;">Je réserve un créneau</a>
             </div>
           </article>
 
@@ -643,6 +673,123 @@
         </div>
       </div>
     </section>
+
+    <!-- ═══════ BRUNCH RESERVATION MODAL ═══════ -->
+    <div id="brunch-modal" class="reservation-modal" role="dialog" aria-modal="true" aria-label="Réserver une table — Brunch" hidden>
+      <div class="reservation-modal__overlay"></div>
+      <div class="reservation-modal__card">
+        <button class="reservation-modal__close" aria-label="Fermer">✕</button>
+        <div class="reservation-modal__image">
+          <img src="assets/brunch1.jpg" alt="Brunch LoQma">
+        </div>
+        <div class="reservation-modal__body">
+          <span class="reservation-modal__badge">Brunch</span>
+          <h2 class="reservation-modal__title">Réserver une table</h2>
+          <p class="reservation-modal__info">🍽️ Tous les <strong>dimanches</strong> · 11h — 14h</p>
+          <form id="brunch-form" class="reservation-form" novalidate>
+            <div class="reservation-form__row">
+              <div class="reservation-form__group">
+                <label for="brunch-date">Date</label>
+                <input type="date" id="brunch-date" name="date" required>
+                <span class="reservation-form__hint">Dimanches uniquement</span>
+                <p class="reservation-form__error" role="alert">Veuillez choisir un dimanche.</p>
+              </div>
+              <div class="reservation-form__group">
+                <label for="brunch-guests">Nombre de personnes</label>
+                <select id="brunch-guests" name="guests" required>
+                  <option value="">—</option>
+                  <option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation-form__row">
+              <div class="reservation-form__group">
+                <label for="brunch-name">Nom complet</label>
+                <input type="text" id="brunch-name" name="name" required placeholder="Votre nom">
+              </div>
+              <div class="reservation-form__group">
+                <label for="brunch-phone">Téléphone</label>
+                <input type="tel" id="brunch-phone" name="phone" required placeholder="06 12 34 56 78">
+              </div>
+            </div>
+            <div class="reservation-form__group">
+              <label for="brunch-notes">Remarques (optionnel)</label>
+              <textarea id="brunch-notes" name="notes" rows="2" placeholder="Allergies, occasion particulière…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--navy reservation-form__submit">Confirmer la réservation</button>
+            <p class="reservation-form__success" hidden>✓ Merci ! Nous vous confirmerons votre réservation sous 24h.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ ATELIERS RESERVATION MODAL ═══════ -->
+    <div id="ateliers-modal" class="reservation-modal" role="dialog" aria-modal="true" aria-label="Réserver un créneau — Ateliers" hidden>
+      <div class="reservation-modal__overlay"></div>
+      <div class="reservation-modal__card">
+        <button class="reservation-modal__close" aria-label="Fermer">✕</button>
+        <div class="reservation-modal__image">
+          <img src="assets/Ateliers.JPG" alt="Ateliers cuisine LoQma">
+        </div>
+        <div class="reservation-modal__body">
+          <span class="reservation-modal__badge">Ateliers</span>
+          <h2 class="reservation-modal__title">Réserver un créneau</h2>
+          <p class="reservation-modal__info">👨‍👩‍👧 Du <strong>lundi au vendredi</strong> · Matin 9h-12h ou Après-midi 14h-17h</p>
+          <form id="ateliers-form" class="reservation-form" novalidate>
+            <div class="reservation-form__row">
+              <div class="reservation-form__group">
+                <label for="ateliers-date">Date souhaitée</label>
+                <input type="date" id="ateliers-date" name="date" required>
+                <span class="reservation-form__hint">Du lundi au vendredi</span>
+                <p class="reservation-form__error" role="alert">Veuillez choisir un jour de semaine (lun-ven).</p>
+              </div>
+              <div class="reservation-form__group">
+                <label for="ateliers-slot">Créneau</label>
+                <select id="ateliers-slot" name="slot" required>
+                  <option value="">—</option>
+                  <option value="matin">Matin 9h — 12h</option>
+                  <option value="apres-midi">Après-midi 14h — 17h</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation-form__row">
+              <div class="reservation-form__group">
+                <label for="ateliers-guests">Participants</label>
+                <select id="ateliers-guests" name="guests" required>
+                  <option value="">—</option>
+                  <option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+                </select>
+              </div>
+              <div class="reservation-form__group">
+                <label for="ateliers-type">Type de groupe</label>
+                <select id="ateliers-type" name="type" required>
+                  <option value="">—</option>
+                  <option value="famille">En famille</option>
+                  <option value="amis">Entre amis</option>
+                  <option value="mixte">Mixte</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation-form__row">
+              <div class="reservation-form__group">
+                <label for="ateliers-name">Nom complet</label>
+                <input type="text" id="ateliers-name" name="name" required placeholder="Votre nom">
+              </div>
+              <div class="reservation-form__group">
+                <label for="ateliers-phone">Téléphone</label>
+                <input type="tel" id="ateliers-phone" name="phone" required placeholder="06 12 34 56 78">
+              </div>
+            </div>
+            <div class="reservation-form__group">
+              <label for="ateliers-notes">Message (optionnel)</label>
+              <textarea id="ateliers-notes" name="notes" rows="2" placeholder="Préférences, allergies…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--navy reservation-form__submit">Confirmer la réservation</button>
+            <p class="reservation-form__success" hidden>✓ Merci ! Nous vous confirmerons votre créneau sous 24h.</p>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- ═══════ FOOTER ═══════ -->
     <footer class="footer" role="contentinfo">

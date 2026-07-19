@@ -1765,3 +1765,64 @@
   // ── Init ────────────────────────────────────────────────
   renderProducts();
 })();
+
+/* ────────────────────────────────────────────────────────────
+   17. RESERVATION MODALS (offre-particuliers.html)
+   ──────────────────────────────────────────────────────────── */
+(function initReservationModals() {
+  // ── Modal open/close ──────────────────────────────────
+  function setupModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+    var closeBtn = modal.querySelector('.reservation-modal__close');
+    var overlay = modal.querySelector('.reservation-modal__overlay');
+
+    function close() { modal.classList.remove('is-open'); modal.hidden = true; document.body.style.overflow = ''; }
+    closeBtn && closeBtn.addEventListener('click', close);
+    overlay && overlay.addEventListener('click', close);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+  }
+  setupModal('brunch-modal');
+  setupModal('ateliers-modal');
+
+  // ── Date validation ───────────────────────────────────
+  function validateDay(e, allowedDays, errorEl) {
+    var date = new Date(e.target.value + 'T00:00:00');
+    if (isNaN(date.getTime())) return;
+    var day = date.getDay(); // 0=Sun, 6=Sat
+    if (!allowedDays.includes(day)) {
+      errorEl.style.display = 'block';
+      e.target.setCustomValidity('invalid');
+    } else {
+      errorEl.style.display = 'none';
+      e.target.setCustomValidity('');
+    }
+  }
+
+  var brunchDate = document.getElementById('brunch-date');
+  var brunchError = document.querySelector('#brunch-form .reservation-form__error');
+  if (brunchDate && brunchError) {
+    brunchDate.addEventListener('change', function(e) { validateDay(e, [0], brunchError); });
+  }
+
+  var ateliersDate = document.getElementById('ateliers-date');
+  var ateliersError = document.querySelector('#ateliers-form .reservation-form__error');
+  if (ateliersDate && ateliersError) {
+    ateliersDate.addEventListener('change', function(e) { validateDay(e, [1,2,3,4,5], ateliersError); });
+  }
+
+  // ── Form submit → show success ────────────────────────
+  function handleSubmit(formId, successEl) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      successEl.style.display = 'block';
+      form.querySelector('.reservation-form__submit').disabled = true;
+      form.reset();
+    });
+  }
+  handleSubmit('brunch-form', document.querySelector('#brunch-form .reservation-form__success'));
+  handleSubmit('ateliers-form', document.querySelector('#ateliers-form .reservation-form__success'));
+})();
