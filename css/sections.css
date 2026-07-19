@@ -1997,6 +1997,187 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
+   CH-08b — FAQ REDESIGN (centered, clean)
+   ══════════════════════════════════════════════════════════════ */
+.faq {
+  background: var(--color-navy);
+  padding: var(--section-pad) clamp(24px, 8vw, 120px);
+  text-align: center;
+}
+
+.faq__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__header {
+  margin-bottom: 56px;
+}
+
+.faq__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.faq__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: var(--color-cream);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.faq__title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.faq__subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(242, 238, 231, 0.5);
+}
+
+/* ── FAQ items ──────────────────────────────────────────── */
+.faq__list {
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(242, 238, 231, 0.08);
+  transition: all var(--transition-mid);
+}
+
+.faq-item:first-of-type {
+  border-top: 1px solid rgba(242, 238, 231, 0.08);
+}
+
+.faq-item[open] {
+  background: rgba(200, 154, 74, 0.04);
+  border-bottom-color: rgba(200, 154, 74, 0.2);
+}
+
+.faq-item__summary {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-cream);
+  padding: 20px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+  user-select: none;
+  transition: color var(--transition-fast);
+}
+
+.faq-item__summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__summary:hover {
+  color: var(--color-gold);
+}
+
+.faq-item[open] .faq-item__summary {
+  color: var(--color-gold);
+  padding-bottom: 12px;
+}
+
+/* Plus → Minus icon */
+.faq-item__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: rgba(242, 238, 231, 0.4);
+  transition: transform 0.25s ease, color var(--transition-fast);
+}
+
+.faq-item__summary:hover .faq-item__icon {
+  color: var(--color-gold);
+}
+
+.faq-item[open] .faq-item__icon {
+  transform: rotate(45deg);
+  color: var(--color-gold);
+}
+
+/* ── Answer ──────────────────────────────────────────────── */
+.faq-item__answer {
+  padding: 0 0 24px;
+  animation: faq-drop 0.25s ease;
+}
+
+@keyframes faq-drop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.faq-item__answer p {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: rgba(242, 238, 231, 0.65);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+.faq-item__answer p + p {
+  margin-top: 12px;
+}
+
+.faq-item__answer strong {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+.faq-item__answer a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity var(--transition-fast);
+}
+
+.faq-item__answer a:hover {
+  opacity: 0.8;
+}
+
+.faq-item__address {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  background: rgba(200, 154, 74, 0.08);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.faq-item__contact {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: rgba(242, 238, 231, 0.55);
+}
+
+@media (max-width: 480px) {
+  .faq-item__summary {
+    font-size: 0.9rem;
+    padding: 16px 0;
+  }
+  .faq-item__answer p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
    CH-08 — COMMANDER (CONTACT)
    ══════════════════════════════════════════════════════════════ */
 .contact {
