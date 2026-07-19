@@ -1267,16 +1267,22 @@
       desc: 'Recette traditionnelle tunisienne préparée avec des céréales et légumineuses soigneusement sélectionnées.',
       variants: {
         weight: [
-          { label: '100g', price: 8 },
-          { label: '250g', price: 14 },
-          { label: '500g', price: 22 }
+          { label: '100g', price: 8, ref: 'BSS-100' },
+          { label: '250g', price: 14, ref: 'BSS-250' },
+          { label: '500g', price: 22, ref: 'BSS-500' }
         ],
         flavor: [
-          { label: 'Standard', price: 0 },
-          { label: 'Pistache', price: 2 },
-          { label: 'Chocolat Ferrero', price: 2 }
+          { label: 'Standard', price: 0, ref: 'BSS-STD' },
+          { label: 'Pistache', price: 2, ref: 'BSS-PIS' },
+          { label: 'Chocolat Ferrero', price: 2, ref: 'BSS-FER' }
         ]
       },
+      flavorImgs: {
+        'Standard': 'assets/Bssissa.jpg',
+        'Pistache': 'assets/Bssissa-Pistache.png',
+        'Chocolat Ferrero': 'assets/Bssissa-Ferrero.jpg'
+      },
+      allergens: ['Gluten (orge, blé)', 'Sésame', 'Fruits à coque (possible)'],
       nutrition: [
         { label: 'Calories', value: '345 kcal / 100g' },
         { label: 'Protéines', value: '12 g' },
@@ -1309,6 +1315,8 @@
       category: 'sucre',
       basePrice: 7,
       img: 'assets/007_DXVKtLuiJyr_01.jpg',
+      variants: { weight: [{ label: '150g', price: 7, ref: 'GRH-150' }, { label: '300g', price: 12, ref: 'GRH-300' }] },
+      allergens: ['Gluten (blé)', 'Fruits à coque (amandes)', 'Lait (beurre)'],
       desc: 'Pâtisseries feuilletées aux amandes et au miel, parfumées à la fleur d\'oranger — une douceur de Béja.',
       variants: {
         weight: [
@@ -1339,6 +1347,8 @@
       category: 'sucre',
       basePrice: 7,
       img: 'assets/026_DYpdW3eIZli_01.jpg',
+      variants: { weight: [{ label: 'Part individuelle', price: 3, ref: 'CAK-IND' }, { label: 'Gâteau entier', price: 7, ref: 'CAK-ENT' }] },
+      allergens: ['Œufs', 'Fruits à coque'],
       desc: 'Gâteau moelleux au sorgho et aux fruits secs — une pâtisserie saine sans gluten, pleine de saveurs.',
       variants: {
         weight: [
@@ -1366,6 +1376,8 @@
       category: 'sucre',
       basePrice: 6,
       img: 'assets/008_DXg8x72iNpM_01.jpg',
+      variants: { weight: [{ label: '150g', price: 6, ref: 'MIN-150' }, { label: '300g', price: 11, ref: 'MIN-300' }] },
+      allergens: ['Œufs', 'Fruits à coque (amandes)'],
       desc: 'Petits gâteaux artisanaux sans gluten, légers et gourmands — parfaits pour toutes les occasions.',
       variants: {
         weight: [
@@ -1389,6 +1401,8 @@
       category: 'sale',
       basePrice: 5,
       img: 'assets/005_harissa&pain.jpg',
+      variants: { weight: [{ label: '100g', price: 5, ref: 'HAR-100' }, { label: '250g', price: 10, ref: 'HAR-250' }] },
+      allergens: [],
       desc: 'Harissa artisanale préparée avec des piments séchés au soleil, de l\'ail et des épices — le condiment indispensable.',
       variants: {
         weight: [
@@ -1412,6 +1426,8 @@
       category: 'coffret',
       basePrice: 28,
       img: 'assets/Box à Partager.jpg',
+      variants: { weight: [{ label: 'Standard', price: 28, ref: 'COF-STD' }, { label: 'Premium (+ pâtisseries)', price: 42, ref: 'COF-PRM' }] },
+      allergens: ['Gluten', 'Fruits à coque', 'Sésame'],
       desc: 'Un coffret élégant réunissant nos 3 produits signatures : Bssisa, Ghrayef et Harissa — l\'idée cadeau parfaite.',
       variants: {
         weight: [
@@ -1454,10 +1470,12 @@
     emptyMsg.hidden = filtered.length > 0;
 
     grid.innerHTML = filtered.map(function(p) {
+      var baseRef = p.variants && p.variants.weight && p.variants.weight[0] ? p.variants.weight[0].ref : '';
       return '<article class="boutique-card" data-id="' + p.id + '">' +
         '<div class="boutique-card__img-wrap">' +
           '<span class="boutique-card__tag">' + getCategoryLabel(p.category) + '</span>' +
           '<span class="boutique-card__price">' + getPriceRange(p) + '</span>' +
+          (baseRef ? '<span class="boutique-card__ref">' + baseRef + '</span>' : '') +
           '<img src="' + p.img + '" alt="' + p.name + '" class="boutique-card__img" loading="lazy">' +
         '</div>' +
         '<div class="boutique-card__body">' +
@@ -1513,14 +1531,14 @@
   var detailClose = document.querySelector('.boutique-detail__close');
 
   function openDetail(p) {
-    document.getElementById('detail-product-img').src = p.img;
-    document.getElementById('detail-product-img').alt = p.name;
+    selectedWeight = 0;
+    selectedFlavor = 0;
+    updateDetailImage(p);
+    updateDetailRef(p);
     document.getElementById('detail-category').textContent = getCategoryLabel(p.category);
     document.getElementById('detail-name').textContent = p.name;
     document.getElementById('detail-desc').textContent = p.desc;
 
-    selectedWeight = 0;
-    selectedFlavor = 0;
     updateDetailPrice(p);
     buildVariants(p);
     buildTabContent(p, 'nutrition');
@@ -1544,6 +1562,26 @@
   detailClose && detailClose.addEventListener('click', closeDetail);
   detailOverlay.addEventListener('click', function(e) { if (e.target === detailOverlay) closeDetail(); });
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && detailOverlay.classList.contains('is-open')) closeDetail(); });
+
+  // ── Image / Ref helpers ──────────────────────────────────
+  function updateDetailImage(p) {
+    var img = document.getElementById('detail-product-img');
+    var activeFlavor = p.variants.flavor && p.variants.flavor[selectedFlavor] ? p.variants.flavor[selectedFlavor].label : null;
+    if (activeFlavor && p.flavorImgs && p.flavorImgs[activeFlavor]) {
+      img.src = p.flavorImgs[activeFlavor];
+    } else {
+      img.src = p.img;
+    }
+    img.alt = p.name;
+  }
+
+  function updateDetailRef(p) {
+    var parts = [];
+    if (p.variants.weight && p.variants.weight[selectedWeight]) parts.push(p.variants.weight[selectedWeight].ref);
+    if (p.variants.flavor && p.variants.flavor[selectedFlavor] && p.variants.flavor[selectedFlavor].ref) parts.push(p.variants.flavor[selectedFlavor].ref);
+    var refEl = document.getElementById('detail-ref');
+    if (refEl) refEl.textContent = 'Réf : ' + parts.join(' | ');
+  }
 
   // ── Variants ────────────────────────────────────────────
   function buildVariants(p) {
@@ -1582,6 +1620,8 @@
         else selectedFlavor = idx;
 
         updateDetailPrice(p);
+        updateDetailImage(p);
+        updateDetailRef(p);
         buildVariants(p); // re-render active states
       });
     });
@@ -1623,10 +1663,19 @@
       html += '</table>';
     } else if (tab === 'ingredients') {
       html = '<ul>' + p.ingredients.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
+    } else if (tab === 'allergies') {
+      if (p.allergens && p.allergens.length > 0) {
+        html = '<p style="margin-bottom:8px;font-weight:600;color:var(--color-navy);">Allergènes présents :</p>';
+        html += '<div>' + p.allergens.map(function(a) { return '<span class="boutique-detail__allergen-badge">⚠ ' + a + '</span>'; }).join('') + '</div>';
+      } else {
+        html = '<p>Aucun allergène majeur identifié.</p>';
+      }
     } else if (tab === 'preparation') {
-      html = '<ol style="padding-left:18px;">' + p.preparation.map(function(s, i) { return '<li style="padding:3px 0;">' + s + '</li>'; }).join('') + '</ol>';
+      html = '<ol style="padding-left:18px;">' + p.preparation.map(function(s) { return '<li style="padding:3px 0;">' + s + '</li>'; }).join('') + '</ol>';
     } else if (tab === 'reviews' && p.reviews && p.reviews.length > 0) {
-      html = p.reviews.map(function(r) {
+      var avg = (p.reviews.reduce(function(sum, r) { return sum + r.stars; }, 0) / p.reviews.length).toFixed(1);
+      html = '<p style="margin-bottom:12px;color:var(--color-navy);"><strong>' + avg + ' ★</strong> — ' + p.reviews.length + ' avis</p>';
+      html += p.reviews.map(function(r) {
         var stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
         return '<div class="boutique-detail__review"><div class="boutique-detail__review-stars">' + stars + '</div><p class="boutique-detail__review-text">' + r.text + '</p></div>';
       }).join('');
