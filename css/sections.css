@@ -1931,7 +1931,8 @@
    CH-07 — STATS BAND
    ══════════════════════════════════════════════════════════════ */
 .stats {
-  background: var(--color-navy);
+  background: var(--color-footer);
+  border-top: 1px solid rgba(200, 154, 74, 0.12);
   padding: 0;
 }
 
