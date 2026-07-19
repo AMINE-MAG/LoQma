@@ -464,9 +464,6 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../assets/002_tajin.jpg');
-  background-size: cover;
-  background-position: center;
 }
 
 .hero__video {
