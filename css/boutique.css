@@ -63,6 +63,12 @@
 @keyframes detail-up { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
 .boutique-detail__image { width:45%; flex-shrink:0; position:relative; }
 .boutique-detail__image img { width:100%; height:100%; object-fit:cover; }
+/* Thumbnail gallery */
+.boutique-detail__thumb-gallery { display:flex; gap:8px; padding:10px 12px; position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.5), transparent); justify-content:center; }
+.boutique-detail__thumb { width:48px; height:48px; border-radius:8px; overflow:hidden; border:2px solid transparent; cursor:pointer; padding:0; background:none; transition:border-color 0.2s ease; }
+.boutique-detail__thumb img { width:100%; height:100%; object-fit:cover; }
+.boutique-detail__thumb--active { border-color:var(--color-gold); }
+.boutique-detail__thumb:hover { border-color:rgba(200,154,74,0.5); }
 .boutique-detail__info { padding:36px 32px; flex:1; display:flex; flex-direction:column; }
 .boutique-detail__category { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background:var(--color-gold); color:var(--color-white); padding:3px 12px; border-radius:50px; margin-bottom:6px; align-self:flex-start; }
 .boutique-detail__ref { font-size:0.68rem; color:var(--color-text-muted); margin-bottom:8px; letter-spacing:0.04em; }

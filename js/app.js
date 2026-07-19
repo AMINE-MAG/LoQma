@@ -1541,7 +1541,9 @@
 
     updateDetailPrice(p);
     buildVariants(p);
+    buildFlavorThumbnails(p);
     buildTabContent(p, 'nutrition');
+    updateReviewTabCount(p);
 
     detailOverlay.hidden = false;
     detailOverlay.classList.add('is-open');
@@ -1551,6 +1553,13 @@
     document.querySelectorAll('.boutique-detail__tab').forEach(function(t) { t.classList.remove('boutique-detail__tab--active'); });
     var firstTab = document.querySelector('.boutique-detail__tab[data-tab="nutrition"]');
     if (firstTab) firstTab.classList.add('boutique-detail__tab--active');
+  }
+
+  function updateReviewTabCount(p) {
+    var revTab = document.querySelector('.boutique-detail__tab[data-tab="reviews"]');
+    if (revTab && p.reviews) {
+      revTab.innerHTML = 'Avis <span class="boutique-detail__tab-count">(' + p.reviews.length + ')</span>';
+    }
   }
 
   function closeDetail() {
@@ -1573,6 +1582,10 @@
       img.src = p.img;
     }
     img.alt = p.name;
+    // Highlight active thumbnail
+    document.querySelectorAll('.boutique-detail__thumb').forEach(function(t) { t.classList.remove('boutique-detail__thumb--active'); });
+    var activeThumb = document.querySelector('.boutique-detail__thumb[data-flavor="' + (activeFlavor || 'default') + '"]');
+    if (activeThumb) activeThumb.classList.add('boutique-detail__thumb--active');
   }
 
   function updateDetailRef(p) {
@@ -1581,6 +1594,34 @@
     if (p.variants.flavor && p.variants.flavor[selectedFlavor] && p.variants.flavor[selectedFlavor].ref) parts.push(p.variants.flavor[selectedFlavor].ref);
     var refEl = document.getElementById('detail-ref');
     if (refEl) refEl.textContent = 'Réf : ' + parts.join(' | ');
+  }
+
+  // ── Build flavor thumbnails ─────────────────────────────
+  function buildFlavorThumbnails(p) {
+    var gallery = document.getElementById('detail-thumb-gallery');
+    if (!gallery || !p.flavorImgs) { if (gallery) gallery.innerHTML = ''; return; }
+    var flavors = p.variants.flavor || [];
+    var activeLabel = flavors[selectedFlavor] ? flavors[selectedFlavor].label : null;
+    var html = '';
+    flavors.forEach(function(f) {
+      var imgSrc = p.flavorImgs[f.label] || p.img;
+      var isActive = f.label === activeLabel;
+      html += '<button class="boutique-detail__thumb' + (isActive ? ' boutique-detail__thumb--active' : '') + '" data-flavor="' + f.label + '" data-index="' + flavors.indexOf(f) + '">' +
+        '<img src="' + imgSrc + '" alt="' + f.label + '">' +
+      '</button>';
+    });
+    gallery.innerHTML = html;
+
+    gallery.querySelectorAll('.boutique-detail__thumb').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        selectedFlavor = parseInt(this.getAttribute('data-index'));
+        updateDetailImage(p);
+        updateDetailPrice(p);
+        updateDetailRef(p);
+        buildVariants(p);
+        buildFlavorThumbnails(p);
+      });
+    });
   }
 
   // ── Variants ────────────────────────────────────────────
