@@ -82,21 +82,32 @@
   function updateActiveLink() {
     const links = document.querySelectorAll('.navbar__link');
     const sections = ['accueil', 'offre-entreprise', 'services', 'catalogue', 'galerie', 'avis', 'commander'];
-    let currentSection = 'accueil';
+    let currentSection = null;
 
-    sections.forEach(id => {
-      const el = document.getElementById(id);
+    // Find the last section that has scrolled past the threshold
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sections[i]);
       if (el) {
         const rect = el.getBoundingClientRect();
-        if (rect.top <= 150) currentSection = id;
+        if (rect.top <= 150) {
+          currentSection = sections[i];
+          break;
+        }
       }
-    });
+    }
+
+    // Also handle bottom of page — use the last visible section
+    if (!currentSection && window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      currentSection = 'commander';
+    }
 
     links.forEach(link => {
       link.classList.remove('navbar__link--active');
-      const href = link.getAttribute('href');
-      if (href && href.includes(currentSection)) {
-        link.classList.add('navbar__link--active');
+      if (currentSection) {
+        const href = link.getAttribute('href');
+        if (href && href.includes(currentSection)) {
+          link.classList.add('navbar__link--active');
+        }
       }
     });
   }
