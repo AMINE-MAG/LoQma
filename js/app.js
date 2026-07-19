@@ -1711,11 +1711,13 @@
       });
       html += '</table>';
     } else if (tab === 'ingredients') {
-      html = '<ul>' + p.ingredients.map(function(i) {
+      html = '<table>';
+      p.ingredients.forEach(function(i) {
         var name = typeof i === 'string' ? i : i.name;
-        var pct = (typeof i !== 'string' && i.pct) ? ' <span style="color:var(--color-text-muted);font-size:0.8rem;">' + i.pct + '</span>' : '';
-        return '<li>' + name + pct + '</li>';
-      }).join('') + '</ul>';
+        var pct = (typeof i !== 'string' && i.pct) ? i.pct : '';
+        html += '<tr><td>' + name + '</td><td>' + pct + '</td></tr>';
+      });
+      html += '</table>';
     } else if (tab === 'allergies') {
       if (p.allergens && p.allergens.length > 0) {
         html = '<p style="margin-bottom:8px;font-weight:600;color:var(--color-navy);">Allergènes présents :</p>';
