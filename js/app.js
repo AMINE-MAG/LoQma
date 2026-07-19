@@ -188,6 +188,13 @@
       alt:      'Buffet Événementiel — LoQma Traiteur'
     },
     {
+      category: 'Brunch · Dimanche',
+      title:    'Brunch',
+      desc:     'Un brunch tunisien authentique le dimanche — buffet salé et sucré aux saveurs méditerranéennes, 100% fait maison.',
+      img:      'assets/brunch1.jpg',
+      alt:      'Brunch — LoQma Traiteur'
+    },
+    {
       category: 'Box · Partage',
       title:    'Box à Partager',
       desc:     'Box variées avec mini bouchées tunisiennes salées et sucrées.',

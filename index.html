@@ -78,11 +78,12 @@
               <div class="navbar__dropdown">
                 <a href="#services" class="navbar__service-link" data-service="0">Buffet Mariage</a>
                 <a href="#services" class="navbar__service-link" data-service="1">Buffet Événementiel</a>
-                <a href="#services" class="navbar__service-link" data-service="2">Box à Partager</a>
-                <a href="#services" class="navbar__service-link" data-service="3">Box Repas Individuelle</a>
-                <a href="#services" class="navbar__service-link" data-service="4">Pause Gourmande</a>
-                <a href="#services" class="navbar__service-link" data-service="5">Coffrets à Offrir</a>
-                <a href="#services" class="navbar__service-link" data-service="6">Nos Ateliers</a>
+                <a href="#services" class="navbar__service-link" data-service="2">Brunch</a>
+                <a href="#services" class="navbar__service-link" data-service="3">Box à Partager</a>
+                <a href="#services" class="navbar__service-link" data-service="4">Box Repas Individuelle</a>
+                <a href="#services" class="navbar__service-link" data-service="5">Pause Gourmande</a>
+                <a href="#services" class="navbar__service-link" data-service="6">Coffrets à Offrir</a>
+                <a href="#services" class="navbar__service-link" data-service="7">Nos Ateliers</a>
               </div>
             </span>
             <a href="#catalogue" class="navbar__link">Catalogue</a>
@@ -271,25 +272,28 @@
           <li class="services__item"
               role="tab" tabindex="-1"
               aria-selected="false" aria-controls="service-panel-2" id="service-tab-2"
-              data-index="2">Box à Partager</li>
+              data-index="2">Brunch</li>
           <li class="services__item"
               role="tab" tabindex="-1"
               aria-selected="false" aria-controls="service-panel-3" id="service-tab-3"
-              data-index="3">Box Repas Individuelle</li>
+              data-index="3">Box à Partager</li>
+          <li class="services__item"
+              role="tab" tabindex="-1"
+              aria-selected="false" aria-controls="service-panel-3" id="service-tab-3"
+              data-index="4">Box Repas Individuelle</li>
           <li class="services__item"
               role="tab" tabindex="-1"
               aria-selected="false" aria-controls="service-panel-4" id="service-tab-4"
-              data-index="4">Pause Gourmande</li>
+              data-index="5">Pause Gourmande</li>
           <li class="services__item"
               role="tab" tabindex="-1"
               aria-selected="false" aria-controls="service-panel-5" id="service-tab-5"
-              data-index="5">Coffrets à Offrir</li>
+              data-index="6">Coffrets à Offrir</li>
           <li class="services__item"
               role="tab" tabindex="-1"
               aria-selected="false" aria-controls="service-panel-6" id="service-tab-6"
-              data-index="6">Nos Ateliers</li>
+              data-index="7">Nos Ateliers</li>
         </ul>
-        <a href="#commander" class="services__cta">Commander ce service →</a>
       </div>
 
       <!-- Right: panel container (desktop) -->
@@ -308,7 +312,7 @@
           </div>
         </div>
 
-        <!-- Panel 1: Buffet Événementiel -->
+        <!-- Panel 2: Brunch -->
         <div class="services__panel"
              id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1">
           <img src="assets/buffet-event.png"
@@ -322,9 +326,23 @@
           </div>
         </div>
 
-        <!-- Panel 2: Box à Partager -->
+        <!-- Panel 2: Brunch -->
         <div class="services__panel"
              id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2">
+          <img src="assets/brunch1.jpg"
+               alt="Brunch — LoQma Traiteur, brunch tunisien"
+               class="services__panel-img" loading="lazy"
+               style="object-position: center 25%;">
+          <div class="services__panel-overlay">
+            <p class="services__panel-category">Brunch · Dimanche</p>
+            <h3 class="services__panel-title">Brunch</h3>
+            <p class="services__panel-desc">Un brunch tunisien authentique le dimanche — buffet salé et sucré aux saveurs méditerranéennes, 100% fait maison.</p>
+          </div>
+        </div>
+
+        <!-- Panel 3: Box à Partager -->
+        <div class="services__panel"
+             id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3">
           <img src="assets/bax a partager 2.jpg"
                alt="Box à Partager — LoQma Traiteur, bouchées tunisiennes à partager"
                class="services__panel-img" loading="lazy"
@@ -352,7 +370,7 @@
 
         <!-- Panel 4: Pause Gourmande -->
         <div class="services__panel"
-             id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4">
+             id="service-panel-5" role="tabpanel" aria-labelledby="service-tab-5">
           <img src="assets/Pause Gourmande.png"
                alt="Pause Gourmande Entreprise — LoQma Traiteur, miniardises"
                class="services__panel-img" loading="lazy"
@@ -380,7 +398,7 @@
 
         <!-- Panel 6: Nos Ateliers -->
         <div class="services__panel"
-             id="service-panel-6" role="tabpanel" aria-labelledby="service-tab-6">
+             id="service-panel-7" role="tabpanel" aria-labelledby="service-tab-7">
           <img src="assets/Ateliers.JPG"
                alt="Nos Ateliers — LoQma Traiteur, ateliers cuisine tunisienne"
                class="services__panel-img" loading="lazy"
