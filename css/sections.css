@@ -237,9 +237,13 @@
   padding: 8px 18px;
   border-radius: var(--radius-sm);
   text-decoration: none;
+  cursor: pointer;
   transition: all var(--transition-fast);
   position: relative;
   white-space: nowrap;
+  background: none;
+  border: none;
+  font-family: inherit;
 }
 
 .navbar--transparent .navbar__link {

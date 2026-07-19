@@ -326,6 +326,30 @@
   });
 
   activate(0);
+
+  // Check sessionStorage for service target (from navbar dropdown)
+  try {
+    var target = sessionStorage.getItem('loqma_service_target');
+    if (target !== null) {
+      activate(parseInt(target));
+      sessionStorage.removeItem('loqma_service_target');
+    }
+  } catch(e) {}
+})();
+
+/* ────────────────────────────────────────────────────────────
+   3b. NAVBAR SERVICE DROPDOWN — navigate to specific service
+   ──────────────────────────────────────────────────────────── */
+(function initNavbarServiceLinks() {
+  var links = document.querySelectorAll('.navbar__service-link');
+  links.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var idx = this.getAttribute('data-service');
+      if (idx !== null) {
+        try { sessionStorage.setItem('loqma_service_target', idx); } catch(_) {}
+      }
+    });
+  });
 })();
 
 /* ────────────────────────────────────────────────────────────
