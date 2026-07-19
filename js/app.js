@@ -58,7 +58,7 @@
   const navbar    = document.getElementById('navbar');
   const hamburger = navbar ? navbar.querySelector('.navbar__hamburger') : null;
   const overlay   = document.getElementById('nav-overlay');
-  const closeBtn  = null;
+  const closeBtn  = overlay ? overlay.querySelector('.nav-overlay__close') : null;
   const links     = overlay ? overlay.querySelectorAll('.nav-overlay__link') : [];
   if (!navbar || !hamburger || !overlay) return;
 
