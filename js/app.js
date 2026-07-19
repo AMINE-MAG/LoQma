@@ -1785,31 +1785,101 @@
   setupModal('brunch-modal');
   setupModal('ateliers-modal');
 
-  // ── Date validation ───────────────────────────────────
-  function validateDay(e, allowedDays, errorEl) {
-    var date = new Date(e.target.value + 'T00:00:00');
-    if (isNaN(date.getTime())) return;
-    var day = date.getDay(); // 0=Sun, 6=Sat
-    if (!allowedDays.includes(day)) {
-      errorEl.style.display = 'block';
-      e.target.setCustomValidity('invalid');
-    } else {
-      errorEl.style.display = 'none';
-      e.target.setCustomValidity('');
+  // ── Custom Calendar ───────────────────────────────────
+  var MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  var DAYS = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+
+  function buildCalendar(containerId, hiddenInputId, mode) {
+    var container = document.getElementById(containerId);
+    var hiddenInput = document.getElementById(hiddenInputId);
+    if (!container || !hiddenInput) return;
+
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+    var selectedDate = null;
+
+    function render() {
+      var firstDay = new Date(currentYear, currentMonth, 1);
+      var lastDay = new Date(currentYear, currentMonth + 1, 0);
+      var startDow = (firstDay.getDay() + 6) % 7; // Mon=0
+      var daysInMonth = lastDay.getDate();
+
+      var html = '<div class="reservation-calendar__header">' +
+        '<button class="js-cal-prev">‹</button>' +
+        '<span class="reservation-calendar__month">' + MONTHS[currentMonth] + ' ' + currentYear + '</span>' +
+        '<button class="js-cal-next">›</button>' +
+        '</div>';
+
+      html += '<div class="reservation-calendar__grid">';
+      DAYS.forEach(function(d) { html += '<span class="reservation-calendar__day-label">' + d + '</span>'; });
+
+      for (var i = 0; i < startDow; i++) { html += '<span class="reservation-calendar__day reservation-calendar__day--empty"></span>'; }
+
+      for (var d = 1; d <= daysInMonth; d++) {
+        var date = new Date(currentYear, currentMonth, d);
+        var dow = date.getDay(); // 0=Sun
+        var allowed, classes = [];
+
+        if (mode === 'sundays') allowed = (dow === 0);
+        else if (mode === 'weekdays') allowed = (dow >= 1 && dow <= 5);
+        else allowed = true;
+
+        if (!allowed) classes.push('reservation-calendar__day--disabled');
+
+        var dateStr = currentYear + '-' + String(currentMonth+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+        if (selectedDate === dateStr) classes.push('reservation-calendar__day--selected');
+        if (d === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+          classes.push('reservation-calendar__day--today');
+        }
+
+        html += '<button class="reservation-calendar__day ' + classes.join(' ') + '" data-date="' + dateStr + '"' + (allowed ? '' : ' disabled') + '>' + d + '</button>';
+      }
+      html += '</div>';
+      container.innerHTML = html;
+
+      // Event listeners
+      container.querySelector('.js-cal-prev').onclick = function() {
+        currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+        render();
+      };
+      container.querySelector('.js-cal-next').onclick = function() {
+        currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+        render();
+      };
+      container.querySelectorAll('.reservation-calendar__day:not(.reservation-calendar__day--disabled):not(.reservation-calendar__day--empty)').forEach(function(btn) {
+        btn.onclick = function() {
+          selectedDate = btn.dataset.date;
+          hiddenInput.value = selectedDate;
+          hiddenInput.setCustomValidity('');
+          var errorEl = container.parentElement.querySelector('.reservation-form__error');
+          if (errorEl) errorEl.style.display = 'none';
+          render();
+        };
+      });
     }
+    render();
   }
 
-  var brunchDate = document.getElementById('brunch-date');
-  var brunchError = document.querySelector('#brunch-form .reservation-form__error');
-  if (brunchDate && brunchError) {
-    brunchDate.addEventListener('change', function(e) { validateDay(e, [0], brunchError); });
+  buildCalendar('brunch-calendar', 'brunch-date', 'sundays');
+  buildCalendar('ateliers-calendar', 'ateliers-date', 'weekdays');
+
+  // ── French phone validation ────────────────────────────
+  function validatePhone(input) {
+    var raw = input.value.replace(/[\s\.\-]/g, '');
+    var valid = /^(0[1-9]|\+33[1-9])\d{8}$/.test(raw);
+    input.setCustomValidity(valid ? '' : 'invalid');
+    input.style.borderColor = input.value && !valid ? '#d32f2f' : '';
+    return valid;
   }
 
-  var ateliersDate = document.getElementById('ateliers-date');
-  var ateliersError = document.querySelector('#ateliers-form .reservation-form__error');
-  if (ateliersDate && ateliersError) {
-    ateliersDate.addEventListener('change', function(e) { validateDay(e, [1,2,3,4,5], ateliersError); });
-  }
+  ['brunch-phone', 'ateliers-phone'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function() { validatePhone(el); });
+      el.addEventListener('blur', function() { validatePhone(el); });
+    }
+  });
 
   // ── Form submit → show success ────────────────────────
   function handleSubmit(formId, successEl) {
@@ -1817,10 +1887,17 @@
     if (!form) return;
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      // Validate phone
+      var phoneInput = form.querySelector('input[type="tel"]');
+      if (phoneInput && !validatePhone(phoneInput)) { phoneInput.reportValidity(); return; }
+      // Validate hidden date
+      var dateInput = form.querySelector('input[type="hidden"][name="date"]');
+      if (dateInput && !dateInput.value) { dateInput.setCustomValidity('invalid'); dateInput.reportValidity(); return; }
       if (!form.checkValidity()) { form.reportValidity(); return; }
       successEl.style.display = 'block';
       form.querySelector('.reservation-form__submit').disabled = true;
-      form.reset();
+      // Reset hidden date input on success
+      if (dateInput) dateInput.value = '';
     });
   }
   handleSubmit('brunch-form', document.querySelector('#brunch-form .reservation-form__success'));

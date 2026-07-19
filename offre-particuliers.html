@@ -423,6 +423,20 @@
     .reservation-form__error { display:none; font-size:0.72rem; color:#d32f2f; }
     .reservation-form__submit { margin-top:4px; }
     .reservation-form__success { display:none; padding:12px; background:#e8f5e9; border-radius:8px; color:#2e7d32; font-size:0.88rem; }
+    /* ── Custom Calendar ────────────────────────────── */
+    .reservation-calendar { user-select:none; }
+    .reservation-calendar__header { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+    .reservation-calendar__header button { width:28px; height:28px; border-radius:50%; border:1px solid rgba(28,31,138,0.1); background:none; cursor:pointer; font-size:0.85rem; color:var(--color-text); display:flex; align-items:center; justify-content:center; }
+    .reservation-calendar__header button:hover { border-color:var(--color-gold); }
+    .reservation-calendar__month { font-size:0.82rem; font-weight:600; color:var(--color-navy); }
+    .reservation-calendar__grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+    .reservation-calendar__day-label { font-size:0.6rem; text-align:center; color:var(--color-text-muted); padding:2px 0; text-transform:uppercase; letter-spacing:0.03em; }
+    .reservation-calendar__day { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:0.75rem; border-radius:6px; cursor:pointer; color:var(--color-text); transition:all 0.15s ease; background:transparent; border:none; font-family:var(--font-sans); padding:0; }
+    .reservation-calendar__day:hover:not(.reservation-calendar__day--disabled) { background:var(--color-navy-light); }
+    .reservation-calendar__day--disabled { color:rgba(28,31,138,0.12); cursor:not-allowed; }
+    .reservation-calendar__day--empty { cursor:default; }
+    .reservation-calendar__day--selected { background:var(--color-navy); color:var(--color-cream); font-weight:600; }
+    .reservation-calendar__day--today { font-weight:600; color:var(--color-gold); }
     @media (max-width:700px) { .reservation-modal__card { flex-direction:column; } .reservation-modal__image { width:100%; height:180px; } .reservation-form__row { flex-direction:column; } .reservation-modal__body { padding:24px 20px; } }
   </style>
 </head>
@@ -690,8 +704,9 @@
             <div class="reservation-form__row">
               <div class="reservation-form__group">
                 <label for="brunch-date">Date</label>
-                <input type="date" id="brunch-date" name="date" required>
-                <span class="reservation-form__hint">Dimanches uniquement</span>
+                <div class="reservation-calendar" id="brunch-calendar" data-mode="sundays"></div>
+                <input type="hidden" id="brunch-date" name="date" required>
+                <span class="reservation-form__hint">Cliquez sur un dimanche</span>
                 <p class="reservation-form__error" role="alert">Veuillez choisir un dimanche.</p>
               </div>
               <div class="reservation-form__group">
@@ -734,13 +749,14 @@
         <div class="reservation-modal__body">
           <span class="reservation-modal__badge">Ateliers</span>
           <h2 class="reservation-modal__title">Réserver un créneau</h2>
-          <p class="reservation-modal__info">👨‍👩‍👧 Du <strong>lundi au vendredi</strong> · Matin 9h-12h ou Après-midi 14h-17h</p>
+          <p class="reservation-modal__info">Du <strong>lundi au vendredi</strong> · Matin 9h-12h ou Après-midi 14h-17h</p>
           <form id="ateliers-form" class="reservation-form" novalidate>
             <div class="reservation-form__row">
               <div class="reservation-form__group">
                 <label for="ateliers-date">Date souhaitée</label>
-                <input type="date" id="ateliers-date" name="date" required>
-                <span class="reservation-form__hint">Du lundi au vendredi</span>
+                <div class="reservation-calendar" id="ateliers-calendar" data-mode="weekdays"></div>
+                <input type="hidden" id="ateliers-date" name="date" required>
+                <span class="reservation-form__hint">Cliquez sur un jour (lun-ven)</span>
                 <p class="reservation-form__error" role="alert">Veuillez choisir un jour de semaine (lun-ven).</p>
               </div>
               <div class="reservation-form__group">
