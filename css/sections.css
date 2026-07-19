@@ -2458,9 +2458,10 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   border: 1.5px solid rgba(200,154,74,0.35);
-  filter: brightness(0.85);
+  background: var(--color-white);
+  padding: 4px;
 }
 
 .footer__tagline {
