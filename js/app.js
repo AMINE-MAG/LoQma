@@ -1290,7 +1290,15 @@
         { label: 'Glucides', value: '58 g' },
         { label: 'Lipides', value: '6 g' }
       ],
-      ingredients: ['Orge grillée', 'Blé', 'Pois chiches', 'Lentilles', 'Graines de sésame', 'Fenouil', 'Épices naturelles'],
+      ingredients: [
+        { name: 'Orge grillée', pct: '45%' },
+        { name: 'Blé', pct: '20%' },
+        { name: 'Pois chiches', pct: '12%' },
+        { name: 'Lentilles', pct: '10%' },
+        { name: 'Graines de sésame', pct: '5%' },
+        { name: 'Fenouil', pct: '3%' },
+        { name: 'Épices naturelles', pct: '5%' }
+      ],
       preparation: [
         'Ajouter 2 à 3 cuillères de Bssisa.',
         'Ajouter de l\'huile d\'olive ou du lait.',
@@ -1331,7 +1339,7 @@
         { label: 'Glucides', value: '52 g' },
         { label: 'Lipides', value: '18 g' }
       ],
-      ingredients: ['Farine de blé', 'Amandes', 'Miel', 'Fleur d\'oranger', 'Beurre', 'Sucre glace'],
+      ingredients: [{ name: 'Farine de blé', pct: '40%' }, { name: 'Amandes', pct: '25%' }, { name: 'Miel', pct: '15%' }, { name: 'Beurre', pct: '10%' }, { name: 'Sucre glace', pct: '6%' }, { name: "Fleur d'oranger", pct: '4%' }],
       preparation: ['Prêt à déguster.', 'Accompagne parfaitement le thé à la menthe.'],
       reviews: [
         { stars: 5, text: 'Un délice, on sent le fait maison.' },
@@ -1361,7 +1369,7 @@
         { label: 'Protéines', value: '8 g' },
         { label: 'Fibres', value: '5 g' }
       ],
-      ingredients: ['Farine de sorgho', 'Œufs', 'Fruits secs', 'Miel', 'Huile d\'olive'],
+      ingredients: [{ name: 'Farine de sorgho', pct: '35%' }, { name: 'Œufs', pct: '25%' }, { name: 'Fruits secs', pct: '20%' }, { name: 'Miel', pct: '12%' }, { name: "Huile d'olive", pct: '8%' }],
       preparation: ['Prêt à déguster.', 'Idéal au goûter ou en dessert.'],
       reviews: [
         { stars: 5, text: 'Moelleux et pas trop sucré, parfait.' }
@@ -1390,7 +1398,7 @@
         { label: 'Protéines', value: '6 g' },
         { label: 'Fibres', value: '4 g' }
       ],
-      ingredients: ['Farine de sorgho', 'Œufs', 'Amandes', 'Miel', 'Vanille'],
+      ingredients: [{ name: 'Farine de sorgho', pct: '35%' }, { name: 'Amandes', pct: '25%' }, { name: 'Œufs', pct: '20%' }, { name: 'Miel', pct: '15%' }, { name: 'Vanille', pct: '5%' }],
       preparation: ['Prêtes à déguster.'],
       reviews: [{ stars: 5, text: 'Petits gâteaux délicieux et légers.' }],
       faq: [{ q: 'Contiennent-elles du gluten ?', a: 'Non, 100% sans gluten.' }]
@@ -1415,7 +1423,7 @@
         { label: 'Protéines', value: '5 g' },
         { label: 'Fibres', value: '3 g' }
       ],
-      ingredients: ['Piments rouges séchés', 'Ail', 'Huile d\'olive', 'Cumin', 'Coriandre', 'Sel'],
+      ingredients: [{ name: 'Piments rouges séchés', pct: '60%' }, { name: 'Ail', pct: '15%' }, { name: "Huile d'olive", pct: '10%' }, { name: 'Cumin', pct: '6%' }, { name: 'Coriandre', pct: '5%' }, { name: 'Sel', pct: '4%' }],
       preparation: ['À utiliser comme condiment dans vos plats.', 'Idéale avec le couscous, les grillades, ou en tartine.'],
       reviews: [{ stars: 5, text: 'Harissa authentique, comme en Tunisie !' }],
       faq: [{ q: 'Quel est le niveau de piquant ?', a: 'Épicé mais pas brûlant — adapté à tous.' }]
@@ -1436,7 +1444,7 @@
         ]
       },
       nutrition: [],
-      ingredients: ['Bssisa artisanale', 'Ghrayef de Béja', 'Harissa maison', 'Emballage cadeau premium'],
+      ingredients: [{ name: 'Bssisa artisanale (100g)', pct: '40%' }, { name: 'Ghrayef de Béja (150g)', pct: '30%' }, { name: 'Harissa maison (100g)', pct: '25%' }, { name: 'Emballage cadeau premium', pct: '5%' }],
       preparation: ['Prêt à offrir.', 'Livré avec une carte personnalisable.'],
       reviews: [
         { stars: 5, text: 'Cadeau parfait, très belle présentation.' }
@@ -1703,7 +1711,11 @@
       });
       html += '</table>';
     } else if (tab === 'ingredients') {
-      html = '<ul>' + p.ingredients.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
+      html = '<ul>' + p.ingredients.map(function(i) {
+        var name = typeof i === 'string' ? i : i.name;
+        var pct = (typeof i !== 'string' && i.pct) ? ' <span style="color:var(--color-text-muted);font-size:0.8rem;">' + i.pct + '</span>' : '';
+        return '<li>' + name + pct + '</li>';
+      }).join('') + '</ul>';
     } else if (tab === 'allergies') {
       if (p.allergens && p.allergens.length > 0) {
         html = '<p style="margin-bottom:8px;font-weight:600;color:var(--color-navy);">Allergènes présents :</p>';
