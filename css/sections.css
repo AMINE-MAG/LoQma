@@ -1072,6 +1072,25 @@
   line-height: 1.65;
 }
 
+/* ── Panel image gallery (Brunch) ───────────────────────── */
+.services__panel-gallery {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.services__panel-gallery-img {
+  width: 64px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.services__panel-gallery-img:hover { transform: scale(1.08); border-color: rgba(242,238,231,0.4); }
+.services__panel-gallery-img--active { border-color: var(--color-gold); }
+.services__panel-gallery-img--active:hover { border-color: var(--color-gold); }
+
 /* Mobile: full-width accordion */
 @media (max-width: 767px) {
   .services {
