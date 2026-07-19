@@ -1248,3 +1248,395 @@
   if (statsSection) observer.observe(statsSection);
   else if (counters.length) animateCounters(); // fallback
 })();
+
+/* ────────────────────────────────────────────────────────────
+   16. BOUTIQUE — Product grid, filters, detail overlay
+   ──────────────────────────────────────────────────────────── */
+(function initBoutique() {
+  var grid = document.getElementById('boutique-products');
+  if (!grid) return;
+
+  // ── Product data ────────────────────────────────────────
+  var products = [
+    {
+      id: 'bssisa',
+      name: 'Bssisa Artisanale 100% Naturelle',
+      category: 'petit-dejeuner',
+      basePrice: 8,
+      img: 'assets/Bssissa.jpg',
+      desc: 'Recette traditionnelle tunisienne préparée avec des céréales et légumineuses soigneusement sélectionnées.',
+      variants: {
+        weight: [
+          { label: '100g', price: 8 },
+          { label: '250g', price: 14 },
+          { label: '500g', price: 22 }
+        ],
+        flavor: [
+          { label: 'Standard', price: 0 },
+          { label: 'Pistache', price: 2 },
+          { label: 'Chocolat Ferrero', price: 2 }
+        ]
+      },
+      nutrition: [
+        { label: 'Calories', value: '345 kcal / 100g' },
+        { label: 'Protéines', value: '12 g' },
+        { label: 'Fibres', value: '8 g' },
+        { label: 'Glucides', value: '58 g' },
+        { label: 'Lipides', value: '6 g' }
+      ],
+      ingredients: ['Orge grillée', 'Blé', 'Pois chiches', 'Lentilles', 'Graines de sésame', 'Fenouil', 'Épices naturelles'],
+      preparation: [
+        'Ajouter 2 à 3 cuillères de Bssisa.',
+        'Ajouter de l\'huile d\'olive ou du lait.',
+        'Mélanger jusqu\'à obtenir une pâte homogène.',
+        'Sucrer avec du miel ou du sucre selon vos goûts.',
+        'Déguster au petit-déjeuner ou au goûter.'
+      ],
+      reviews: [
+        { stars: 5, text: 'Excellent goût, très proche de la recette de ma grand-mère.' },
+        { stars: 5, text: 'Parfait avant le sport, énergie durable.' },
+        { stars: 5, text: 'Produit naturel et très nourrissant.' }
+      ],
+      faq: [
+        { q: 'Comment conserver la Bssisa ?', a: 'Dans un endroit frais et sec, à l\'abri de l\'humidité.' },
+        { q: 'Quelle est la durée de conservation ?', a: 'Environ 12 mois dans son emballage d\'origine.' },
+        { q: 'Convient-elle aux végétariens ?', a: 'Oui, 100% végétale.' }
+      ]
+    },
+    {
+      id: 'ghrayef',
+      name: 'Ghrayef de Béja',
+      category: 'sucre',
+      basePrice: 7,
+      img: 'assets/007_DXVKtLuiJyr_01.jpg',
+      desc: 'Pâtisseries feuilletées aux amandes et au miel, parfumées à la fleur d\'oranger — une douceur de Béja.',
+      variants: {
+        weight: [
+          { label: '150g', price: 7 },
+          { label: '300g', price: 12 }
+        ]
+      },
+      nutrition: [
+        { label: 'Calories', value: '380 kcal / 100g' },
+        { label: 'Protéines', value: '7 g' },
+        { label: 'Fibres', value: '3 g' },
+        { label: 'Glucides', value: '52 g' },
+        { label: 'Lipides', value: '18 g' }
+      ],
+      ingredients: ['Farine de blé', 'Amandes', 'Miel', 'Fleur d\'oranger', 'Beurre', 'Sucre glace'],
+      preparation: ['Prêt à déguster.', 'Accompagne parfaitement le thé à la menthe.'],
+      reviews: [
+        { stars: 5, text: 'Un délice, on sent le fait maison.' },
+        { stars: 4, text: 'Très bonnes, juste comme en Tunisie.' }
+      ],
+      faq: [
+        { q: 'Combien de temps se conservent-elles ?', a: 'Jusqu\'à 10 jours dans une boîte hermétique.' }
+      ]
+    },
+    {
+      id: 'cake-sorgho',
+      name: 'Cake au Sorgho',
+      category: 'sucre',
+      basePrice: 7,
+      img: 'assets/026_DYpdW3eIZli_01.jpg',
+      desc: 'Gâteau moelleux au sorgho et aux fruits secs — une pâtisserie saine sans gluten, pleine de saveurs.',
+      variants: {
+        weight: [
+          { label: 'Part individuelle', price: 3 },
+          { label: 'Gâteau entier', price: 7 }
+        ]
+      },
+      nutrition: [
+        { label: 'Calories', value: '290 kcal / 100g' },
+        { label: 'Protéines', value: '8 g' },
+        { label: 'Fibres', value: '5 g' }
+      ],
+      ingredients: ['Farine de sorgho', 'Œufs', 'Fruits secs', 'Miel', 'Huile d\'olive'],
+      preparation: ['Prêt à déguster.', 'Idéal au goûter ou en dessert.'],
+      reviews: [
+        { stars: 5, text: 'Moelleux et pas trop sucré, parfait.' }
+      ],
+      faq: [
+        { q: 'Est-il sans gluten ?', a: 'Oui, préparé exclusivement avec de la farine de sorgho.' }
+      ]
+    },
+    {
+      id: 'miniardises',
+      name: 'Miniardises au Sorgho',
+      category: 'sucre',
+      basePrice: 6,
+      img: 'assets/008_DXg8x72iNpM_01.jpg',
+      desc: 'Petits gâteaux artisanaux sans gluten, légers et gourmands — parfaits pour toutes les occasions.',
+      variants: {
+        weight: [
+          { label: '150g', price: 6 },
+          { label: '300g', price: 11 }
+        ]
+      },
+      nutrition: [
+        { label: 'Calories', value: '310 kcal / 100g' },
+        { label: 'Protéines', value: '6 g' },
+        { label: 'Fibres', value: '4 g' }
+      ],
+      ingredients: ['Farine de sorgho', 'Œufs', 'Amandes', 'Miel', 'Vanille'],
+      preparation: ['Prêtes à déguster.'],
+      reviews: [{ stars: 5, text: 'Petits gâteaux délicieux et légers.' }],
+      faq: [{ q: 'Contiennent-elles du gluten ?', a: 'Non, 100% sans gluten.' }]
+    },
+    {
+      id: 'harissa',
+      name: 'Harissa Maison',
+      category: 'sale',
+      basePrice: 5,
+      img: 'assets/005_harissa&pain.jpg',
+      desc: 'Harissa artisanale préparée avec des piments séchés au soleil, de l\'ail et des épices — le condiment indispensable.',
+      variants: {
+        weight: [
+          { label: '100g', price: 5 },
+          { label: '250g', price: 10 }
+        ]
+      },
+      nutrition: [
+        { label: 'Calories', value: '120 kcal / 100g' },
+        { label: 'Protéines', value: '5 g' },
+        { label: 'Fibres', value: '3 g' }
+      ],
+      ingredients: ['Piments rouges séchés', 'Ail', 'Huile d\'olive', 'Cumin', 'Coriandre', 'Sel'],
+      preparation: ['À utiliser comme condiment dans vos plats.', 'Idéale avec le couscous, les grillades, ou en tartine.'],
+      reviews: [{ stars: 5, text: 'Harissa authentique, comme en Tunisie !' }],
+      faq: [{ q: 'Quel est le niveau de piquant ?', a: 'Épicé mais pas brûlant — adapté à tous.' }]
+    },
+    {
+      id: 'coffret',
+      name: 'Coffret Découverte LoQma',
+      category: 'coffret',
+      basePrice: 28,
+      img: 'assets/Box à Partager.jpg',
+      desc: 'Un coffret élégant réunissant nos 3 produits signatures : Bssisa, Ghrayef et Harissa — l\'idée cadeau parfaite.',
+      variants: {
+        weight: [
+          { label: 'Standard', price: 28 },
+          { label: 'Premium (+ pâtisseries)', price: 42 }
+        ]
+      },
+      nutrition: [],
+      ingredients: ['Bssisa artisanale', 'Ghrayef de Béja', 'Harissa maison', 'Emballage cadeau premium'],
+      preparation: ['Prêt à offrir.', 'Livré avec une carte personnalisable.'],
+      reviews: [
+        { stars: 5, text: 'Cadeau parfait, très belle présentation.' }
+      ],
+      faq: [
+        { q: 'Peut-on personnaliser le coffret ?', a: 'Oui, contactez-nous pour un coffret sur mesure.' }
+      ]
+    }
+  ];
+
+  var currentCategory = 'all';
+  var currentSort = 'default';
+  var selectedWeight = 0;
+  var selectedFlavor = 0;
+
+  // ── Render grid ─────────────────────────────────────────
+  function renderProducts() {
+    var filtered = products.slice();
+
+    if (currentCategory !== 'all') {
+      filtered = filtered.filter(function(p) { return p.category === currentCategory; });
+    }
+
+    if (currentSort === 'price-asc') {
+      filtered.sort(function(a, b) { return a.basePrice - b.basePrice; });
+    } else if (currentSort === 'price-desc') {
+      filtered.sort(function(a, b) { return b.basePrice - a.basePrice; });
+    }
+
+    var emptyMsg = document.getElementById('boutique-empty');
+    emptyMsg.hidden = filtered.length > 0;
+
+    grid.innerHTML = filtered.map(function(p) {
+      return '<article class="boutique-card" data-id="' + p.id + '">' +
+        '<div class="boutique-card__img-wrap">' +
+          '<span class="boutique-card__tag">' + getCategoryLabel(p.category) + '</span>' +
+          '<span class="boutique-card__price">' + getPriceRange(p) + '</span>' +
+          '<img src="' + p.img + '" alt="' + p.name + '" class="boutique-card__img" loading="lazy">' +
+        '</div>' +
+        '<div class="boutique-card__body">' +
+          '<h3 class="boutique-card__name">' + p.name + '</h3>' +
+          '<p class="boutique-card__desc">' + p.desc + '</p>' +
+          '<span class="boutique-card__btn">Voir le produit →</span>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    // Attach click handlers
+    grid.querySelectorAll('.boutique-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var id = card.getAttribute('data-id');
+        var product = products.find(function(p) { return p.id === id; });
+        if (product) openDetail(product);
+      });
+    });
+  }
+
+  function getCategoryLabel(cat) {
+    var labels = { 'petit-dejeuner': 'Petit-déj', 'sucre': 'Sucré', 'sale': 'Salé', 'coffret': 'Coffret' };
+    return labels[cat] || cat;
+  }
+
+  function getPriceRange(p) {
+    if (p.variants && p.variants.weight && p.variants.weight.length > 1) {
+      var min = Math.min.apply(null, p.variants.weight.map(function(w) { return w.price; }));
+      var max = Math.max.apply(null, p.variants.weight.map(function(w) { return w.price; }));
+      return 'à partir de ' + min + ' €';
+    }
+    return p.basePrice + ' €';
+  }
+
+  // ── Category filters ────────────────────────────────────
+  document.getElementById('boutique-category-filters').addEventListener('click', function(e) {
+    var btn = e.target.closest('.boutique-filters__pill');
+    if (!btn) return;
+    document.querySelectorAll('.boutique-filters__pill').forEach(function(b) { b.classList.remove('boutique-filters__pill--active'); });
+    btn.classList.add('boutique-filters__pill--active');
+    currentCategory = btn.getAttribute('data-category');
+    renderProducts();
+  });
+
+  // ── Sort ────────────────────────────────────────────────
+  document.getElementById('boutique-sort').addEventListener('change', function() {
+    currentSort = this.value;
+    renderProducts();
+  });
+
+  // ── Detail overlay ──────────────────────────────────────
+  var detailOverlay = document.getElementById('boutique-detail');
+  var detailClose = document.querySelector('.boutique-detail__close');
+
+  function openDetail(p) {
+    document.getElementById('detail-product-img').src = p.img;
+    document.getElementById('detail-product-img').alt = p.name;
+    document.getElementById('detail-category').textContent = getCategoryLabel(p.category);
+    document.getElementById('detail-name').textContent = p.name;
+    document.getElementById('detail-desc').textContent = p.desc;
+
+    selectedWeight = 0;
+    selectedFlavor = 0;
+    updateDetailPrice(p);
+    buildVariants(p);
+    buildTabContent(p, 'nutrition');
+
+    detailOverlay.hidden = false;
+    detailOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    // Reset tabs
+    document.querySelectorAll('.boutique-detail__tab').forEach(function(t) { t.classList.remove('boutique-detail__tab--active'); });
+    var firstTab = document.querySelector('.boutique-detail__tab[data-tab="nutrition"]');
+    if (firstTab) firstTab.classList.add('boutique-detail__tab--active');
+  }
+
+  function closeDetail() {
+    detailOverlay.classList.remove('is-open');
+    detailOverlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  detailClose && detailClose.addEventListener('click', closeDetail);
+  detailOverlay.addEventListener('click', function(e) { if (e.target === detailOverlay) closeDetail(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && detailOverlay.classList.contains('is-open')) closeDetail(); });
+
+  // ── Variants ────────────────────────────────────────────
+  function buildVariants(p) {
+    var container = document.getElementById('detail-variants');
+    if (!container) return;
+    var html = '';
+
+    if (p.variants.weight && p.variants.weight.length > 0) {
+      html += '<div class="boutique-detail__variant-group">' +
+        '<p class="boutique-detail__variant-label">Poids</p>' +
+        '<div class="boutique-detail__variant-options" data-variant="weight">';
+      p.variants.weight.forEach(function(w, i) {
+        html += '<button class="boutique-detail__var' + (i === selectedWeight ? ' boutique-detail__var--active' : '') + '" data-index="' + i + '">' + w.label + '</button>';
+      });
+      html += '</div></div>';
+    }
+
+    if (p.variants.flavor && p.variants.flavor.length > 0) {
+      html += '<div class="boutique-detail__variant-group">' +
+        '<p class="boutique-detail__variant-label">Parfum</p>' +
+        '<div class="boutique-detail__variant-options" data-variant="flavor">';
+      p.variants.flavor.forEach(function(f, i) {
+        html += '<button class="boutique-detail__var' + (i === selectedFlavor ? ' boutique-detail__var--active' : '') + '" data-index="' + i + '">' + f.label + '</button>';
+      });
+      html += '</div></div>';
+    }
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.boutique-detail__var').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var variantType = this.parentElement.getAttribute('data-variant');
+        var idx = parseInt(this.getAttribute('data-index'));
+
+        if (variantType === 'weight') selectedWeight = idx;
+        else selectedFlavor = idx;
+
+        updateDetailPrice(p);
+        buildVariants(p); // re-render active states
+      });
+    });
+  }
+
+  function updateDetailPrice(p) {
+    var total = p.basePrice;
+    if (p.variants.weight && p.variants.weight[selectedWeight]) {
+      total = p.variants.weight[selectedWeight].price;
+    }
+    if (p.variants.flavor && p.variants.flavor[selectedFlavor]) {
+      total += p.variants.flavor[selectedFlavor].price;
+    }
+    document.getElementById('detail-price').textContent = total + ' €';
+  }
+
+  // ── Tabs ────────────────────────────────────────────────
+  document.querySelector('.boutique-detail__tabs').addEventListener('click', function(e) {
+    var tab = e.target.closest('.boutique-detail__tab');
+    if (!tab) return;
+    var tabName = tab.getAttribute('data-tab');
+    document.querySelectorAll('.boutique-detail__tab').forEach(function(t) { t.classList.remove('boutique-detail__tab--active'); });
+    tab.classList.add('boutique-detail__tab--active');
+
+    var productId = document.getElementById('detail-name').textContent;
+    var product = products.find(function(p) { return p.name === productId; });
+    if (product) buildTabContent(product, tabName);
+  });
+
+  function buildTabContent(p, tab) {
+    var container = document.getElementById('detail-tab-content');
+    var html = '';
+
+    if (tab === 'nutrition' && p.nutrition && p.nutrition.length > 0) {
+      html = '<table>';
+      p.nutrition.forEach(function(n) {
+        html += '<tr><td>' + n.label + '</td><td>' + n.value + '</td></tr>';
+      });
+      html += '</table>';
+    } else if (tab === 'ingredients') {
+      html = '<ul>' + p.ingredients.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
+    } else if (tab === 'preparation') {
+      html = '<ol style="padding-left:18px;">' + p.preparation.map(function(s, i) { return '<li style="padding:3px 0;">' + s + '</li>'; }).join('') + '</ol>';
+    } else if (tab === 'reviews' && p.reviews && p.reviews.length > 0) {
+      html = p.reviews.map(function(r) {
+        var stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+        return '<div class="boutique-detail__review"><div class="boutique-detail__review-stars">' + stars + '</div><p class="boutique-detail__review-text">' + r.text + '</p></div>';
+      }).join('');
+    } else if (tab === 'faq' && p.faq && p.faq.length > 0) {
+      html = p.faq.map(function(f) { return '<p><strong>' + f.q + '</strong><br>' + f.a + '</p>'; }).join('');
+    }
+
+    container.innerHTML = html || '<p>Aucune information disponible.</p>';
+  }
+
+  // ── Init ────────────────────────────────────────────────
+  renderProducts();
+})();

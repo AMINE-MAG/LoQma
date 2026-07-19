@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoQma Boutique — Design Concept</title>
+<style>
+:root {
+  --navy: #1C1F8A; --cream: #F2EEE7; --white: #FFFFFF;
+  --gold: #C89A4A; --text: #1A1A2E; --muted: #6B6B80;
+  --footer: #111630; --navy-light: #E8E9F8;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Agrandir', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background: #0b0b1a; color: var(--cream); padding: 40px 24px; }
+h2 { font-family: var(--font-serif); font-size: 1.6rem; color: var(--cream); margin: 48px 0 20px; }
+h2 em { color: var(--gold); font-style: italic; }
+h2:first-child { margin-top: 0; }
+
+/* ── HERO ── */
+.hero-demo {
+  max-width: 1100px; margin: 0 auto 40px;
+  background: linear-gradient(160deg, rgba(28,31,138,0.88) 0%, rgba(28,31,138,0.35) 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23c89a4a" opacity="0.1" width="400" height="200"/><circle cx="80" cy="120" r="30" fill="%23d4a843" opacity="0.25"/><circle cx="200" cy="80" r="45" fill="%23b89230" opacity="0.15"/><circle cx="320" cy="140" r="25" fill="%23c89a4a" opacity="0.2"/></svg>') center/cover;
+  border-radius: 24px; padding: 72px 48px; text-align: center; position: relative; overflow: hidden;
+}
+.hero-demo::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 6 L54 30 L30 54 L6 30 Z M30 18 L42 30 L30 42 L18 30 Z' stroke='%23F2EEE7' stroke-width='0.4' fill='none' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; }
+.hero-demo__label { font-size:0.68rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; position:relative; z-index:1; }
+.hero-demo__title { font-family:var(--font-serif); font-size:clamp(1.8rem,4vw,3rem); color:var(--cream); font-weight:600; line-height:1.1; margin-bottom:12px; position:relative; z-index:1; }
+.hero-demo__sub { font-family:var(--font-serif); font-style:italic; font-size:0.95rem; color:rgba(242,238,231,0.6); position:relative; z-index:1; }
+
+/* ── FILTER BAR ── */
+.filters-demo {
+  max-width: 1100px; margin: 0 auto 32px;
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,154,74,0.1);
+  border-radius: 16px; padding: 12px 20px;
+}
+.filters-demo__pill {
+  font-size:0.76rem; font-weight:600; letter-spacing:0.06em;
+  padding: 8px 18px; border-radius:50px; cursor:pointer;
+  border:1.5px solid rgba(200,154,74,0.15); color:rgba(242,238,231,0.55);
+  background:transparent; transition:all 0.2s ease; white-space:nowrap;
+}
+.filters-demo__pill:hover { border-color:var(--gold); color:var(--cream); }
+.filters-demo__pill--active { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+.filters-demo__sort { margin-left:auto; font-size:0.78rem; color:rgba(242,238,231,0.5); display:flex; align-items:center; gap:6px; }
+
+/* ── PRODUCT GRID ── */
+.grid-demo {
+  max-width:1100px; margin:0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.card-demo {
+  background: rgba(255,255,255,0.05); border:1px solid rgba(200,154,74,0.08);
+  border-radius: 16px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;
+}
+.card-demo:hover { transform:translateY(-4px); border-color:rgba(200,154,74,0.2); background:rgba(255,255,255,0.08); }
+.card-demo__img { aspect-ratio:1; background:linear-gradient(135deg,#2a2040,#1a1a30); display:flex; align-items:center; justify-content:center; position:relative; font-size:3rem; }
+.card-demo__tag { position:absolute; top:10px; left:10px; font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:var(--gold); color:var(--navy); padding:4px 10px; border-radius:50px; }
+.card-demo__price { position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.92); color:var(--navy); padding:4px 12px; border-radius:50px; font-size:0.78rem; font-weight:700; }
+.card-demo__body { padding: 16px 18px 20px; }
+.card-demo__name { font-family:var(--font-serif); font-size:1.1rem; font-weight:600; color:var(--cream); margin-bottom:4px; }
+.card-demo__desc { font-size:0.8rem; color:rgba(242,238,231,0.45); line-height:1.5; margin-bottom:12px; }
+.card-demo__btn { font-size:0.72rem; font-weight:600; color:var(--gold); letter-spacing:0.06em; display:inline-flex; align-items:center; gap:4px; }
+
+/* ── PRODUCT MODAL ── */
+.modal-demo {
+  max-width: 900px; margin: 40px auto 0;
+  background: var(--cream); border-radius: 20px; overflow: hidden; display: flex;
+  color: var(--text);
+}
+.modal-demo__img { width:45%; aspect-ratio:1; background:linear-gradient(135deg,#e8d5b0,#c9a96e); display:flex; align-items:center; justify-content:center; font-size:4rem; flex-shrink:0; }
+.modal-demo__info { padding: 32px; flex:1; }
+.modal-demo__name { font-family:var(--font-serif); font-size:1.5rem; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.modal-demo__price { font-family:var(--font-serif); font-size:1.3rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+.modal-demo__desc { font-size:0.85rem; color:var(--muted); line-height:1.6; margin-bottom:16px; }
+.modal-demo__variants { display:flex; gap:16px; margin-bottom:20px; }
+.modal-demo__variant { flex:1; }
+.modal-demo__variant-label { font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.modal-demo__variant-options { display:flex; gap:6px; flex-wrap:wrap; }
+.modal-demo__var { padding:6px 14px; border-radius:8px; border:1.5px solid rgba(28,31,138,0.12); font-size:0.78rem; cursor:pointer; background:transparent; color:var(--text); transition:all 0.15s ease; }
+.modal-demo__var--active { background:var(--navy); color:var(--cream); border-color:var(--navy); }
+.modal-demo__var:hover:not(.modal-demo__var--active) { border-color:var(--gold); }
+.modal-demo__cta { display:inline-flex; padding:14px 36px; border-radius:50px; background:var(--navy); color:var(--cream); font-weight:600; font-size:0.85rem; letter-spacing:0.05em; border:none; cursor:pointer; margin-right:10px; }
+.modal-demo__cta:hover { background:var(--gold); }
+
+/* ── TABS ── */
+.tabs-demo { display:flex; gap:0; margin:24px 0 0; border-bottom:1px solid rgba(28,31,138,0.08); }
+.tabs-demo__tab { padding:10px 20px; font-size:0.8rem; color:var(--muted); cursor:pointer; border-bottom:2px solid transparent; }
+.tabs-demo__tab--active { color:var(--navy); border-bottom-color:var(--gold); font-weight:600; }
+.tab-content { padding:20px 0; font-size:0.85rem; color:var(--text); line-height:1.7; }
+.tab-content table { width:100%; border-collapse:collapse; }
+.tab-content td { padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.04); }
+.tab-content td:last-child { text-align:right; font-weight:600; }
+
+@media (max-width: 800px) { .grid-demo { grid-template-columns: repeat(2, 1fr); } .modal-demo { flex-direction:column; } .modal-demo__img { width:100%; } }
+@media (max-width: 480px) { .grid-demo { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;font-size:2rem;margin-bottom:40px;">LoQma <em>Boutique</em> — Design Concept</h2>
+
+<!-- HERO -->
+<div class="hero-demo">
+  <p class="hero-demo__label">Boutique artisanale</p>
+  <h1 class="hero-demo__title">Nos <em>produits</em> d'exception</h1>
+  <p class="hero-demo__sub">Des recettes traditionnelles tunisiennes, préparées avec des ingrédients 100% naturels</p>
+</div>
+
+<!-- FILTERS -->
+<h2>1. <em>Filter bar</em></h2>
+<div class="filters-demo">
+  <span class="filters-demo__pill filters-demo__pill--active">Tout</span>
+  <span class="filters-demo__pill">Petit-déjeuner</span>
+  <span class="filters-demo__pill">Salé</span>
+  <span class="filters-demo__pill">Sucré</span>
+  <span class="filters-demo__pill">Coffrets</span>
+  <span class="filters-demo__sort">Prix ▾</span>
+</div>
+
+<!-- PRODUCT GRID -->
+<h2>2. <em>Product grid</em> — 3 columns</h2>
+<div class="grid-demo">
+  <div class="card-demo">
+    <div class="card-demo__img"><span class="card-demo__tag">Petit-déj</span><span class="card-demo__price">8 €</span>🥣</div>
+    <div class="card-demo__body">
+      <h3 class="card-demo__name">Bssisa Artisanale</h3>
+      <p class="card-demo__desc">Orge, blé, pois chiches — 100% naturelle</p>
+      <span class="card-demo__btn">Voir le produit →</span>
+    </div>
+  </div>
+  <div class="card-demo">
+    <div class="card-demo__img"><span class="card-demo__tag">Sucré</span><span class="card-demo__price">7 €</span>🍪</div>
+    <div class="card-demo__body">
+      <h3 class="card-demo__name">Ghrayef de Béja</h3>
+      <p class="card-demo__desc">Feuilletés aux amandes, miel, fleur d'oranger</p>
+      <span class="card-demo__btn">Voir le produit →</span>
+    </div>
+  </div>
+  <div class="card-demo">
+    <div class="card-demo__img"><span class="card-demo__tag">Coffret</span><span class="card-demo__price">28 €</span>🎁</div>
+    <div class="card-demo__body">
+      <h3 class="card-demo__name">Coffret Découverte</h3>
+      <p class="card-demo__desc">5 produits signatures dans un écrin élégant</p>
+      <span class="card-demo__btn">Voir le produit →</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<h2>3. <em>Product detail</em> — modal/overlay</h2>
+<div class="modal-demo">
+  <div class="modal-demo__img">🥣</div>
+  <div class="modal-demo__info">
+    <h3 class="modal-demo__name">Bssisa Artisanale 100% Naturelle</h3>
+    <p class="modal-demo__price">8 € — 14 €</p>
+    <p class="modal-demo__desc">Recette traditionnelle tunisienne préparée avec des céréales et légumineuses soigneusement sélectionnées.</p>
+    <!-- Variants -->
+    <div class="modal-demo__variants">
+      <div class="modal-demo__variant">
+        <p class="modal-demo__variant-label">Poids</p>
+        <div class="modal-demo__variant-options">
+          <span class="modal-demo__var modal-demo__var--active">100g</span>
+          <span class="modal-demo__var">250g</span>
+          <span class="modal-demo__var">500g</span>
+        </div>
+      </div>
+      <div class="modal-demo__variant">
+        <p class="modal-demo__variant-label">Parfum</p>
+        <div class="modal-demo__variant-options">
+          <span class="modal-demo__var modal-demo__var--active">Standard</span>
+          <span class="modal-demo__var">Pistache</span>
+          <span class="modal-demo__var">Chocolat</span>
+        </div>
+      </div>
+    </div>
+    <button class="modal-demo__cta">Commander maintenant</button>
+    <!-- Tabs -->
+    <div class="tabs-demo">
+      <span class="tabs-demo__tab tabs-demo__tab--active">Nutrition</span>
+      <span class="tabs-demo__tab">Ingrédients</span>
+      <span class="tabs-demo__tab">Préparation</span>
+      <span class="tabs-demo__tab">Avis</span>
+    </div>
+    <div class="tab-content">
+      <table>
+        <tr><td>🍽 Calories</td><td>345 kcal / 100g</td></tr>
+        <tr><td>💪 Protéines</td><td>12 g</td></tr>
+        <tr><td>🌾 Fibres</td><td>8 g</td></tr>
+        <tr><td>⚡ Glucides</td><td>58 g</td></tr>
+        <tr><td>🫒 Lipides</td><td>6 g</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:60px;color:rgba(242,238,231,0.3);font-size:0.8rem;">LoQma Boutique — Design Concept v1</p>
+
+</body>
+</html>

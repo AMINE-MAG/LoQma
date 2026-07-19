@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boutique LoQma — Produits artisanaux tunisiens. Bssisa, pâtisseries, coffrets cadeaux. Livraison à Grenoble.">
+  <meta name="theme-color" content="#1C1F8A">
+  <meta property="og:title" content="Boutique LoQma — Produits Artisanaux Tunisiens">
+  <meta property="og:description" content="Bssisa artisanale, pâtisseries traditionnelles et coffrets gourmands — 100% naturels, faits main à Grenoble.">
+  <title>Boutique LoQma — Produits Artisanaux Tunisiens · Grenoble</title>
+
+  <script>
+    (function(){
+      var c=null;try{c=localStorage.getItem('loqma_cookie_consent');}catch(e){}
+      if(c==='accepted'){
+        var p1=document.createElement('link');p1.rel='preconnect';p1.href='https://fonts.googleapis.com';
+        var p2=document.createElement('link');p2.rel='preconnect';p2.href='https://fonts.gstatic.com';p2.crossOrigin='';
+        var f=document.createElement('link');f.id='gf-fonts';f.rel='stylesheet';
+        f.href='https://fonts.googleapis.com/css2?family=Agrandir:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap';
+        document.head.appendChild(p1);document.head.appendChild(p2);document.head.appendChild(f);
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/boutique.css">
+</head>
+<body>
+
+  <!-- ═══════ NAV ═══════ -->
+  <header>
+    <nav id="navbar" class="navbar navbar--transparent" aria-label="Navigation principale">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="LoQma — Retour à l'accueil">
+          <img src="assets/logo-sans2.png" alt="LoQma Traiteur logo" width="42" height="42">
+          <span class="navbar__logo-text">LoQma</span>
+        </a>
+        <div class="navbar__right">
+          <nav class="navbar__links" aria-label="Navigation">
+            <a href="index.html#accueil" class="navbar__link">Accueil</a>
+            <span class="navbar__link-wrap">
+              <span class="navbar__link navbar__link--dropdown" tabindex="0" role="button" aria-expanded="false">Offres</span>
+              <div class="navbar__dropdown">
+                <a href="offre-entreprise.html">Offre Entreprise</a>
+                <a href="offre-particuliers.html">Offre Particuliers</a>
+              </div>
+            </span>
+            <span class="navbar__link-wrap">
+              <span class="navbar__link navbar__link--dropdown" tabindex="0" role="button" aria-expanded="false">Services</span>
+              <div class="navbar__dropdown">
+                <a href="index.html#services" class="navbar__service-link" data-service="0">Buffet Mariage</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="1">Buffet Événementiel</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="2">Box à Partager</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="3">Box Repas Individuelle</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="4">Pause Gourmande</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="5">Coffrets à Offrir</a>
+                <a href="index.html#services" class="navbar__service-link" data-service="6">Nos Ateliers</a>
+              </div>
+            </span>
+            <a href="index.html#catalogue" class="navbar__link">Catalogue</a>
+            <a href="boutique.html" class="navbar__link navbar__link--active">Boutique</a>
+            <a href="index.html#galerie" class="navbar__link">Galerie</a>
+            <a href="index.html#avis" class="navbar__link">Avis</a>
+          </nav>
+          <button class="navbar__hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-overlay">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Menu principal">
+      <button class="nav-overlay__close" aria-label="Fermer le menu">✕</button>
+      <ul class="nav-overlay__links">
+        <li><a href="index.html#accueil" class="nav-overlay__link">Accueil</a></li>
+        <li><a href="offre-entreprise.html" class="nav-overlay__link">Offre Entreprise</a></li>
+        <li><a href="offre-particuliers.html" class="nav-overlay__link">Offre Particuliers</a></li>
+        <li><a href="index.html#services" class="nav-overlay__link">Nos Services</a></li>
+        <li><a href="index.html#catalogue" class="nav-overlay__link">Catalogue</a></li>
+        <li><a href="boutique.html" class="nav-overlay__link">Boutique</a></li>
+        <li><a href="index.html#galerie" class="nav-overlay__link">Galerie</a></li>
+        <li><a href="index.html#avis" class="nav-overlay__link">Avis</a></li>
+        <li><a href="index.html#commander" class="nav-overlay__link">Demander un devis</a></li>
+      </ul>
+      <p class="nav-overlay__instagram" aria-label="Instagram">@loqma_traiteur_grenoble</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════ HERO ═══════ -->
+    <section class="boutique-hero" aria-label="Boutique LoQma">
+      <div class="boutique-hero__content">
+        <p class="boutique-hero__label">Boutique artisanale</p>
+        <h1 class="boutique-hero__title">Nos <em>produits</em> d'exception</h1>
+        <p class="boutique-hero__sub">Des recettes traditionnelles tunisiennes, préparées avec des ingrédients 100% naturels — livrées chez vous à Grenoble.</p>
+      </div>
+    </section>
+
+    <!-- ═══════ FILTERS ═══════ -->
+    <section class="boutique-filters" aria-label="Filtrer les produits">
+      <div class="boutique-filters__inner">
+        <div class="boutique-filters__pills" id="boutique-category-filters">
+          <button class="boutique-filters__pill boutique-filters__pill--active" data-category="all">Tout</button>
+          <button class="boutique-filters__pill" data-category="petit-dejeuner">Petit-déjeuner</button>
+          <button class="boutique-filters__pill" data-category="sucre">Sucré</button>
+          <button class="boutique-filters__pill" data-category="sale">Salé</button>
+          <button class="boutique-filters__pill" data-category="coffret">Coffrets</button>
+        </div>
+        <div class="boutique-filters__sort">
+          <label for="boutique-sort">Trier par</label>
+          <select id="boutique-sort">
+            <option value="default">Par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ PRODUCT GRID ═══════ -->
+    <section class="boutique-grid" aria-label="Produits disponibles">
+      <div class="boutique-grid__inner" id="boutique-products">
+        <!-- Products injected by JS -->
+      </div>
+      <p class="boutique-grid__empty" id="boutique-empty" hidden>Aucun produit ne correspond à ce filtre.</p>
+    </section>
+
+    <!-- ═══════ PRODUCT DETAIL OVERLAY ═══════ -->
+    <div id="boutique-detail" class="boutique-detail" role="dialog" aria-modal="true" aria-label="Détail du produit" hidden>
+      <button class="boutique-detail__close" aria-label="Fermer">✕</button>
+      <div class="boutique-detail__card">
+        <div class="boutique-detail__image">
+          <img id="detail-product-img" src="" alt="">
+        </div>
+        <div class="boutique-detail__info">
+          <span class="boutique-detail__category" id="detail-category"></span>
+          <h2 class="boutique-detail__name" id="detail-name"></h2>
+          <p class="boutique-detail__price" id="detail-price"></p>
+          <p class="boutique-detail__desc" id="detail-desc"></p>
+
+          <div class="boutique-detail__variants" id="detail-variants"></div>
+
+          <div class="boutique-detail__actions">
+            <a href="index.html#commander" class="btn btn--navy">Commander maintenant</a>
+          </div>
+
+          <div class="boutique-detail__tabs">
+            <button class="boutique-detail__tab boutique-detail__tab--active" data-tab="nutrition">Nutrition</button>
+            <button class="boutique-detail__tab" data-tab="ingredients">Ingrédients</button>
+            <button class="boutique-detail__tab" data-tab="preparation">Préparation</button>
+            <button class="boutique-detail__tab" data-tab="reviews">Avis</button>
+          </div>
+          <div class="boutique-detail__tab-content" id="detail-tab-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ CTA ═══════ -->
+    <section class="boutique-cta" aria-label="Passer commande">
+      <h2 class="boutique-cta__title">Redécouvrez le goût <em>authentique</em> de la Tunisie</h2>
+      <p class="boutique-cta__text">Savourez des recettes traditionnelles préparées avec des ingrédients de qualité.</p>
+      <a href="index.html#commander" class="btn btn--primary">Commander maintenant</a>
+    </section>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="assets/logo-sans2.png" alt="LoQma Traiteur" class="footer__logo" width="56" height="56" loading="lazy">
+          <p class="footer__tagline">Cuisine tunisienne faite main,<br><em>avec le cœur.</em></p>
+        </div>
+        <div class="footer__info">
+          <p>Grenoble et ses alentours</p>
+          <p>Cuisine tunisienne <strong>Halal</strong></p>
+          <a href="https://www.instagram.com/loqma_traiteur_grenoble/" target="_blank" rel="noopener noreferrer" class="footer__instagram" aria-label="Suivre LoQma sur Instagram">@loqma_traiteur_grenoble</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <p>© 2026 LoQma Traiteur — Grenoble</p>
+        <nav class="footer__legal-links" aria-label="Liens légaux">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
+          <a href="cgv.html">CGV</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
