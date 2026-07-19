@@ -219,7 +219,7 @@
       category: 'Atelier · Découverte',
       title:    'Nos Ateliers',
       desc:     'Ateliers cuisine autour des saveurs tunisiennes — apprenez les recettes traditionnelles.',
-      img:      'assets/sweet-life-ANY9TweFHNI-unsplash.jpg',
+      img:      'assets/Ateliers.JPG',
       alt:      'Nos Ateliers — LoQma Traiteur'
     }
   ];
