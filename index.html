@@ -61,6 +61,25 @@
           <span class="navbar__logo-text">LoQma</span>
         </a>
         <div class="navbar__right">
+          <nav class="navbar__links" aria-label="Navigation">
+            <a href="#accueil" class="navbar__link navbar__link--active">Accueil</a>
+            <a href="offre-entreprise.html" class="navbar__link">Offre Entreprise</a>
+            <span class="navbar__link-wrap">
+              <a href="#services" class="navbar__link navbar__link--dropdown">Services</a>
+              <div class="navbar__dropdown">
+                <a href="#services">Buffet Mariage</a>
+                <a href="#services">Buffet Événementiel</a>
+                <a href="#services">Box à Partager</a>
+                <a href="#services">Box Repas Individuelle</a>
+                <a href="#services">Pause Gourmande</a>
+                <a href="#services">Coffrets à Offrir</a>
+                <a href="#services">Nos Ateliers</a>
+              </div>
+            </span>
+            <a href="#catalogue" class="navbar__link">Catalogue</a>
+            <a href="#galerie" class="navbar__link">Galerie</a>
+            <a href="#avis" class="navbar__link">Avis</a>
+          </nav>
           <a href="#commander" class="btn navbar__cta btn--ghost-cream">Demander un devis</a>
           <button class="navbar__hamburger"
                   aria-label="Ouvrir le menu"
@@ -124,6 +143,51 @@
       </div>
 
       <p class="hero__instagram" aria-hidden="true">@loqma_traiteur_grenoble</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         CH-01b — COMMENT ÇA MARCHE (Step Guide)
+         ════════════════════════════════════════════════════ -->
+    <section class="steps-guide" aria-label="Comment commander">
+      <div class="steps-guide__inner">
+        <p class="steps-guide__eyebrow reveal">Comment ça marche</p>
+        <h2 class="steps-guide__title reveal">3 étapes pour <em>un événement réussi</em></h2>
+        <p class="steps-guide__subtitle reveal reveal-delay-1">
+          Du devis à la dégustation, tout est pensé pour vous.
+        </p>
+        <div class="steps-guide__grid">
+          <div class="steps-guide__step reveal">
+            <div class="steps-guide__circle steps-guide__circle--gold">
+              <span class="steps-guide__circle-num">1</span>
+            </div>
+            <h3 class="steps-guide__step-title">Demander un devis</h3>
+            <p class="steps-guide__step-desc">
+              Racontez-nous votre événement via le formulaire, WhatsApp ou Instagram.
+              Nous répondons sous 24h avec une proposition sur mesure.
+            </p>
+          </div>
+          <div class="steps-guide__step reveal reveal-delay-1">
+            <div class="steps-guide__circle steps-guide__circle--navy">
+              <span class="steps-guide__circle-num">2</span>
+            </div>
+            <h3 class="steps-guide__step-title">Préparation maison</h3>
+            <p class="steps-guide__step-desc">
+              Nihel prépare chaque plat avec soin, dans le respect des recettes
+              familiales tunisiennes — 100% halal, 100% fait maison.
+            </p>
+          </div>
+          <div class="steps-guide__step reveal reveal-delay-2">
+            <div class="steps-guide__circle steps-guide__circle--navy">
+              <span class="steps-guide__circle-num">3</span>
+            </div>
+            <h3 class="steps-guide__step-title">Dégustation</h3>
+            <p class="steps-guide__step-desc">
+              Livraison à Grenoble et ses alentours. Vos invités se souviendront
+              de chaque bouchée.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════════════════════
@@ -326,92 +390,131 @@
     <section id="catalogue" class="catalogue" aria-label="Notre catalogue">
       <div class="catalogue__header">
         <h2 class="section-heading reveal">Nos Articles</h2>
-        <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">✦</div>
+        <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">
+          <svg class="ornament-diamond" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+            <rect x="8.5" y="1" width="3" height="18" fill="#C89A4A" opacity="0.3" rx="1"/>
+            <rect x="1" y="8.5" width="18" height="3" fill="#C89A4A" opacity="0.3" rx="1"/>
+            <circle cx="10" cy="10" r="2.5" fill="#C89A4A" opacity="0.6">
+              <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="r" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
         <p class="section-subheading reveal reveal-delay-2">Cuisine tunisienne · Fait maison · Grenoble</p>
+      </div>
+
+      <div class="catalogue__filters reveal reveal-delay-1" role="group" aria-label="Filtrer par catégorie">
+        <button class="catalogue__filter catalogue__filter--active" data-filter="all">Tout</button>
+        <button class="catalogue__filter" data-filter="sale">Salé</button>
+        <button class="catalogue__filter" data-filter="sucre">Sucré</button>
       </div>
 
       <div class="catalogue__track-wrapper">
         <button class="catalogue__arrow catalogue__arrow--prev" aria-label="Article précédent">&#8249;</button>
         <div class="catalogue__track" id="catalogue-track" role="list">
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sale">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Salé</span>
+              <span class="catalogue__price">8 €</span>
               <img src="assets/003_DWpPxrLiC9y_01.jpg"
                    alt="Salade Houria — carottes tunisiennes épicées"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Salade Houria</p>
+            <p class="catalogue__card-desc">Carottes épicées au cumin — entrée fraîche et parfumée</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sale">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Salé</span>
+              <span class="catalogue__price">8 €</span>
               <img src="assets/004_DWpQAydiPoE_01.jpg"
                    alt="Salade Mechouia — légumes grillés à la tunisienne"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Salade Mechouia</p>
+            <p class="catalogue__card-desc">Légumes grillés à la braise — poivrons, tomates, oignons</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sale">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Salé</span>
+              <span class="catalogue__price">14 €</span>
               <img src="assets/002_DWpPY2wCK-H_01.jpg"
                    alt="Tajine Tunisien au Poulet — plat traditionnel"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Tajine Tunisien au Poulet</p>
+            <p class="catalogue__card-desc">Omelette généreuse au poulet et fromage — fondant et parfumé</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sale">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Salé</span>
+              <span class="catalogue__price">16 €</span>
               <img src="assets/005_DX9QGsMIgFs_01.jpg"
                    alt="Couscous Maison — couscous tunisien traditionnel"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Couscous Maison</p>
+            <p class="catalogue__card-desc">Semoule fine, légumes de saison, viande au choix</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sale">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Salé</span>
+              <span class="catalogue__price">10 €</span>
               <img src="assets/009_box-partage.jpg"
                    alt="Verrines Salées — amuse-bouches tunisiens"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Verrines Salées</p>
+            <p class="catalogue__card-desc">Amuse-bouches tunisiens en verrine — une dégustation en miniature</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sucre">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Sucré</span>
+              <span class="catalogue__price">7 €</span>
               <img src="assets/007_DXVKtLuiJyr_01.jpg"
                    alt="Ghrayef de Béja — pâtisseries tunisiennes feuilletées"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Ghrayef de Béja</p>
+            <p class="catalogue__card-desc">Feuilletés aux amandes et miel, fleur d'oranger</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sucre">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Sucré</span>
+              <span class="catalogue__price">6 €</span>
               <img src="assets/008_DXg8x72iNpM_01.jpg"
                    alt="Miniardises au Sorgho — petits gâteaux artisanaux"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Miniardises au Sorgho</p>
+            <p class="catalogue__card-desc">Petits gâteaux sans gluten, légers et gourmands</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
-          <article class="catalogue__card" role="listitem">
+          <article class="catalogue__card" role="listitem" data-category="sucre">
             <div class="catalogue__card-img-wrap">
               <span class="catalogue__tag">Sucré</span>
+              <span class="catalogue__price">7 €</span>
               <img src="assets/026_DYpdW3eIZli_01.jpg"
                    alt="Cake au Sorgho — gâteau maison sans gluten"
                    loading="lazy" class="catalogue__card-img">
             </div>
             <p class="catalogue__card-name">Cake au Sorgho</p>
+            <p class="catalogue__card-desc">Moelleux au sorgho et fruits secs — sain et savoureux</p>
+            <button class="catalogue__card-btn">Voir le détail →</button>
           </article>
 
         </div>
@@ -429,7 +532,16 @@
         <div class="valeurs__header">
           <p class="valeurs__eyebrow">Ce qui nous guide</p>
           <h2 class="valeurs__title reveal">Nos Valeurs</h2>
-          <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">✦</div>
+          <div class="ornament-divider reveal reveal-delay-1" aria-hidden="true">
+            <svg class="ornament-diamond" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="8.5" y="1" width="3" height="18" fill="#C89A4A" opacity="0.3" rx="1"/>
+              <rect x="1" y="8.5" width="18" height="3" fill="#C89A4A" opacity="0.3" rx="1"/>
+              <circle cx="10" cy="10" r="2.5" fill="#C89A4A" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="r" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
         </div>
         <ol class="valeurs__list" aria-label="Nos cinq valeurs">
           <li class="valeurs__item reveal">
@@ -558,6 +670,25 @@
         <video class="lightbox__video" controls id="lightbox-video" hidden></video>
       </div>
       <p class="lightbox__counter" id="lightbox-counter" aria-live="polite">01 / 04</p>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         CATALOGUE DETAIL OVERLAY
+         ════════════════════════════════════════════════════ -->
+    <div id="catalogue-detail" class="catalogue-detail" role="dialog" aria-modal="true" aria-label="Détail de l'article">
+      <button class="catalogue-detail__close" aria-label="Fermer">✕</button>
+      <div class="catalogue-detail__card">
+        <img class="catalogue-detail__img" src="" alt="" id="detail-img">
+        <div class="catalogue-detail__body">
+          <span class="catalogue-detail__tag" id="detail-tag"></span>
+          <h3 class="catalogue-detail__name" id="detail-name"></h3>
+          <p class="catalogue-detail__price" id="detail-price"></p>
+          <p class="catalogue-detail__desc" id="detail-desc"></p>
+          <div class="catalogue-detail__actions">
+            <a href="#commander" class="btn btn--navy" onclick="document.getElementById('catalogue-detail').classList.remove('is-open')">Demander un devis</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ════════════════════════════════════════════════════

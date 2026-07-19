@@ -78,6 +78,31 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // run once on load
 
+  // Set active nav link based on scroll position
+  function updateActiveLink() {
+    const links = document.querySelectorAll('.navbar__link');
+    const sections = ['accueil', 'offre-entreprise', 'services', 'catalogue', 'galerie', 'avis', 'commander'];
+    let currentSection = 'accueil';
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 150) currentSection = id;
+      }
+    });
+
+    links.forEach(link => {
+      link.classList.remove('navbar__link--active');
+      const href = link.getAttribute('href');
+      if (href && href.includes(currentSection)) {
+        link.classList.add('navbar__link--active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+
   // Open overlay
   function openMenu() {
     overlay.classList.add('is-open');
@@ -984,4 +1009,190 @@
     try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
     showBanner();
   });
+})();
+
+/* ────────────────────────────────────────────────────────────
+   13. CATALOGUE FILTERS
+   ──────────────────────────────────────────────────────────── */
+(function initCatalogueFilters() {
+  const filters = document.querySelectorAll('.catalogue__filter');
+  const cards   = document.querySelectorAll('.catalogue__card');
+  if (!filters.length || !cards.length) return;
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filters.forEach(b => b.classList.remove('catalogue__filter--active'));
+      btn.classList.add('catalogue__filter--active');
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = 'catalogue-fade-in 0.3s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+
+/* Catalogue fade-in keyframe */
+(function injectCatalogueKeyframe() {
+  if (document.getElementById('catalogue-fade-style')) return;
+  const s = document.createElement('style');
+  s.id = 'catalogue-fade-style';
+  s.textContent = `
+    @keyframes catalogue-fade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  document.head.appendChild(s);
+})();
+
+/* ────────────────────────────────────────────────────────────
+   14. CATALOGUE DETAIL OVERLAY
+   ──────────────────────────────────────────────────────────── */
+(function initCatalogueDetail() {
+  const overlay  = document.getElementById('catalogue-detail');
+  if (!overlay) return;
+
+  const imgEl    = document.getElementById('detail-img');
+  const nameEl   = document.getElementById('detail-name');
+  const priceEl  = document.getElementById('detail-price');
+  const tagEl    = document.getElementById('detail-tag');
+  const descEl   = document.getElementById('detail-desc');
+  const closeBtn = overlay.querySelector('.catalogue-detail__close');
+
+  const catalogueData = {
+    'Salade Houria': {
+      category: 'salé',
+      price: '8 €',
+      desc: 'Carottes râpées épicées à la tunisienne — une entrée fraîche et parfumée, relevée de cumin, coriandre et citron.'
+    },
+    'Salade Mechouia': {
+      category: 'salé',
+      price: '8 €',
+      desc: 'Légumes grillés à la braise — poivrons, tomates, oignons — finement hachés et assaisonnés à l\'huile d\'olive.'
+    },
+    'Tajine Tunisien au Poulet': {
+      category: 'salé',
+      price: '14 €',
+      desc: 'Omelette généreuse au poulet, fromage et persil — un classique tunisien cuit lentement pour une texture fondante.'
+    },
+    'Couscous Maison': {
+      category: 'salé',
+      price: '16 €',
+      desc: 'Semoule fine roulée à la main, légumes de saison, pois chiches et viande au choix — le grand classique revisité.'
+    },
+    'Verrines Salées': {
+      category: 'salé',
+      price: '10 €',
+      desc: 'Amuse-bouches tunisiens en verrine — houmous, caviar d\'aubergine, brik — une dégustation en miniature.'
+    },
+    'Ghrayef de Béja': {
+      category: 'sucré',
+      price: '7 €',
+      desc: 'Pâtisseries feuilletées aux amandes et au miel, parfumées à la fleur d\'oranger — une douceur de Béja.'
+    },
+    'Miniardises au Sorgho': {
+      category: 'sucré',
+      price: '6 €',
+      desc: 'Petits gâteaux artisanaux sans gluten, préparés avec de la farine de sorgho — légers et gourmands.'
+    },
+    'Cake au Sorgho': {
+      category: 'sucré',
+      price: '7 €',
+      desc: 'Gâteau moelleux au sorgho et aux fruits secs — une pâtisserie saine sans gluten, pleine de saveurs.'
+    }
+  };
+
+  // Open on "Voir le détail" click
+  document.querySelectorAll('.catalogue__card-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const card   = btn.closest('.catalogue__card');
+      const name   = card.querySelector('.catalogue__card-name').textContent.trim();
+      const imgSrc = card.querySelector('.catalogue__card-img').src;
+      const tagElCard = card.querySelector('.catalogue__tag');
+      const category = tagElCard ? tagElCard.textContent.trim().toLowerCase() : 'salé';
+      const data = catalogueData[name] || { category, price: '—', desc: 'Détails à venir.' };
+
+      imgEl.src = imgSrc;
+      nameEl.textContent = name;
+      priceEl.textContent = data.price;
+      tagEl.textContent = category;
+      tagEl.className = 'catalogue-detail__tag catalogue-detail__tag--' + (category === 'sucré' ? 'sucre' : 'sale');
+      descEl.textContent = data.desc;
+
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeDetail() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn && closeBtn.addEventListener('click', closeDetail);
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeDetail();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeDetail();
+  });
+})();
+
+/* ────────────────────────────────────────────────────────────
+   15. COUNT-UP STATS (IntersectionObserver)
+   ──────────────────────────────────────────────────────────── */
+(function initCountUp() {
+  const counters = document.querySelectorAll('[data-countup]');
+  if (!counters.length) return;
+
+  let hasAnimated = false;
+
+  function animateCounters() {
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    counters.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      if (!target || target === 0) return;
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 30));
+      // Clear static text, keep prefix/suffix
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      el.textContent = prefix + '0' + suffix;
+
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        el.textContent = prefix + current + suffix;
+      }, 40);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) observer.observe(statsSection);
+  else if (counters.length) animateCounters(); // fallback
 })();

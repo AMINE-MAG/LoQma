@@ -30,6 +30,13 @@
   --nav-height:  72px;
   --max-width:   1200px;
   --section-pad: clamp(60px, 8vw, 120px);
+
+  /* New design tokens */
+  --color-gold-light:   rgba(200, 154, 74, 0.15);
+  --color-glow-gold:    0 0 20px rgba(200, 154, 74, 0.08);
+  --shadow-card-hover:  0 12px 40px rgba(28, 31, 138, 0.12);
+  --radius-sm:   8px;
+  --radius-lg:   20px;
 }
 
 /* ── CSS Reset ─────────────────────────────────────────────── */
@@ -142,10 +149,31 @@ h1, h2, h3, h4 {
 .ornament-divider::after {
   content: '';
   display: block;
-  width: 40px;
+  width: 60px;
   height: 1px;
-  background: var(--color-gold);
-  opacity: 0.6;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-gold) 40%,
+    var(--color-gold) 60%,
+    transparent 100%
+  );
+  animation: ornament-shimmer 3s ease-in-out infinite;
+}
+
+.ornament-divider::after {
+  animation-delay: 0.5s;
+}
+
+@keyframes ornament-shimmer {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.8); }
+  50%      { opacity: 0.9;  transform: scaleX(1); }
+}
+
+/* Diamond SVG ornament */
+.ornament-diamond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Buttons ───────────────────────────────────────────────── */

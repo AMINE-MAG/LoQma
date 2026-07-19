@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoQma — Design Prototypes</title>
+<style>
+/* ═══════════════════════════════════════════
+   PREVIEW FRAMEWORK
+   ═══════════════════════════════════════════ */
+:root {
+  --color-navy: #1C1F8A;
+  --color-cream: #F2EEE7;
+  --color-white: #FFFFFF;
+  --color-gold: #C89A4A;
+  --color-text: #1A1A2E;
+  --color-text-muted: #6B6B80;
+  --color-navy-light: #E8E9F8;
+  --color-whatsapp: #25D366;
+  --color-footer: #111630;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Agrandir', system-ui, -apple-system, sans-serif;
+  --font-display: 'Agrandir', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: #0b0b1a;
+  color: var(--color-cream);
+  line-height: 1.6;
+}
+
+/* Page chrome */
+.preview-header {
+  text-align: center;
+  padding: 60px 24px 32px;
+  border-bottom: 1px solid rgba(200,154,74,0.15);
+  margin-bottom: 0;
+}
+.preview-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.preview-header p {
+  color: rgba(242,238,231,0.5);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+.preview-header span {
+  color: var(--color-gold);
+}
+
+/* Section wrapper */
+.section-block {
+  padding: 80px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.section-block__label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+.section-block__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--color-cream);
+  margin-bottom: 40px;
+}
+.section-block__title em {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+/* Card for each prototype */
+.prototype-card {
+  background: rgba(242,238,231,0.04);
+  border: 1px solid rgba(200,154,74,0.12);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  position: relative;
+}
+.prototype-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--color-gold);
+  color: var(--color-footer);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 50px;
+}
+.prototype-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-cream);
+  margin-bottom: 8px;
+}
+.prototype-card__desc {
+  font-size: 0.85rem;
+  color: rgba(242,238,231,0.5);
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 1 — DESKTOP NAV
+   ═══════════════════════════════════════════ */
+.nav-demo {
+  background: rgba(242,238,231,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.nav-demo__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(28,31,138,0.06);
+}
+.nav-demo__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-demo__logo-icon {
+  width: 36px; height: 36px;
+  background: var(--color-navy);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cream);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+.nav-demo__logo-text {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+.nav-demo__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-demo__link {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: 500;
+}
+.nav-demo__link:hover {
+  background: var(--color-navy-light);
+  color: var(--color-navy);
+}
+.nav-demo__link--active {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+.nav-demo__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+.nav-demo__link--dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-demo__link--dropdown::after {
+  content: '▾';
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+.nav-demo__cta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  background: var(--color-navy);
+  color: var(--color-cream);
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.nav-demo__cta:hover {
+  background: var(--color-gold);
+  transform: translateY(-1px);
+}
+/* Dropdown demo */
+.nav-demo__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 12px 48px rgba(28,31,138,0.12);
+  padding: 20px 0;
+  min-width: 200px;
+  border: 1px solid rgba(200,154,74,0.08);
+}
+.nav-demo__link-wrap {
+  position: relative;
+}
+.nav-demo__link-wrap:hover .nav-demo__dropdown {
+  display: block;
+}
+.nav-demo__dropdown a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.nav-demo__dropdown a:hover {
+  background: var(--color-navy-light);
+  color: var(--color-navy);
+  padding-left: 30px;
+}
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 2 — CATALOGUE INTERACTIF
+   ═══════════════════════════════════════════ */
+.catalog-demo {
+  background: var(--color-cream);
+  border-radius: 20px;
+  padding: 36px;
+  color: var(--color-text);
+}
+.catalog-demo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.catalog-demo__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  letter-spacing: 0.02em;
+}
+.catalog-demo__filters {
+  display: flex;
+  gap: 8px;
+}
+.catalog-demo__filter {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(28,31,138,0.12);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.catalog-demo__filter:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+.catalog-demo__filter--active {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  border-color: var(--color-navy);
+}
+.catalog-demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.catalog-demo__card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(28,31,138,0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.catalog-demo__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(28,31,138,0.12);
+}
+.catalog-demo__card-img {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0e6d3, #e8dcc8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.catalog-demo__card-img span {
+  font-size: 2.5rem;
+  opacity: 0.6;
+}
+.catalog-demo__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+.catalog-demo__tag--sale { background: #e74c3c; color: white; }
+.catalog-demo__tag--sucre { background: var(--color-gold); color: white; }
+.catalog-demo__price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.catalog-demo__card-body {
+  padding: 14px 16px 16px;
+}
+.catalog-demo__card-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+.catalog-demo__card-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.catalog-demo__card-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+.catalog-demo__card-btn:hover { gap: 10px; }
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 3 — ORDER STEP GUIDE
+   ═══════════════════════════════════════════ */
+.steps-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.steps-demo::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 16%;
+  right: 16%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    var(--color-gold) 0%, 
+    var(--color-gold) 33%,
+    rgba(200,154,74,0.2) 33%, 
+    rgba(200,154,74,0.2) 66%,
+    rgba(200,154,74,0.2) 66%, 
+    rgba(200,154,74,0.2) 100%
+  );
+  z-index: 0;
+}
+.step-item {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.step-item__circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+}
+.step-item__circle--1 {
+  background: linear-gradient(135deg, var(--color-gold), #d4a843);
+  box-shadow: 0 4px 20px rgba(200,154,74,0.35);
+}
+.step-item__circle--2 {
+  background: var(--color-navy);
+  box-shadow: 0 4px 20px rgba(28,31,138,0.25);
+}
+.step-item__circle--3 {
+  background: var(--color-navy);
+  box-shadow: 0 4px 20px rgba(28,31,138,0.25);
+}
+.step-item__circle span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  font-family: var(--font-serif);
+}
+.step-item__title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 8px;
+}
+.step-item__desc {
+  font-size: 0.82rem;
+  color: rgba(242,238,231,0.6);
+  line-height: 1.6;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 4 — ORNAMENT DIVIDERS (animated)
+   ═══════════════════════════════════════════ */
+.ornament-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.ornament-demo__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.ornament-demo__line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+.ornament-demo__diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+.ornament-demo__morph {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+.ornament-demo__morph svg {
+  width: 100%;
+  height: 100%;
+  animation: morph-diamond 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+@keyframes morph-diamond {
+  0%, 100% { 
+    d: path("M30 5L55 30L30 55L5 30Z");
+    stroke-opacity: 0.3;
+  }
+  50% { 
+    stroke-opacity: 0.9;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 5 — STATS WITH COUNT-UP
+   ═══════════════════════════════════════════ */
+.stats-demo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--color-navy);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.stats-demo__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 16px;
+  border-right: 1px solid rgba(200,154,74,0.2);
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.stats-demo__item:last-child { border-right: none; }
+.stats-demo__item:hover {
+  background: rgba(200,154,74,0.06);
+}
+.stats-demo__value {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: var(--color-cream);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.stats-demo__value--gold {
+  color: var(--color-gold);
+}
+.stats-demo__value--star {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+}
+.stats-demo__label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242,238,231,0.5);
+  font-weight: 500;
+}
+.animate-count {
+  display: inline-block;
+}
+
+/* ═══════════════════════════════════════════
+   PROTOTYPE 6 — HERO MICRO-ANIMATION
+   ═══════════════════════════════════════════ */
+.hero-demo {
+  position: relative;
+  min-height: 400px;
+  background: linear-gradient(145deg, 
+    rgba(28,31,138,0.85) 0%, 
+    rgba(28,31,138,0.45) 50%,
+    rgba(28,31,138,0.7) 100%
+  );
+  background-size: 200% 200%;
+  animation: hero-gradient-shift 8s ease-in-out infinite;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 60px 48px;
+  overflow: hidden;
+}
+@keyframes hero-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-demo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 6 L54 30 L30 54 L6 30 Z M30 18 L42 30 L30 42 L18 30 Z' stroke='%23F2EEE7' stroke-width='0.4' fill='none' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  animation: pattern-drift 20s linear infinite;
+}
+@keyframes pattern-drift {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+.hero-demo__content {
+  position: relative;
+  z-index: 1;
+}
+.hero-demo__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+.hero-demo__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--color-cream);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-demo__title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+.hero-demo__body {
+  font-size: 0.95rem;
+  color: rgba(242,238,231,0.7);
+  max-width: 440px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .steps-demo { 
+    grid-template-columns: 1fr; 
+    gap: 32px;
+  }
+  .steps-demo::before { display: none; }
+  .stats-demo { grid-template-columns: repeat(3, 1fr); }
+  .nav-demo__links { display: none; }
+  .nav-demo__bar { padding: 12px 20px; }
+  .catalog-demo__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .stats-demo { grid-template-columns: repeat(2, 1fr); }
+  .stats-demo__item:nth-child(3) { border-right: none; }
+  .catalog-demo__grid { grid-template-columns: 1fr; }
+  .hero-demo { padding: 40px 24px; min-height: 320px; }
+  .prototype-card { padding: 24px; }
+}
+
+/* ═══════════════════════════════════════════
+   INTERACTIVE TOGGLES
+   ═══════════════════════════════════════════ */
+.tweaks-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: rgba(28,31,138,0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(200,154,74,0.2);
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  max-width: 240px;
+  display: none;
+}
+.tweaks-panel.is-open { display: block; }
+.tweaks-panel__toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 20px rgba(200,154,74,0.3);
+  color: var(--color-footer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+.tweaks-panel__toggle:hover { transform: scale(1.08); }
+.tweaks-panel__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(242,238,231,0.6);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.tweaks-panel select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(200,154,74,0.2);
+  background: rgba(255,255,255,0.08);
+  color: var(--color-cream);
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+.tweaks-panel select option { color: var(--color-text); }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="preview-header">
+  <h1>LoQma · Design Prototypes</h1>
+  <p>Améliorations UI/UX basées sur l'audit du site existant<br>
+  <span>Brand: Navy #1C1F8A · Cream #F2EEE7 · Gold #C89A4A</span></p>
+</header>
+
+<!-- ═══════ PROTOTYPE 1 — NAVIGATION ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 01</p>
+  <h2 class="section-block__title">Navigation Desktop <em>Redesign</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Navigation</span>
+    <h3 class="prototype-card__title">Menu horizontal avec dropdown + indicateur actif</h3>
+    <p class="prototype-card__desc">Remplace le hamburger desktop par une barre de navigation complète avec liens, dropdown "Services", indicateur de page active (souligné or) et CTA devis toujours visible.</p>
+
+    <div class="nav-demo">
+      <div class="nav-demo__bar">
+        <div class="nav-demo__logo">
+          <div class="nav-demo__logo-icon">L</div>
+          <span class="nav-demo__logo-text">LoQma</span>
+        </div>
+        <nav class="nav-demo__links" style="display:flex">
+          <a href="#" class="nav-demo__link nav-demo__link--active">Accueil</a>
+          <a href="#" class="nav-demo__link">Offre Entreprise</a>
+          <div class="nav-demo__link-wrap">
+            <a href="#" class="nav-demo__link nav-demo__link--dropdown">Services</a>
+            <div class="nav-demo__dropdown">
+              <a href="#">Buffet Mariage</a>
+              <a href="#">Buffet Événementiel</a>
+              <a href="#">Box à Partager</a>
+              <a href="#">Box Repas Individuelle</a>
+              <a href="#">Pause Gourmande</a>
+              <a href="#">Coffrets à Offrir</a>
+              <a href="#">Nos Ateliers</a>
+            </div>
+          </div>
+          <a href="#" class="nav-demo__link">Catalogue</a>
+          <a href="#" class="nav-demo__link">Galerie</a>
+          <a href="#" class="nav-demo__link">Avis</a>
+        </nav>
+        <a href="#" class="nav-demo__cta">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOTYPE 2 — CATALOGUE ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 02</p>
+  <h2 class="section-block__title">Catalogue Interactif <em>& Shoppable</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Catalogue</span>
+    <h3 class="prototype-card__title">Filtres + Prix + Détails + CTA</h3>
+    <p class="prototype-card__desc">Les cartes deviennent cliquables avec prix, description courte, tag catégorie filtrant, et bouton "Voir le détail". Filtres Salé / Sucré / Tout avec animation de transition.</p>
+
+    <div class="catalog-demo">
+      <div class="catalog-demo__header">
+        <h3 class="catalog-demo__title">Nos Articles</h3>
+        <div class="catalog-demo__filters" id="demo-filters">
+          <button class="catalog-demo__filter catalog-demo__filter--active" data-filter="all">Tout</button>
+          <button class="catalog-demo__filter" data-filter="sale">Salé</button>
+          <button class="catalog-demo__filter" data-filter="sucre">Sucré</button>
+        </div>
+      </div>
+      <div class="catalog-demo__grid" id="demo-grid">
+        <article class="catalog-demo__card" data-category="sale">
+          <div class="catalog-demo__card-img" style="background:linear-gradient(135deg,#e8d5b0,#d4b88c)">
+            <span>🥗</span>
+            <span class="catalog-demo__tag catalog-demo__tag--sale">Salé</span>
+            <span class="catalog-demo__price">€12</span>
+          </div>
+          <div class="catalog-demo__card-body">
+            <h4 class="catalog-demo__card-name">Salade Mechouia</h4>
+            <p class="catalog-demo__card-desc">Légumes grillés à la tunisienne — poivrons, tomates, oignons.</p>
+            <button class="catalog-demo__card-btn">Voir le détail →</button>
+          </div>
+        </article>
+        <article class="catalog-demo__card" data-category="sale">
+          <div class="catalog-demo__card-img" style="background:linear-gradient(135deg,#d4a373,#bc8a5f)">
+            <span>🍲</span>
+            <span class="catalog-demo__tag catalog-demo__tag--sale">Salé</span>
+            <span class="catalog-demo__price">€18</span>
+          </div>
+          <div class="catalog-demo__card-body">
+            <h4 class="catalog-demo__card-name">Tajine Tunisien</h4>
+            <p class="catalog-demo__card-desc">Œufs, poulet, fromage — un classique revisité.</p>
+            <button class="catalog-demo__card-btn">Voir le détail →</button>
+          </div>
+        </article>
+        <article class="catalog-demo__card" data-category="sale">
+          <div class="catalog-demo__card-img" style="background:linear-gradient(135deg,#c9a96e,#b89250)">
+            <span>🍚</span>
+            <span class="catalog-demo__tag catalog-demo__tag--sale">Salé</span>
+            <span class="catalog-demo__price">€22</span>
+          </div>
+          <div class="catalog-demo__card-body">
+            <h4 class="catalog-demo__card-name">Couscous Maison</h4>
+            <p class="catalog-demo__card-desc">Semoule fine, légumes de saison, viande au choix.</p>
+            <button class="catalog-demo__card-btn">Voir le détail →</button>
+          </div>
+        </article>
+        <article class="catalog-demo__card" data-category="sucre">
+          <div class="catalog-demo__card-img" style="background:linear-gradient(135deg,#f5d6a8,#e8c48a)">
+            <span>🥮</span>
+            <span class="catalog-demo__tag catalog-demo__tag--sucre">Sucré</span>
+            <span class="catalog-demo__price">€8</span>
+          </div>
+          <div class="catalog-demo__card-body">
+            <h4 class="catalog-demo__card-name">Ghrayef de Béja</h4>
+            <p class="catalog-demo__card-desc">Pâtisseries feuilletées au miel et aux amandes.</p>
+            <button class="catalog-demo__card-btn">Voir le détail →</button>
+          </div>
+        </article>
+        <article class="catalog-demo__card" data-category="sucre">
+          <div class="catalog-demo__card-img" style="background:linear-gradient(135deg,#e8c9a0,#dbb888)">
+            <span>🍪</span>
+            <span class="catalog-demo__tag catalog-demo__tag--sucre">Sucré</span>
+            <span class="catalog-demo__price">€6</span>
+          </div>
+          <div class="catalog-demo__card-body">
+            <h4 class="catalog-demo__card-name">Miniardises au Sorgho</h4>
+            <p class="catalog-demo__card-desc">Petits gâteaux artisanaux sans gluten.</p>
+            <button class="catalog-demo__card-btn">Voir le détail →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOTYPE 3 — ORDER FLOW ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 03</p>
+  <h2 class="section-block__title">Guide en 3 Étapes <em>— Comment commander</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Flow</span>
+    <h3 class="prototype-card__title">Timeline visuelle avec progression</h3>
+    <p class="prototype-card__desc">Section introductive entre le hero et l'identité : timeline horizontale (connectée par une ligne dorée) qui rassure le client sur le processus.</p>
+
+    <div class="steps-demo">
+      <div class="step-item">
+        <div class="step-item__circle step-item__circle--1">
+          <span>1</span>
+        </div>
+        <h3 class="step-item__title">Demander un devis</h3>
+        <p class="step-item__desc">Racontez-nous votre projet — nous répondons sous 24h avec une proposition sur mesure.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-item__circle step-item__circle--2">
+          <span>2</span>
+        </div>
+        <h3 class="step-item__title">Préparation maison</h3>
+        <p class="step-item__desc">Nihel prépare chaque plat avec soin, dans le respect des recettes familiales tunisiennes.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-item__circle step-item__circle--3">
+          <span>3</span>
+        </div>
+        <h3 class="step-item__title">Dégustation</h3>
+        <p class="step-item__desc">Livraison à Grenoble et ses alentours — vos invités se souviendront de chaque bouchée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOTYPE 4 — ANIMATED HERO ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 04</p>
+  <h2 class="section-block__title">Hero avec Animation <em>Live</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Hero</span>
+    <h3 class="prototype-card__title">Dégradé animé + motif mosaïque en mouvement</h3>
+    <p class="prototype-card__desc">Le fond de la hero section passe par un cycle lent de variations de dégradé (8s) et le motif géométrique (inspiré de la mosaïque tunisienne) défile subtilement en arrière-plan.</p>
+
+    <div class="hero-demo">
+      <div class="hero-demo__content">
+        <p class="hero-demo__label">Traiteur Tunisien halal · Grenoble</p>
+        <h1 class="hero-demo__title">Derrière chaque <em>bouchée, une histoire</em></h1>
+        <p class="hero-demo__body">Des saveurs tunisiennes authentiques, revisitées avec soin — pour les événements d'entreprise et les réceptions privées qui méritent d'être mémorables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOTYPE 5 — STATS ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 05</p>
+  <h2 class="section-block__title">Stats avec Compteurs <em>Animés</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Stats</span>
+    <h3 class="prototype-card__title">Compteurs progressifs au scroll + hover state</h3>
+    <p class="prototype-card__desc">Les statistiques s'animent en comptant depuis zéro au défilement. Effet hover subtil qui illumine chaque cellule. Les séparateurs verticaux sont des traits dorés.</p>
+
+    <div class="stats-demo">
+      <div class="stats-demo__item">
+        <div class="stats-demo__value">
+          <span class="stats-demo__value--star">★</span>
+          <span class="animate-count" data-target="5">0</span>
+          <span style="font-size:1rem;opacity:0.6">/5</span>
+        </div>
+        <span class="stats-demo__label">Note Google</span>
+      </div>
+      <div class="stats-demo__item">
+        <div class="stats-demo__value">
+          <span class="animate-count" data-target="7">0</span>
+        </div>
+        <span class="stats-demo__label">Avis clients</span>
+      </div>
+      <div class="stats-demo__item">
+        <div class="stats-demo__value stats-demo__value--gold">
+          <span>100%</span>
+        </div>
+        <span class="stats-demo__label">Fait maison</span>
+      </div>
+      <div class="stats-demo__item">
+        <div class="stats-demo__value stats-demo__value--gold">
+          <span>Halal</span>
+        </div>
+        <span class="stats-demo__label">Certifié</span>
+      </div>
+      <div class="stats-demo__item">
+        <div class="stats-demo__value stats-demo__value--gold">
+          <span>Famille</span>
+        </div>
+        <span class="stats-demo__label">Recettes transmises</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOTYPE 6 — ANIMATED DIVIDERS ═══════ -->
+<section class="section-block">
+  <p class="section-block__label">Prototype 06</p>
+  <h2 class="section-block__title">Séparateurs Animés <em>— Ornements</em></h2>
+
+  <div class="prototype-card">
+    <span class="prototype-card__badge">✦ Détails</span>
+    <h3 class="prototype-card__title">Lignes dorées animées + losange morphing</h3>
+    <p class="prototype-card__desc">Remplace le simple <code>✦</code> statique par un ornement vivant : lignes avec effet de "shimmer" et losange inspiré de la mosaïque tunisienne qui pulse doucement.</p>
+
+    <div class="ornament-demo">
+      <div class="ornament-demo__item">
+        <span class="ornament-demo__line"></span>
+        <span class="ornament-demo__diamond"></span>
+        <span class="ornament-demo__line"></span>
+      </div>
+      <svg width="60" height="60" viewBox="0 0 60 60" style="margin:0 auto">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C89A4A"/>
+            <stop offset="50%" stop-color="#d4ab5e"/>
+            <stop offset="100%" stop-color="#C89A4A"/>
+          </linearGradient>
+        </defs>
+        <path d="M30 8L52 30L30 52L8 30Z M30 18L40 30L30 42L20 30Z" 
+              stroke="url(#goldGrad)" stroke-width="0.8" fill="none" opacity="0.5">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="30" cy="30" r="4" fill="#C89A4A" opacity="0.4">
+          <animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+      <div class="ornament-demo__item">
+        <span class="ornament-demo__line"></span>
+        <span class="ornament-demo__diamond"></span>
+        <span class="ornament-demo__line"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TWEETS FAB ═══════ -->
+<button class="tweaks-panel__toggle" id="tweaks-toggle" aria-label="Ouvrir les réglages">⚙</button>
+<div class="tweaks-panel" id="tweaks-panel">
+  <p class="tweaks-panel__label">Réglages</p>
+  <label style="font-size:0.78rem;color:rgba(242,238,231,0.7);display:block;margin-bottom:12px">
+    <input type="checkbox" id="tweaks-motion" checked> Animations actives
+  </label>
+  <label style="font-size:0.78rem;color:rgba(242,238,231,0.7);display:block;margin-bottom:12px">
+    <input type="checkbox" id="tweaks-glow" checked> Effets lumineux
+  </label>
+  <button onclick="document.getElementById('tweaks-panel').classList.remove('is-open');document.getElementById('tweaks-toggle').style.display='flex'" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(200,154,74,0.2);background:transparent;color:var(--color-cream);cursor:pointer;font-size:0.82rem">Fermer</button>
+</div>
+
+<script>
+// ── Toggles ──
+document.getElementById('tweaks-toggle').addEventListener('click', function() {
+  document.getElementById('tweaks-panel').classList.add('is-open');
+  this.style.display = 'none';
+});
+
+// ── Catalogue filters ──
+const filters = document.querySelectorAll('[data-filter]');
+const cards = document.querySelectorAll('[data-category]');
+
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filters.forEach(b => b.classList.remove('catalog-demo__filter--active'));
+    btn.classList.add('catalog-demo__filter--active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = 'block';
+        card.style.animation = 'none';
+        card.offsetHeight; // trigger reflow
+        card.style.animation = 'fadeIn 0.3s ease';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ── Animated counters ──
+function animateCounters() {
+  document.querySelectorAll('.animate-count').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    if (!target || target === 0) return;
+    let current = 0;
+    const step = Math.max(1, Math.floor(target / 30));
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(interval);
+      }
+      el.textContent = current;
+    }, 40);
+  });
+}
+
+// Trigger counters on scroll with IntersectionObserver
+const statsDemo = document.querySelector('.stats-demo');
+if (statsDemo) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(statsDemo);
+}
+
+// ── Fade-in animation keyframe ──
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`;
+document.head.appendChild(style);
+
+// ── Motion toggle ──
+document.getElementById('tweaks-motion').addEventListener('change', function() {
+  document.querySelectorAll('.hero-demo, .ornament-demo__line, .ornament-demo__morph svg').forEach(el => {
+    el.style.animationPlayState = this.checked ? 'running' : 'paused';
+  });
+});
+
+</script>
+
+</body>
+</html>
