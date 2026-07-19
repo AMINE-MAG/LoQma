@@ -253,6 +253,20 @@
   // Expose for navbar dropdown navigation
   window._loqmaActivateService = activate;
 
+  // ── Brunch gallery: click thumbnail → switch main image ──
+  var brunchPanel = document.getElementById('service-panel-2');
+  if (brunchPanel) {
+    var mainImg = brunchPanel.querySelector('.services__panel-img');
+    var thumbs = brunchPanel.querySelectorAll('.services__panel-gallery-img');
+    thumbs.forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        if (mainImg) mainImg.src = thumb.src;
+        thumbs.forEach(function(t) { t.classList.remove('services__panel-gallery-img--active'); });
+        thumb.classList.add('services__panel-gallery-img--active');
+      });
+    });
+  }
+
   // ── Desktop: tab interaction ──────────────────────────────
   items.forEach((item, i) => {
     item.addEventListener('click', () => activate(i));
