@@ -409,8 +409,13 @@
         <div class="navbar__right">
           <nav class="navbar__links" aria-label="Navigation">
             <a href="index.html#accueil" class="navbar__link">Accueil</a>
-            <a href="offre-entreprise.html" class="navbar__link">Offre Entreprise</a>
-            <a href="offre-particuliers.html" class="navbar__link navbar__link--active">Offre Particuliers</a>
+            <span class="navbar__link-wrap">
+              <a href="offre-entreprise.html" class="navbar__link navbar__link--dropdown">Offres</a>
+              <div class="navbar__dropdown">
+                <a href="offre-entreprise.html">Offre Entreprise</a>
+                <a href="offre-particuliers.html">Offre Particuliers</a>
+              </div>
+            </span>
             <span class="navbar__link-wrap">
               <a href="index.html#services" class="navbar__link navbar__link--dropdown">Services</a>
               <div class="navbar__dropdown">
@@ -424,6 +429,7 @@
               </div>
             </span>
             <a href="index.html#catalogue" class="navbar__link">Catalogue</a>
+            <a href="#" class="navbar__link">Boutique</a>
             <a href="index.html#galerie" class="navbar__link">Galerie</a>
             <a href="index.html#avis" class="navbar__link">Avis</a>
           </nav>
@@ -443,6 +449,7 @@
         <li><a href="offre-particuliers.html" class="nav-overlay__link">Offre Particuliers</a></li>
         <li><a href="index.html#services" class="nav-overlay__link">Nos Services</a></li>
         <li><a href="index.html#catalogue" class="nav-overlay__link">Catalogue</a></li>
+        <li><a href="#" class="nav-overlay__link">Boutique</a></li>
         <li><a href="index.html#galerie" class="nav-overlay__link">Galerie</a></li>
         <li><a href="index.html#avis" class="nav-overlay__link">Avis</a></li>
         <li><a href="index.html#commander" class="nav-overlay__link">Demander un devis</a></li>
